@@ -1,0 +1,42 @@
+body {
+    width: 100%;
+    background-color:lightgray;
+    padding: 0;
+    margin: 0;
+}
+
+.header {
+    background-color: #aaddaa;
+    padding: 15px;
+    font: 16px Tahoma;
+}
+
+.header a {
+    text-decoration: none;
+}
+
+.header a:visited {
+    color: black;
+}
+
+.imageholder {
+    max-height: 200px;
+    overflow: hidden;
+    background-color: gray;
+    margin: 0;
+    padding: 0;
+}
+
+.imageholder img {
+    width: 100%;
+    display: block;
+    margin: auto;
+}
+
+.article {
+    padding: 5px;
+    max-width: 500px;
+    margin: auto;
+    background-color: white;
+    text-indent: 0.5em;
+}
