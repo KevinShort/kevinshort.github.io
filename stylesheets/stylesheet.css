@@ -2,21 +2,31 @@ body {
     background-color:lightgray;
     padding: 0;
     margin: 0;
+	height: 100%;
 }
 
 .header {
     background-color: #aaddaa;
-    padding: 15px;
     font: 16px Tahoma;
+	padding: 5px 0px;
+}
+
+.header img {
+	max-height: 20px;
 }
 
 .header a {
-    text-decoration: none;
+    /*text-decoration: none;*/
     color: black;
+	padding: 10px;
 }
 
 .header a:visited {
     color: black;
+}
+
+.header a:hover {
+	background-color: #99cc99;
 }
 
 .imageholder {
@@ -34,9 +44,38 @@ body {
 }
 
 .article {
-    padding: 10px;
+    padding: 20px;
     max-width: 800px;
     margin: auto;
     background-color: white;
-    text-indent: 0.5em;
+}
+
+.article p {
+	text-indent: 0.5em;
+}
+
+.imagediv {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.imagediv img {
+	border: 1px solid white;
+	transition: border .1s linear;
+}
+
+.imagediv img:hover {
+	border: 1px solid #444;
+}
+
+.footer {
+	text-align: center;
+	padding: 10px;
+}
+
+.footer p {
+	padding: 0;
+	margin: 0;
+	color: #444;
+	font-size: 12px;
 }
