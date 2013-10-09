@@ -50,6 +50,27 @@ body {
     background-color: white;
 }
 
+.centerAlign {
+    text-align: center;
+}
+
+code pre{
+    background-color: #ddd;
+    padding: 10px;
+    border: 1px solid gray;
+}
+
+canvas {
+    border: 1px solid gray;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button {
+    text-align: center;
+}
+
 /*.article p {
 	text-indent: 0.5em;
 }*/
