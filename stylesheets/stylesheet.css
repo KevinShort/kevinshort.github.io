@@ -85,12 +85,12 @@ button {
     vertical-align: top;
     height: 100px;
     padding: 10px;
-    background-color: #5db133;
+    background-color: #DE8E1F;
     color: black;
     font: bold 16px Tahoma;
     overflow: hidden;
     border: 1px solid white;
-    transition: border .2s linear;
+    transition: border .1s linear;
 }
 
 .shapedLink:hover {
