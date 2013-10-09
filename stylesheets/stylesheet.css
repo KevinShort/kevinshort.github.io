@@ -50,8 +50,18 @@ body {
     background-color: white;
 }
 
-.article p {
+/*.article p {
 	text-indent: 0.5em;
+}*/
+
+.shapedLink {
+    padding: 10px;
+    display: inline-block;
+    vertical-align: top;
+    max-height: 150px;
+    background-color: #5db133;
+    color: black;
+    font: bold 16px Tahoma;
 }
 
 .imagediv {
