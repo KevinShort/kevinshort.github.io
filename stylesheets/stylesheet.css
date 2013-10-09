@@ -12,6 +12,7 @@ body {
 
 .header a {
     text-decoration: none;
+    color: black;
 }
 
 .header a:visited {
@@ -34,7 +35,7 @@ body {
 
 .article {
     padding: 5px;
-    max-width: 500px;
+    max-width: 800px;
     margin: auto;
     background-color: white;
     text-indent: 0.5em;
