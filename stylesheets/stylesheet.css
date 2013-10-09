@@ -29,7 +29,7 @@ body {
 	background-color: #5db133;
 }
 
-.imageholder {
+.headerImage {
     max-height: 200px;
     overflow: hidden;
     background-color: gray;
@@ -37,7 +37,7 @@ body {
     padding: 0;
 }
 
-.imageholder img {
+.headerImage img {
     width: 100%;
     display: block;
     margin: auto;
@@ -48,6 +48,11 @@ body {
     max-width: 800px;
     margin: auto;
     background-color: white;
+}
+
+h1 {
+    color: #222;
+    font-size: 20px;
 }
 
 .centerAlign {
@@ -76,13 +81,24 @@ button {
 }*/
 
 .shapedLink {
-    padding: 10px;
     display: inline-block;
     vertical-align: top;
-    max-height: 150px;
+    height: 100px;
+    padding: 10px;
     background-color: #5db133;
     color: black;
     font: bold 16px Tahoma;
+    overflow: hidden;
+    border: 1px solid white;
+    transition: border .2s linear;
+}
+
+.shapedLink:hover {
+    border: 1px solid #222;
+}
+
+.shapedLink p {
+    padding: 5px;
 }
 
 .imagediv {
@@ -90,15 +106,20 @@ button {
 	margin: 0 auto;
 }
 
-.imagediv img {
-	border: 1px solid white;
-    width: 120px;
-	transition: border .1s linear;
+.imagediv * {
+    padding: 0;
+    margin: 0;
 }
 
-.imagediv img:hover {
-	border: 1px solid #444;
+.imagediv img {
+/* 	border: 1px solid white; */
+    width: 120px;
+/*	transition: border .1s linear;*/
 }
+
+/*.imagediv img:hover {
+	border: 1px solid #444;
+}*/
 
 .footer {
 	text-align: center;
