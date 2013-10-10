@@ -9,7 +9,7 @@
 
 <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-<title>Contact - kevinshort.github.io</title>
+<title>While Loop Examples</title>
 </head>
 
 <body>
@@ -25,21 +25,30 @@
 </ul>
 
 <div class="headerImage">
-    <img src="images/contactHeader.jpg" />
+    <img src="images/winter.jpg" />
 </div>
 <div class="article">
-    <h1>Contact Me</h1>
-    <p>Would you like to contact me? Unfortunately, I can't allow
-    you to do that at this time. Thanks for your understanding,
-    and I hope you continue to use this site for all
-    your Kevin-related needs.</p>
+    <button onclick='textWhileLoop()'>Run code</button>
+    <div id='textDiv'><div>
 </div>
 
 <div class='footer'>
     <a href='about.html'>About</a>
-    <a>Contact</a>
+    <a href='contact.html'>Contact</a>
     <p>&copy; Kevin Short</p>
 </div>
+
+<script>
+function textWhileLoop() {
+    var count = 0;
+    var div = document.getElementById('textDiv');
+    while (count < 20) {
+        count += Math.random()*20;
+        div.innerHTML += 'hi ';
+        console.log(count);
+    }
+}
+</script>
 
 </body>
 </html>

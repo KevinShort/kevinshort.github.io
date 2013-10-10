@@ -8,7 +8,14 @@ body {
 .header {
     background-color: #6EC244;
     font: 16px Tahoma;
-	padding: 5px 0px;
+    padding: 10px;
+    margin: 0;
+    overflow: hidden;
+    list-style: none;
+}
+
+.header li {
+    display: inline;
 }
 
 .header img {
@@ -16,9 +23,9 @@ body {
 }
 
 .header a {
-    /*text-decoration: none;*/
+    text-decoration: none;
     color: black;
-	padding: 10px;
+    padding: 15px;
 }
 
 .header a:visited {
@@ -46,7 +53,7 @@ body {
 .article {
     padding: 20px;
     max-width: 800px;
-    margin: auto;
+    margin: 0px auto;
     background-color: white;
 }
 
@@ -122,6 +129,7 @@ button {
 }*/
 
 .footer {
+    margin: 0px;
 	text-align: center;
 	padding: 10px;
 }
