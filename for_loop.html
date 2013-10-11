@@ -62,12 +62,12 @@ for (var color = 0; color < 256; color++) {
     context.lineTo(canvas.width, y);
     context.lineWidth = 2;
     context.stroke();
-    y += 2;
+    y += 1;
 }</pre></code>
     <span class='centerAlign'>
         <p><button onclick="colorLoop()">Run code</button></p>
     </span>
-    <canvas id='canvas' width='100px' height='510px'></canvas>
+    <canvas id='canvas' width='100px' height='255px'></canvas>
 </div>
 
 <div class='footer'>
@@ -101,7 +101,7 @@ function colorLoop() {
         context.lineTo(canvas.width, y);
         context.lineWidth = 2;
         context.stroke();
-        y += 2;
+        y += 1;
         console.log(color, 'rgb('+color+',0, 0)');
     }
     console.log('end of loop');
