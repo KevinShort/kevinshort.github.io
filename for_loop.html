@@ -38,13 +38,14 @@ for (var y = 0; y < 5; y++) {
         <p><button onclick="textForLoop()">Run code</button></p>
     </span>
     <div id='textDiv'></div>
-    <p>The first line of this code finds a div with an ID of 'textDiv'.</p>
+    <p>The first line of this code finds an element in the HTML code with an ID 
+    of 'textDiv'.</p>
     <code><pre>var div = document.getElementById('textDiv');</pre></code>
     <p>The second
     line starts setting up the code for the for loop.  First it sets the 
     variable y to be 0. Then it says,  "As long as y is less than 5, run 
     this code." y++ tells it to add 1 to y every time it loops. So this code 
-    will run 5 times. Each time it runs, it adds 'hello ' to the inside the div.</p>
+    will run 5 times. Each time it loops, it adds 'hello ' to the inside of the div.</p>
     <code><pre>for (var y = 0; y < 5; y++) {
     div.innerHTML += 'hello ';
 }</pre></code>
@@ -54,7 +55,9 @@ for (var y = 0; y < 5; y++) {
     to 255, draw a line with that color (remember 0 is black and
     255 is pure green).
     </p>
-    <code><pre>var y = 0;
+    <code><pre>var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+var y = 0;
 for (var color = 0; color < 256; color++) {
     context.strokeStyle= 'rgb(0, '+color+', 0)';
     context.beginPath();
@@ -86,7 +89,7 @@ function textForLoop() {
 
 function colorLoop() {
     var canvas = document.getElementById('canvas');
-    context = canvas.getContext('2d');
+    var context = canvas.getContext('2d');
     
 //     context.beginPath();
 //     context.rect(0, 0, canvas.width, canvas.height);
