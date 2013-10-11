@@ -92,6 +92,7 @@ button {
     display: inline-block;
     vertical-align: top;
     height: 100px;
+    width: 120px;
     padding: 10px;
     background-color: #DE8E1F;
     color: black;
@@ -107,6 +108,10 @@ button {
 
 .shapedLink p {
     padding: 5px;
+}
+
+.shapedLink code {
+    color: #bc6c0d;
 }
 
 .imagediv {
