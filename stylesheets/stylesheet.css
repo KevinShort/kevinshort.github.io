@@ -70,6 +70,7 @@ code pre{
     background-color: #cde;
     padding: 10px;
     border: 1px solid gray;
+    overflow: auto;
 }
 
 canvas {
