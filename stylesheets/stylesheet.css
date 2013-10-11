@@ -137,10 +137,11 @@ button {
 .footer a {
     color: #666;
     font-size: 12px;
+    margin: 5px;
 }
 
 .footer p {
-	padding: 0;
+    padding: 0px;
 	margin: 15px;
 	color: #666;
 	font-size: 12px;
