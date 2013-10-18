@@ -105,6 +105,7 @@ button {
 
 .shapedLink:hover {
     border: 1px solid #222;
+    color: #511;
 }
 
 .shapedLink p {
@@ -134,6 +135,10 @@ button {
 /*.imagediv img:hover {
 	border: 1px solid #444;
 }*/
+
+.inlineImg {
+    display: inline;
+}
 
 table {
 	border: 1px solid gray;
