@@ -29,6 +29,23 @@
     </li>
 </ul>
 <div class="article">
+    <code><pre>function toF(celsius) {
+    var tempF = (celsius * 1.8) + 32.0;
+    return tempF;
+}
+    
+var table = document.getElementById('temperature');
+
+for (var t = 0; t <= 100; t++) {
+    f = toF(t);
+    f = f.toFixed(1);
+    
+    var row = table.insertRow(-1);  
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    cell1.innerHTML = t + '&deg;C';
+    cell2.innerHTML = f + '&deg;F';
+}</pre></code>
     <table id='temperature'>
     
     </table>
