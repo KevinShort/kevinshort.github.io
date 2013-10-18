@@ -135,6 +135,19 @@ button {
 	border: 1px solid #444;
 }*/
 
+table, td {
+	border: 1px solid black;
+	padding: 5px;
+}
+
+/*tr[value=f] {
+	background-color: pink;
+}
+
+tr[value=m] {
+	background-color: lightblue;
+}*/
+
 .footer {
     margin: 0px;
 	text-align: center;
