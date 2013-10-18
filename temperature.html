@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='utf-8' />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=device-width, user-scalable=yes" />
+<meta name="description" content="Kevinshort.github.io : " />
+
+<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+<title>Home - kevinshort.github.io</title>
+</head>
+
+<body>
+<!--<div class="header">
+    <span class='link'>
+        <a href="index.html">
+        <img src="images/klogo.png"/>Home</a>
+    </span>
+</div>-->
+<ul class='header'>
+    <li>
+        <a href="index.html">
+        <img src="images/klogo.png"/>Home</a>
+    </li>
+    <li>
+        <a href="#">Other</a>
+    </li>
+</ul>
+
+<div class="headerImage">
+    <img src="images/winter.jpg" />
+</div>
+<div class="article">
+    <table id='temperature'>
+    
+    </table>
+</div>
+
+<div class='footer'>
+    <a href='about.html'>About</a>
+    <a href='contact.html'>Contact</a>
+    <p>&copy; Kevin Short</p>
+</div>
+
+<script>
+//F =(C * 1.8000) + 32.00
+function toF(celsius) {
+    var tempF = (celsius * 1.8) + 32.0;
+    return tempF;
+    //console.log(tempF);
+}
+
+function writeConversion() {
+    var table = document.getElementById('temperature');
+
+    for (var t = 0; t <= 100; t++) {
+        f = toF(t);
+        f = f.toFixed(1).toString();
+        
+        var row = table.insertRow(-1);  
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        cell1.innerHTML = t + '&deg;C';
+        cell2.innerHTML = f + '&deg;F';
+    
+    //     div.innerHTML += t.toString() + ' ' + f + '<br/>';
+    //     console.log(f);
+    }
+}
+
+writeConversion();
+
+</script>
+
+</body>
+</html>

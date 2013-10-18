@@ -135,9 +135,17 @@ button {
 	border: 1px solid #444;
 }*/
 
-table, td {
-	border: 1px solid black;
-	padding: 5px;
+table {
+	border: 1px solid gray;
+    margin: 0 auto;
+}
+
+td {
+    padding: 5px;
+}
+
+tr:nth-child(odd) {
+    background-color: #dde;
 }
 
 /*tr[value=f] {
