@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='utf-8' />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=device-width, user-scalable=yes" />
+<meta name="description" content="Kevinshort.github.io : " />
+
+<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+<title>Home - kevinshort.github.io</title>
+</head>
+
+<script>
+var unsorted = ['jacob', 'sam', 'josh', 'matthew', 'sly', 'kevin',
+				'ronda', 'ashleigh'];
+var check = 0;
+var first;
+var isFirst = unsorted[0];
+var temp = [];
+var sorted = [];
+
+// for (var x=0; x<unsorted.length; x++) {
+while (sorted.length < unsorted.length) {
+	isFirst = unsorted[check];
+	console.log(check, isFirst);
+
+	for (var i=0; i<unsorted.length; i++) {
+		if (isFirst < unsorted[i]) {
+		} else {
+			if (sorted.indexOf(unsorted[i]) == -1) {
+				isFirst = unsorted[i];
+			}
+		}
+	}
+	if (sorted.indexOf(isFirst) == -1) {
+		console.log('adding to sorted', isFirst);
+		sorted.push(isFirst);
+	}
+	console.log(check, 'end');
+	check++;
+
+	
+}
+document.write(sorted, '<br/>', sorted.length);
+// console.log(sorted);
+// while (final.length < unsorted.length) {
+	
+// 	temp = unsorted;
+// 	for (var i=0; i<unsorted.length; i++) {
+// 		var name = unsorted[i];
+// 		
+// 	}
+// 	
+// 	final.push(name);
+// }
+// 	for (var i=0; i<unsorted.length; i++) {
+// 		var name = unsorted[i];
+// 		temp = [];
+// 		for (var x=0; x<unsorted.length; x++) {
+// 			if (unsorted[x] < name) {
+// 				console.log(unsorted[x], 'less than', name);
+// 				
+// 				continue;
+// 			}
+// 			
+// 		}
+// 		final.push(name);
+// 		
+// 	}
+// }
+
+// document.write(final);
+</script>
+
+</body>
+</html>
