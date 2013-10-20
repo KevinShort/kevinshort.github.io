@@ -58,6 +58,10 @@ body {
     background-color: white;
 }
 
+.article a {
+    color: #226;
+}
+
 h1 {
     color: #222;
     font-size: 20px;
