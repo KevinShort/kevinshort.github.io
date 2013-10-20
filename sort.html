@@ -26,6 +26,51 @@
     <img src="images/colorSwirls.jpg" />
 </div>
 <div class="article">
+    <code><pre>var unsorted = ['jacob', 'sam', 'josh', 'matthew', 'sly', 'kevin',
+                'ronda', 'ashleigh'];
+var check = 0;
+var first;
+var isFirst = unsorted[0];
+var temp = [];
+var sorted = [];
+
+// while the length of the sorted array is less than the unsorted array, loop
+while (sorted.length < unsorted.length) {
+    // we need a name to start with.
+    isFirst = unsorted[check];
+    console.log(check, isFirst);
+
+    // go through every name in the unsorted array
+    for (var i=0; i&lt;unsorted.length; i++) {
+        // if the name comes before the name we started with
+        if (isFirst > unsorted[i]) {
+            // and if the name isn't already in the sorted array
+            if (sorted.indexOf(unsorted[i]) == -1) {
+                // this name comes before the name we started with, use it!
+                isFirst = unsorted[i];
+            }
+        }
+    }
+    // if the name we ended up with after looping through all the names
+    // isn't already in the sorted array
+    if (sorted.indexOf(isFirst) == -1) {
+        // add it to the sorted array
+        console.log('adding to sorted', isFirst);
+        sorted.push(isFirst);
+    }
+    console.log(check, 'end');
+    check++;
+    // if we've gone through all the names in the list and there's
+    // still more to sort, start over from the beginning again!
+    if (check >= unsorted.length) {
+        check = 0;
+    }
+
+    
+}
+var div = document.getElementById('result');
+div.innerHTML = '&lt;p>Unsorted: ' + unsorted + '&lt;/p>';
+div.innerHTML += '&lt;p>Sorted: ' + sorted + '&lt;/p>';</pre></code>
     <div id='result'>
     </div>
 </div>
@@ -56,7 +101,7 @@ while (sorted.length < unsorted.length) {
     // go through every name in the unsorted array
 	for (var i=0; i<unsorted.length; i++) {
         // if the name comes before the name we started with
-		if (isFirst >= unsorted[i]) {
+		if (isFirst > unsorted[i]) {
             // and if the name isn't already in the sorted array
 			if (sorted.indexOf(unsorted[i]) == -1) {
                 // this name comes before the name we started with, use it!
