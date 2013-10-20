@@ -62,6 +62,10 @@ body {
     color: #226;
 }
 
+.article img {
+    max-width: 100%;
+}
+
 h1 {
     color: #222;
     font-size: 20px;
