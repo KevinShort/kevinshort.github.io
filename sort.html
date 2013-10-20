@@ -71,8 +71,8 @@ while (sorted.length < unsorted.length) {
 var div = document.getElementById('result');
 div.innerHTML = '&lt;p>Unsorted: ' + unsorted + '&lt;/p>';
 div.innerHTML += '&lt;p>Sorted: ' + sorted + '&lt;/p>';</pre></code>
-    <div id='result'>
-    </div>
+    <h1>Result</h1>
+    <code><pre id='result'></pre></code>
 </div>
 
 <div class='footer'>
@@ -126,9 +126,9 @@ while (sorted.length < unsorted.length) {
 
 	
 }
-var div = document.getElementById('result');
-div.innerHTML = '<p>Unsorted: ' + unsorted + '</p>';
-div.innerHTML += '<p>Sorted: ' + sorted + '</p>';
+var elem = document.getElementById('result');
+elem.innerHTML = 'Unsorted: ' + unsorted + '<br/><br/>';
+elem.innerHTML += 'Sorted: ' + sorted;
 // document.write('unsorted: ', unsorted, '<br/><br/>');
 // document.write('sorted: ', sorted, '<br/>');
 // console.log(sorted);
