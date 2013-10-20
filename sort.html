@@ -26,6 +26,7 @@
     <img src="images/colorSwirls.jpg" />
 </div>
 <div class="article">
+    <h1>Manual Sorting</h1>
     <code><pre>var unsorted = ['Jacob', 'Sam', 'Josh', 'Matthew', 'Sly', 'Kevin',
                 'Ronda', 'Ashleigh'];
 var check = 0;
@@ -73,6 +74,12 @@ div.innerHTML = '&lt;p>Unsorted: ' + unsorted + '&lt;/p>';
 div.innerHTML += '&lt;p>Sorted: ' + sorted + '&lt;/p>';</pre></code>
     <h1>Result</h1>
     <code><pre id='result'></pre></code>
+    <h1>Easy Sort</h1>
+    <code><pre>var unsorted = ['Jacob', 'Sam', 'Josh', 'Matthew', 'Sly', 'Kevin',
+                'Ronda', 'Ashleigh'];
+unsorted.sort();</pre></code>
+    <h1>Result</h1>
+    <code><pre id='result2'></pre></code>
 </div>
 
 <div class='footer'>
@@ -129,6 +136,9 @@ while (sorted.length < unsorted.length) {
 var elem = document.getElementById('result');
 elem.innerHTML = 'Unsorted: ' + unsorted + '<br/><br/>';
 elem.innerHTML += 'Sorted: ' + sorted;
+
+var elem = document.getElementById('result2');
+elem.innerHTML += 'Sorted: ' + sorted.sort();
 // document.write('unsorted: ', unsorted, '<br/><br/>');
 // document.write('sorted: ', sorted, '<br/>');
 // console.log(sorted);
