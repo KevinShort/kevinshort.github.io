@@ -2,90 +2,72 @@
 <html>
 
 <head>
-<meta charset='utf-8' />
-<meta http-equiv="X-UA-Compatible" content="chrome=1" />
-<meta name="viewport" content="width=device-width, user-scalable=yes" />
-<meta name="description" content="Kevinshort.github.io : " />
+	<meta charset='utf-8' />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+	<meta name="viewport" content="width=device-width, user-scalable=yes" />
+	<meta name="description" content="Kevinshort.github.io : " />
 
-<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-<title>Home - kevinshort.github.io</title>
+	<title>Home - kevinshort.github.io</title>
 </head>
+<body>
+
 
 <script>
-var unsorted = ['jacob', 'sam', 'josh', 'matthew', 'sly', 'kevin',
-				'ronda', 'ashleigh'];
-var check = 0;
-var first;
-var isFirst = unsorted[0];
-var temp = [];
-var sorted = [];
+  fixed="B";
+  left="R";
+  upper="G";
+  value=Array;
+  value[0]="N/A";
+  value[1]="00";
+  value[2]="33";
+  value[3]="66";
+  value[4]="99";
+  value[5]="CC";
+  value[6]="FF";
 
-// for (var x=0; x<unsorted.length; x++) {
-// while the length of the sorted array is less than the unsorted array, loop
-while (sorted.length < unsorted.length) {
-    // we need a name to start with.
-	isFirst = unsorted[check];
-	console.log(check, isFirst);
 
-    // go through every name in the unsorted array
-	for (var i=0; i<unsorted.length; i++) {
-        // if the name comes before the name we started with
-		if (isFirst >= unsorted[i]) {
-            // and if the name isn't already in the sorted array
-			if (sorted.indexOf(unsorted[i]) == -1) {
-                // this name comes before the name we started with, use it!
-				isFirst = unsorted[i];
-			}
-		}
-	}
-	// if the name we ended up with after looping through all the names
-    // isn't already in the sorted array
-	if (sorted.indexOf(isFirst) == -1) {
-        // add it to the sorted array
-		console.log('adding to sorted', isFirst);
-		sorted.push(isFirst);
-	}
-	console.log(check, 'end');
-	check++;
-	// if we've gone through all the names in the list and there's
-	// still more to sort, start over from the beginning again!
-	if (check >= unsorted.length) {
-        check = 0;
-    }
+  for (fixedamount=1; fixedamount<=6;fixedamount=fixedamount+1)
+{
+  fixedvalue=value[fixedamount];
+  document.write("<table border='0'><tr><td>"); 
 
-	
+  for (row=0; row<=6;row=row+1)
+ { document.write("<tr>");
+  for (table=1; table<=3; table=table+1)
+ {
+  if (table==1) {fixed="B"; left="R";  upper="G";}
+  if (table==2) {fixed="R"; left="G";  upper="B";}
+  if (table==3) {fixed="G"; left="B";  upper="R";}
+
+  for (column=0; column<=6; column=column+1)
+  {
+   if (fixed=="R") {redvalue=fixedvalue; fixedcolor="#CC0000"};
+   if (fixed=="G") {greenvalue=fixedvalue; fixedcolor="#009900"};
+   if (fixed=="B") {bluevalue=fixedvalue; fixedcolor="#0000CC"};
+   if (left=="R") {redvalue=value[row]; leftcolor="#CC0000"};
+   if (left=="G") {greenvalue=value[row]; leftcolor="#009900"};
+   if (left=="B") {bluevalue=value[row]; leftcolor="#0000CC"};
+   if (upper=="R") {redvalue=value[column]; uppercolor="#CC0000"};   
+   if (upper=="G") {greenvalue=value[column]; uppercolor="#009900"};   
+   if (upper=="B") {bluevalue=value[column]; uppercolor="#0000CC"};   
+
+   if (column==0 && row==0) {document.write("<td bgColor="+fixedcolor+"><font color='#FFFFFF' size='1'>fixed="+value[fixedamount]+"</font></td>")};
+   if (column==0 && row!=0) {document.write("<td bgColor="+leftcolor+"><font color='#FFFFFF'  size='1'>left="+value[row]+"</font></td>")};
+   if (column!=0 && row==0) {document.write("<td bgColor="+uppercolor+"><font color='#FFFFFF' size='1'>top="+value[column]+"</font></td>")};
+   hexcolortext="#"+redvalue+greenvalue+bluevalue+"          ";
+   hexcolorwords="The Hex-Color #RRGGBB is: ";   
+   pixelstring="<a href='#' alt='Click to see the hexcode' onClick=\"alert('"+hexcolorwords+hexcolortext+"');return false\">HI&nbsp;&nbsp;&nbsp;</a>";
+// <img src='pixel.gif' width='20' height='20' border=0 alt='click to see the hex-code'>
+   if (column!=0 && row!=0){document.write("<td bgColor=#"+redvalue+greenvalue+bluevalue+">"+pixelstring+"</td>")};
+  } if (table<3) {document.write("<td bgColor=#FFFFF4>X</td>")};
+ }
+ document.write("</font></tr>");
+ } 
+ document.write("</td></tr></table>");
 }
-document.write('unsorted: ', unsorted, '<br/><br/>');
-document.write('sorted: ', sorted, '<br/>');
-// console.log(sorted);
-// while (final.length < unsorted.length) {
-	
-// 	temp = unsorted;
-// 	for (var i=0; i<unsorted.length; i++) {
-// 		var name = unsorted[i];
-// 		
-// 	}
-// 	
-// 	final.push(name);
-// }
-// 	for (var i=0; i<unsorted.length; i++) {
-// 		var name = unsorted[i];
-// 		temp = [];
-// 		for (var x=0; x<unsorted.length; x++) {
-// 			if (unsorted[x] < name) {
-// 				console.log(unsorted[x], 'less than', name);
-// 				
-// 				continue;
-// 			}
-// 			
-// 		}
-// 		final.push(name);
-// 		
-// 	}
-// }
 
-// document.write(final);
 </script>
 
 </body>
