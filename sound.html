@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='utf-8' />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=device-width, user-scalable=yes" />
+<meta name="description" content="Kevinshort.github.io : " />
+
+<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+<title>Sound - kevinshort.github.io</title>
+<script src="soundmanager2.js"></script>
+</head>
+
+<body>
+<ul class='header'>
+    <li>
+        <a href="index.html">
+        <img src="images/klogo.png"/>Home</a>
+    </li>
+    <li>
+        <a href="other.html">Other</a>
+    </li>
+</ul>
+
+<div class="headerImage">
+    <img src="images/winter.jpg" />
+</div>
+<div class="article">
+<!--<button onclick='play()'>Play</button>
+<button onclick='pause()'>Pause</button>-->
+
+<audio id="tag" src="sound/test.ogg" preload="auto"></audio>
+<img src='images/theDoor.gif' onmouseover="play()" onmouseout="stop()"/>
+
+</div>
+
+<div class='footer'>
+    <a href='about.html'>About</a>
+    <a href='contact.html'>Contact</a>
+    <p>&copy; Kevin Short</p>
+</div>
+
+<script>
+// function play(){
+// var clickSound = new Audio('test.ogg');
+// clickSound.play();
+// }
+var chars = "Hello".split('');
+
+function play(){
+	document.getElementById('tag').play();
+}
+function pause(){
+	document.getElementById('tag').pause();
+}
+
+function stop(){
+	var sound = document.getElementById('tag')
+	sound.pause();
+	sound.currentTime=0;
+}
+</script>
+
+</body>
+</html>
