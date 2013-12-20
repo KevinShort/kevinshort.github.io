@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Connect the Dots</title>
+<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css"/>
+</head>
+
+<body>
+<canvas id="canvas"></canvas>
+</body>
+
+<script>
+
+function Circle() {
+	this.x = Math.floor(Math.random() * canvas.width);
+	this.y = Math.floor(Math.random() * canvas.height);
+	this.x_speed = Math.random() * 10;
+	this.y_speed = Math.random() * 10;
+	this.color = "rgb("+Math.floor(Math.random()*255)+","
+					+Math.floor(Math.random()*255)+","
+					+Math.floor(Math.random()*255)+")";
+	this.radius = Math.floor(Math.random() * 30);
+	console.log("Circle initiated");
+	
+	this.randomize = function () {
+		this.x_speed = Math.random() * 10;
+		this.y_speed = Math.random() * 10;
+		this.radius = Math.floor(Math.random() * 30);
+		this.color = "rgb("+Math.floor(Math.random()*255)+","
+					+Math.floor(Math.random()*255)+","
+					+Math.floor(Math.random()*255)+")";
+	}
+	
+	this.move = function () {
+		this.x += this.x_speed;
+		this.y += this.y_speed;
+		if (this.x - this.radius > canvas.width) {
+			this.randomize();
+			this.x = 0 - this.radius;
+		}
+		if (this.y - this.radius > canvas.height) {
+			this.randomize();
+			this.y = 0 - this.radius;
+		}
+	}
+}
+
+var canvas = document.getElementById("canvas");
+var context = canvas.getContext("2d");
+canvas.width = "600";
+canvas.height = "400";
+
+var imageObj = new Image();
+	imageObj.src = 'images/kittenShoes.jpg';
+
+var circles = new Array();
+for (var i=0; i<40; i++) {
+	c = new Circle();
+	console.log(c.x, c.y);
+	circles.push(c);
+}
+console.log(circles.length);
+
+function gameLoop() {
+
+	context.rect(0, 0, canvas.width, canvas.height);
+	context.fillStyle = 'blue';
+	context.fill();
+	
+	context.drawImage(imageObj, 0, 0);
+
+	for (var i=0; i<circles.length; i++) {
+		circles[i].move();
+		var centerX = circles[i].x;
+		var centerY = circles[i].y;
+		var radius = circles[i].radius;
+
+		context.beginPath();
+		context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+		context.fillStyle = circles[i].color;
+		context.fill();
+		context.lineWidth = radius/2;
+		context.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+		context.stroke();
+	}
+	
+	setTimeout(gameLoop, 50);
+}
+gameLoop();
+
+</script>
+
+</html>
