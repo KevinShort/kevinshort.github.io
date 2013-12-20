@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='utf-8' />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=device-width, user-scalable=yes" />
+<meta name="description" content="Kevinshort.github.io : " />
+
+<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+<title>Home - kevinshort.github.io</title>
+</head>
+
+<body>
+<canvas id="canvas"></canvas>
+
+</body>
+
+<script>
+
+function Circle() {
+	this.x = Math.floor(Math.random() * canvas.width);
+	this.y = Math.floor(Math.random() * canvas.height);
+	this.x_speed = Math.random() * 10;
+	this.y_speed = Math.random() * 10;
+	this.radius = Math.floor(Math.random() * 30);
+	console.log("Circle initiated");
+	
+	this.randomize = function () {
+		this.x_speed = Math.random() * 10;
+		this.y_speed = Math.random() * 10;
+		this.radius = Math.floor(Math.random() * 30);
+	}
+	
+	this.move = function () {
+		this.x += this.x_speed;
+		this.y += this.y_speed;
+		if (this.x - this.radius > canvas.width) {
+			this.randomize();
+			this.x = 0 - this.radius;
+		}
+		if (this.y - this.radius > canvas.height) {
+			this.randomize();
+			this.y = 0 - this.radius;
+		}
+	}
+}
+
+var canvas = document.getElementById("canvas");
+var context = canvas.getContext("2d");
+canvas.width = "600";
+canvas.height = "400";
+
+var circles = new Array();
+for (var i=0; i<20; i++) {
+	c = new Circle();
+	console.log(c.x, c.y);
+	circles.push(c);
+}
+console.log(circles.length);
+
+function gameLoop() {
+
+	context.rect(0, 0, canvas.width, canvas.height);
+	context.fillStyle = 'blue';
+	context.fill();
+
+	for (var i=0; i<circles.length; i++) {
+		circles[i].move();
+		var centerX = circles[i].x;
+		var centerY = circles[i].y;
+		var radius = circles[i].radius;
+
+		context.beginPath();
+		context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+		context.fillStyle = 'white';
+		context.fill();
+		context.lineWidth = 5;
+		context.strokeStyle = '#aaaaaa';
+		context.stroke();
+	}
+	
+	setTimeout(gameLoop, 50);
+}
+gameLoop();
+
+</script>
+
+</html>

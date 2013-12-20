@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='utf-8' />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=device-width, user-scalable=yes" />
+<meta name="description" content="Kevinshort.github.io : " />
+
+<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+<title>Home - kevinshort.github.io</title>
+</head>
+
+<body>
+<ul class='header'>
+    <li>
+        <a href="index.html">
+        <img src="images/klogo.png"/>Home</a>
+    </li>
+    <li>
+        <a href="other.html">Other</a>
+    </li>
+</ul>
+
+<div class="article">
+
+</div>
+
+<div class='footer'>
+    <a href='about.html'>About</a>
+    <a href='contact.html'>Contact</a>
+    <p>&copy; Kevin Short</p>
+</div>
+
+</body>
+
+<script>
+function countdown() {
+	var time = new Date();
+	var month = time.getMonth();
+	var day = time.getDay();
+	var hours = time.getHours();
+	var minutes = time.getMinutes();
+	var seconds = time.getSeconds();
+	var xmas_day = new Date(3004, 11, 25);
+	console.log(month, day, hours, minutes, seconds);
+	console.log(xmas_day.getYear(), xmas_day.getMonth(), xmas_day.getDay());
+	now_secs = Date.parse(month + " " + day + ", " + time.getYear());
+	xmas_secs = Date.parse("December 25, 2013");
+	console.log(now_secs, xmas_secs);
+	setTimeout(countdown, 1000);
+}
+
+countdown();
+
+</script>
+
+</html>
