@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+<!--<button onclick='play()'>Play</button>
+<button onclick='pause()'>Pause</button>-->
+
+<audio id="tag" src="sound/test.ogg" preload="auto"></audio>
+<img src='images/theDoor.gif' onmouseover="play()" onmouseout="stop()"/>
+
+
+<script>
+function play(){
+	document.getElementById('tag').play();
+}
+function pause(){
+	document.getElementById('tag').pause();
+}
+
+function stop(){
+	var sound = document.getElementById('tag')
+	sound.pause();
+	sound.currentTime=0;
+}
+</script>
+
+</body>
+</html>
