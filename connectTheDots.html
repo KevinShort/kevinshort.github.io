@@ -11,39 +11,127 @@
 </body>
 
 <script>
+function Dot(x, y, number) {
+	this.x = x;
+	this.y = y;
+	this.number = number;
+	this.active = false;
+	this.connected = false;
+	this.connecting = false;
+	this.borderWidth = 0;
+	this.radius = 10;
+	
+	this.update = function () {
+		// check if mouse is on this dot
+		if (get_distance_between(this.x, this.y,
+								gMouse.x, gMouse.y) < this.radius) {
+			this.active = true;
+		} else { 
+			this.active = false; 
+		}
+		
+		// animate border radius
+		if (this.active && this.borderWidth < 5) {
+			this.borderWidth+=2;
+		} else if (!this.active && this.borderWidth > 0) {
+			this.borderWidth-=2;
+		}
+		
+		// has the user clicked down here?
+		if (get_distance_between(this.x, this.y,
+							gMouse.downX, gMouse.downY) < this.radius) {
+			// is another dot connecting?
+			for (var i=0; i<groupDots.length; i++) {
+				var dot = groupDots[i];
+				if (dot.number == this.number ) { continue; }
+				//console.log(dot.number, dot.connecting, 'loop');
+				
+				if (dot.connecting) {
+					console.log(dot.number, 'wants to connect');
+					check_connection(dot, this);
+				}
+			}
+			this.connecting = true;
+		} else {
+			this.connecting = false;
+		}
+	}
+}
 
-function Circle() {
-	this.x = Math.floor(Math.random() * canvas.width);
-	this.y = Math.floor(Math.random() * canvas.height);
-	this.x_speed = Math.random() * 10;
-	this.y_speed = Math.random() * 10;
-	this.color = "rgb("+Math.floor(Math.random()*255)+","
-					+Math.floor(Math.random()*255)+","
-					+Math.floor(Math.random()*255)+")";
-	this.radius = Math.floor(Math.random() * 30);
-	console.log("Circle initiated");
+function Mouse() {
+	this.x = 0;
+	this.y = 0;
+	this.down = false;
+	this.downX = 0;
+	this.downY = 0;
+	this.up = true;
+	this.upX = 0;
+	this.upY = 0;
+}
+
+function check_connection(dot1, dot2) {
+	console.log('checking connection');
+	// checks if two dots should connect
+	var number1 = dot1.number;
+	var number2 = dot2.number;
 	
-	this.randomize = function () {
-		this.x_speed = Math.random() * 10;
-		this.y_speed = Math.random() * 10;
-		this.radius = Math.floor(Math.random() * 30);
-		this.color = "rgb("+Math.floor(Math.random()*255)+","
-					+Math.floor(Math.random()*255)+","
-					+Math.floor(Math.random()*255)+")";
+	if (number1 == 1 && number2 == groupDots.length) {
+		console.log('connect them yeah');
+	} else if (number2 == 1 && number1 == groupDots.length) {
+		console.log('connect them too');
 	}
 	
-	this.move = function () {
-		this.x += this.x_speed;
-		this.y += this.y_speed;
-		if (this.x - this.radius > canvas.width) {
-			this.randomize();
-			this.x = 0 - this.radius;
-		}
-		if (this.y - this.radius > canvas.height) {
-			this.randomize();
-			this.y = 0 - this.radius;
-		}
+	console.log(Math.abs(number1 - number2));
+	if (Math.abs(number1 - number2) == 1) {
+		console.log('connect them');
+		dot1.connected = true;
 	}
+}
+
+function mouse_move(event) {
+	var rect = canvas.getBoundingClientRect();
+	gMouse.x = event.clientX - rect.left;
+ 	gMouse.y = event.clientY - rect.top;
+	return {
+		x: event.clientX - rect.left,
+		y: event.clientY - rect.top
+	};
+}
+
+function mouse_down(event) {
+	var rect = canvas.getBoundingClientRect();
+	var mouseX = event.clientX - rect.left;
+	var mouseY = event.clientY - rect.top;
+	mouseDown = true;
+	mouseUp = false;
+	gMouse.down = true;
+	gMouse.up = false;
+	gMouse.downX = mouseX;
+	gMouse.downY = mouseY;
+	console.log('mouse down', mouseX, mouseY);
+}
+
+function mouse_up(event) {
+	var rect = canvas.getBoundingClientRect();
+	var mouseX = event.clientX - rect.left;
+	var mouseY = event.clientY - rect.top;
+	mouseDown = false;
+	mouseUp = true;
+	gMouse.down = false;
+	gMouse.up = true;
+	gMouse.upX = mouseX;
+	gMouse.upY = mouseY;
+	console.log('mouse up', mouseX, mouseY);
+}
+
+function get_distance_between(x1, y1, x2, y2) {
+	var aPos = {"x":x1,"y":y1};
+	var bPos = {"x":x2,"y":y2};
+	
+	return Math.sqrt(
+		Math.pow(aPos.x - bPos.x, 2) +
+		Math.pow(aPos.y - bPos.y, 2)
+	);
 }
 
 var canvas = document.getElementById("canvas");
@@ -51,39 +139,81 @@ var context = canvas.getContext("2d");
 canvas.width = "600";
 canvas.height = "400";
 
-var imageObj = new Image();
-	imageObj.src = 'images/kittenShoes.jpg';
+var gMouse = new Mouse();
 
-var circles = new Array();
-for (var i=0; i<40; i++) {
-	c = new Circle();
-	console.log(c.x, c.y);
-	circles.push(c);
-}
-console.log(circles.length);
+// canvas.addEventListener('mousemove', function(event) {
+// 		mousePos = get_mouse_pos(canvas, event);
+// 		gMouse.x = mousePos['x'];
+// 		gMouse.y = mousePos['y'];
+// 		//console.log(mousePos['x'], mousePos['y']);
+// 	}, false);
+canvas.addEventListener('mousemove', mouse_move, false);
+canvas.addEventListener('mousedown', mouse_down, false);
+canvas.addEventListener('mouseup', mouse_up, false);
+
+var imageObj = new Image();
+imageObj.src = 'images/kittenShoes.jpg';
+
+var groupDots = new Array();
+groupDots[0] = new Dot(100, 20, 1);
+groupDots[1] = new Dot(350, 50, 2);
+groupDots[2] = new Dot(300, 100, 3);
+groupDots[3] = new Dot(150, 130, 4);
 
 function gameLoop() {
 
 	context.rect(0, 0, canvas.width, canvas.height);
-	context.fillStyle = 'blue';
+	context.fillStyle = '#333333';
 	context.fill();
 	
-	context.drawImage(imageObj, 0, 0);
-
-	for (var i=0; i<circles.length; i++) {
-		circles[i].move();
-		var centerX = circles[i].x;
-		var centerY = circles[i].y;
-		var radius = circles[i].radius;
-
+	//context.drawImage(imageObj, 0, 0);
+	
+	for (var i=0; i<groupDots.length; i++) {
+		dot = groupDots[i]
+		if (i < groupDots.length - 1) {
+			nextDot = groupDots[i+1]
+		} else {
+			nextDot = groupDots[0];
+		}
+		dot.update();
 		context.beginPath();
-		context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-		context.fillStyle = circles[i].color;
+		context.arc(dot.x, dot.y, 10, 0, 2*Math.PI, false);
+		if (dot.active || dot.connecting) {
+			context.fillStyle = "#7777ee";
+			//console.log("active", dot.number);
+		} else {
+			context.fillStyle = "#aaaaaa";
+		}
 		context.fill();
-		context.lineWidth = radius/2;
-		context.strokeStyle = 'rgba(255, 255, 255, 0.5)';
-		context.stroke();
+		if (dot.borderWidth > 0) {
+			context.lineWidth = dot.borderWidth;
+			context.strokeStyle = 'rgba(100, 200, 200, 0.5)';
+			context.stroke();
+		}
+		// draw a line if connecting
+		if (dot.connecting) {
+			context.strokeStyle = '#111111';
+			context.lineWidth = 4;
+			context.beginPath();
+			context.moveTo(dot.x, dot.y);
+			context.lineTo(gMouse.x, gMouse.y);
+			context.stroke();
+		} 
+		if (dot.connected) {
+			context.strokeStyle = '#111111';
+			context.lineWidth = 4;
+			context.beginPath();
+			context.moveTo(dot.x, dot.y);
+			context.lineTo(nextDot.x, nextDot.y);
+			context.stroke();
+		}
+		context.fillStyle = '#dddddd';
+		context.font = 'italic 14pt Calibri';
+		context.fillText(dot.number, dot.x+12, dot.y);
+		context.fillText(dot.connecting, dot.x, dot.y+30);
 	}
+	
+	//console.log(gMouse.x, gMouse.y, gMouse.down, gMouse.up);
 	
 	setTimeout(gameLoop, 50);
 }
