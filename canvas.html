@@ -19,30 +19,85 @@
 
 <script>
 
+function get_distance_between(x1, y1, x2, y2) {
+	var aPos = {"x":x1,"y":y1};
+	var bPos = {"x":x2,"y":y2};
+	
+	return Math.sqrt(
+		Math.pow(aPos.x - bPos.x, 2) +
+		Math.pow(aPos.y - bPos.y, 2)
+	);
+}
+
 function Circle() {
 	this.x = Math.floor(Math.random() * canvas.width);
 	this.y = Math.floor(Math.random() * canvas.height);
 	this.x_speed = Math.random() * 10;
 	this.y_speed = Math.random() * 10;
-	this.radius = Math.floor(Math.random() * 30);
+	this.radius = Math.floor(Math.random() * 10);
+	this.id = circles.length;
 	console.log("Circle initiated");
 	
 	this.randomize = function () {
 		this.x_speed = Math.random() * 10;
 		this.y_speed = Math.random() * 10;
-		this.radius = Math.floor(Math.random() * 30);
+		this.radius = Math.floor(Math.random() * 10);
 	}
 	
 	this.move = function () {
 		this.x += this.x_speed;
 		this.y += this.y_speed;
-		if (this.x - this.radius > canvas.width) {
+		/*if (this.x - this.radius > canvas.width) {
 			this.randomize();
 			this.x = 0 - this.radius;
 		}
 		if (this.y - this.radius > canvas.height) {
 			this.randomize();
 			this.y = 0 - this.radius;
+		*/}
+	
+	this.check_collisions = function () {
+		// borders
+		if (this.x + this.radius > canvas.width) {
+			this.x_speed = -(Math.random() * 10);
+			this.radius++;
+		}
+		else if (this.x - this.radius < 0) {
+			this.x_speed = (Math.random() * 10);
+			this.radius++;
+		}
+		if (this.y + this.radius > canvas.height) {
+			this.y_speed = -(Math.random() * 10);
+			this.radius++;
+		}
+		else if (this.y - this.radius < 0) {
+			this.y_speed = (Math.random() * 10);
+			this.radius++;
+		}
+		
+		// collisions
+		for (var c=0; c<circles.length; c++) {
+			if (circles[c].id != this.id) {
+				var distance = Math.floor(get_distance_between(this.x, this.y, 
+												circles[c].x, circles[c].y));
+				console.log("distance:", distance, "pixels");
+				
+				if (distance < this.radius + circles[c].radius) {
+					console.log("colliding now!!!!!!!!!!!!!!!!!");
+					var overlap = distance - (this.radius + circles[c].radius);
+// 					if (circles[c].radius > 20) {
+// 						circles.splice(c, 1);
+// 						for (var i=0; i<5; i++) {
+// 							c = new Circle();
+// 							circles.push(c);
+// 						}
+// 					}
+// 					this.x_speed = -this.x_speed;
+// 					this.y_speed = -this.y_speed;
+// 					circles[c].y_speed = -circles[c].y_speed
+// 					circles[c].x_speed = -circles[c].x_speed
+				}
+			}
 		}
 	}
 }
@@ -53,7 +108,7 @@ canvas.width = "600";
 canvas.height = "400";
 
 var circles = new Array();
-for (var i=0; i<20; i++) {
+for (var i=0; i<5; i++) {
 	c = new Circle();
 	console.log(c.x, c.y);
 	circles.push(c);
@@ -68,6 +123,7 @@ function gameLoop() {
 
 	for (var i=0; i<circles.length; i++) {
 		circles[i].move();
+		circles[i].check_collisions();
 		var centerX = circles[i].x;
 		var centerY = circles[i].y;
 		var radius = circles[i].radius;
@@ -79,6 +135,9 @@ function gameLoop() {
 		context.lineWidth = 5;
 		context.strokeStyle = '#aaaaaa';
 		context.stroke();
+		context.fillStyle = 'black';
+		context.font = 'italic 20pt Calibri';
+		context.fillText(circles[i].id, circles[i].x, circles[i].y);
 	}
 	
 	setTimeout(gameLoop, 50);

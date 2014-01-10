@@ -24,7 +24,7 @@ function Dot(x, y, number) {
 	this.update = function () {
 		// check if mouse is on this dot
 		if (get_distance_between(this.x, this.y,
-								gMouse.x, gMouse.y) < this.radius) {
+								mouse.x, mouse.y) < this.radius) {
 			this.active = true;
 		} else { 
 			this.active = false; 
@@ -39,17 +39,13 @@ function Dot(x, y, number) {
 		
 		// has the user clicked down here?
 		if (get_distance_between(this.x, this.y,
-							gMouse.downX, gMouse.downY) < this.radius) {
+							mouse.downX, mouse.downY) < this.radius) {
 			// is another dot connecting?
-			for (var i=0; i<groupDots.length; i++) {
-				var dot = groupDots[i];
-				if (dot.number == this.number ) { continue; }
-				//console.log(dot.number, dot.connecting, 'loop');
-				
-				if (dot.connecting) {
-					console.log(dot.number, 'wants to connect');
-					check_connection(dot, this);
-				}
+			if (activeDot && activeDot != this) {
+				check_connection(activeDot, this);
+			} else {
+				if (activeDot) { console.log(activeDot.number, this.number); }
+				activeDot = this;
 			}
 			this.connecting = true;
 		} else {
@@ -77,21 +73,54 @@ function check_connection(dot1, dot2) {
 	
 	if (number1 == 1 && number2 == groupDots.length) {
 		console.log('connect them yeah');
+		connect_dots(dot1, dot2)
+		return
 	} else if (number2 == 1 && number1 == groupDots.length) {
 		console.log('connect them too');
+		connect_dots(dot1, dot2)
+		return
 	}
 	
 	console.log(Math.abs(number1 - number2));
 	if (Math.abs(number1 - number2) == 1) {
 		console.log('connect them');
-		dot1.connected = true;
+		connect_dots(dot1, dot2)
+		return
 	}
+	// if we get this far, don't connect.
+	activeDot = null;
+}
+
+function connect_dots(dot1, dot2) {
+	if (dot1.number == groupDots.length && dot2.number == 1) {
+		dot1.connected = true;
+	} else if (dot1.number == 1 && dot2.number == groupDots.length) {
+		dot2.connected = true;
+	}
+	else if (dot1.number < dot2.number) { 
+		dot1.connected = true; 
+	} else { 
+		dot2.connected = true; 
+	}
+	activeDot = null;
+}
+
+function check_if_finished(dotArray) {
+	// checks if all the dots in an array have been connected
+	for (var i=0; i<dotArray.length; i++ ) {
+		if (dotArray[i].connected = true) { 
+			console.log('false');
+			return false; 
+		}
+	}
+	// all connected? Return true
+	return true;
 }
 
 function mouse_move(event) {
 	var rect = canvas.getBoundingClientRect();
-	gMouse.x = event.clientX - rect.left;
- 	gMouse.y = event.clientY - rect.top;
+	mouse.x = event.clientX - rect.left;
+ 	mouse.y = event.clientY - rect.top;
 	return {
 		x: event.clientX - rect.left,
 		y: event.clientY - rect.top
@@ -104,10 +133,10 @@ function mouse_down(event) {
 	var mouseY = event.clientY - rect.top;
 	mouseDown = true;
 	mouseUp = false;
-	gMouse.down = true;
-	gMouse.up = false;
-	gMouse.downX = mouseX;
-	gMouse.downY = mouseY;
+	mouse.down = true;
+	mouse.up = false;
+	mouse.downX = mouseX;
+	mouse.downY = mouseY;
 	console.log('mouse down', mouseX, mouseY);
 }
 
@@ -117,10 +146,10 @@ function mouse_up(event) {
 	var mouseY = event.clientY - rect.top;
 	mouseDown = false;
 	mouseUp = true;
-	gMouse.down = false;
-	gMouse.up = true;
-	gMouse.upX = mouseX;
-	gMouse.upY = mouseY;
+	mouse.down = false;
+	mouse.up = true;
+	mouse.upX = mouseX;
+	mouse.upY = mouseY;
 	console.log('mouse up', mouseX, mouseY);
 }
 
@@ -139,12 +168,12 @@ var context = canvas.getContext("2d");
 canvas.width = "600";
 canvas.height = "400";
 
-var gMouse = new Mouse();
+var mouse = new Mouse();
 
 // canvas.addEventListener('mousemove', function(event) {
 // 		mousePos = get_mouse_pos(canvas, event);
-// 		gMouse.x = mousePos['x'];
-// 		gMouse.y = mousePos['y'];
+// 		mouse.x = mousePos['x'];
+// 		mouse.y = mousePos['y'];
 // 		//console.log(mousePos['x'], mousePos['y']);
 // 	}, false);
 canvas.addEventListener('mousemove', mouse_move, false);
@@ -154,6 +183,7 @@ canvas.addEventListener('mouseup', mouse_up, false);
 var imageObj = new Image();
 imageObj.src = 'images/kittenShoes.jpg';
 
+var activeDot = null;
 var groupDots = new Array();
 groupDots[0] = new Dot(100, 20, 1);
 groupDots[1] = new Dot(350, 50, 2);
@@ -167,6 +197,39 @@ function gameLoop() {
 	context.fill();
 	
 	//context.drawImage(imageObj, 0, 0);
+	
+// 	finished = check_if_finished(groupDots)
+// 	if (finished) {
+// 		console.log('complete', finished);
+// 	}
+	
+	// draw line from active dot
+	if (activeDot) {
+			context.strokeStyle = '#111111';
+			context.lineWidth = 4;
+			context.beginPath();
+			context.moveTo(activeDot.x, activeDot.y);
+			context.lineTo(mouse.x, mouse.y);
+			context.stroke();
+		} 
+	
+	// draw connected lines
+	for (var i=0; i<groupDots.length; i++) {
+		dot = groupDots[i]
+		if (i < groupDots.length - 1) {
+			nextDot = groupDots[i+1]
+		} else {
+			nextDot = groupDots[0];
+		}
+		if (dot.connected) {
+			context.strokeStyle = '#111111';
+			context.lineWidth = 4;
+			context.beginPath();
+			context.moveTo(dot.x, dot.y);
+			context.lineTo(nextDot.x, nextDot.y);
+			context.stroke();
+		}
+	}
 	
 	for (var i=0; i<groupDots.length; i++) {
 		dot = groupDots[i]
@@ -190,31 +253,16 @@ function gameLoop() {
 			context.strokeStyle = 'rgba(100, 200, 200, 0.5)';
 			context.stroke();
 		}
-		// draw a line if connecting
-		if (dot.connecting) {
-			context.strokeStyle = '#111111';
-			context.lineWidth = 4;
-			context.beginPath();
-			context.moveTo(dot.x, dot.y);
-			context.lineTo(gMouse.x, gMouse.y);
-			context.stroke();
-		} 
-		if (dot.connected) {
-			context.strokeStyle = '#111111';
-			context.lineWidth = 4;
-			context.beginPath();
-			context.moveTo(dot.x, dot.y);
-			context.lineTo(nextDot.x, nextDot.y);
-			context.stroke();
-		}
 		context.fillStyle = '#dddddd';
 		context.font = 'italic 14pt Calibri';
 		context.fillText(dot.number, dot.x+12, dot.y);
 		context.fillText(dot.connecting, dot.x, dot.y+30);
+		
 	}
-	
-	//console.log(gMouse.x, gMouse.y, gMouse.down, gMouse.up);
-	
+	if (activeDot) {
+		context.fillText('active dot: ' + activeDot.number, 20, 370);
+	}
+	//console.log(mouse.x, mouse.y, mouse.down, mouse.up);
 	setTimeout(gameLoop, 50);
 }
 gameLoop();
