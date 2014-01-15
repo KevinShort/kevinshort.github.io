@@ -1,0 +1,88 @@
+<html>
+<head>
+<style>
+body {
+	background-color: #444444;
+}
+canvas {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+</body>
+
+<script>
+
+function Player() {
+	this.speed = 0;
+	this.x = canvas.width/2;
+	this.y = canvas.height/2;
+	
+	this.update = function() {
+		this.x += this.speed;
+		if (this.x > canvas.width) { this.x = canvas.width; }
+		else if (this.x < 0) { this.x = 0; }
+	}
+}
+
+function doKeyDown(event) {
+// 	console.log(event.keyCode);
+	switch (event.keyCode) {
+		case 39:
+// 			console.log('right arrow down');
+			player1.speed = 10;
+			break;
+		case 37:
+// 			console.log('left arrow down');
+			player1.speed = -10;
+			break;
+	}
+}
+
+function doKeyUp(event) {
+// 	console.log(event.keyCode);
+	switch (event.keyCode) {
+		case 39:
+// 			console.log('right arrow up');
+			player1.speed = 0;
+			break;
+		case 37:
+// 			console.log('left arrow up');
+			player1.speed = 0;
+			break;
+	}
+}
+
+var canvas = document.getElementById("canvas");
+var context = canvas.getContext('2d');
+canvas.width = 600;
+canvas.height = 400;
+// console.log('hello');
+
+window.addEventListener('keydown', doKeyDown, false);
+window.addEventListener('keyup', doKeyUp, false);
+
+var player1 = new Player();
+
+function game_loop() {
+	context.rect(0, 0, canvas.width, canvas.height);
+	context.fillStyle = '#eeeeee';
+	context.fill();
+	
+	player1.update();
+	context.beginPath();
+	context.arc(player1.x, player1.y, 10, 0, 2*Math.PI, false);
+	context.fillStyle = "#222222";
+	context.fill();
+	
+	setTimeout(game_loop, 50);
+}
+
+game_loop();
+</script>
+
+</html>

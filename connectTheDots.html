@@ -108,8 +108,8 @@ function connect_dots(dot1, dot2) {
 function check_if_finished(dotArray) {
 	// checks if all the dots in an array have been connected
 	for (var i=0; i<dotArray.length; i++ ) {
-		if (dotArray[i].connected = true) { 
-			console.log('false');
+// 		console.log(dotArray[i].connected, dotArray[i].number);
+		if (dotArray[i].connected == false) { 
 			return false; 
 		}
 	}
@@ -182,29 +182,40 @@ canvas.addEventListener('mouseup', mouse_up, false);
 
 var imageObj = new Image();
 imageObj.src = 'images/kittenShoes.jpg';
+imageAlpha = 0.0;
 
 var activeDot = null;
 var groupDots = new Array();
 groupDots[0] = new Dot(100, 20, 1);
 groupDots[1] = new Dot(350, 50, 2);
-groupDots[2] = new Dot(300, 100, 3);
-groupDots[3] = new Dot(150, 130, 4);
+groupDots[2] = new Dot(350, 150, 3);
+groupDots[3] = new Dot(200, 230, 4);
+groupDots[4] = new Dot(150, 130, 5);
 
 function gameLoop() {
 
 	context.rect(0, 0, canvas.width, canvas.height);
-	context.fillStyle = '#333333';
+	context.fillStyle = '#ffffff';
 	context.fill();
 	
 	//context.drawImage(imageObj, 0, 0);
 	
-// 	finished = check_if_finished(groupDots)
-// 	if (finished) {
+ 	finished = check_if_finished(groupDots)
+//  	console.log(finished, 'finished');
+	if (finished) {
 // 		console.log('complete', finished);
-// 	}
+		context.globalAlpha = imageAlpha;
+		context.drawImage(imageObj, 0, 0);
+		imageAlpha += 0.1;
+		if (imageAlpha > 1) { imageAlpha = 1; }
+// 		context.rect(0, 0, canvas.width, canvas.height);
+// 		context.fillStyle = 'rgba(255, 255, 255,'+imageAlpha+')';
+// 		context.fill();
+	}
+	context.globalAlpha = 1;
 	
 	// draw line from active dot
-	if (activeDot) {
+	if (activeDot && !finished) {
 			context.strokeStyle = '#111111';
 			context.lineWidth = 4;
 			context.beginPath();
@@ -253,7 +264,7 @@ function gameLoop() {
 			context.strokeStyle = 'rgba(100, 200, 200, 0.5)';
 			context.stroke();
 		}
-		context.fillStyle = '#dddddd';
+		context.fillStyle = '#222222';
 		context.font = 'italic 14pt Calibri';
 		context.fillText(dot.number, dot.x+12, dot.y);
 		context.fillText(dot.connecting, dot.x, dot.y+30);

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+h1 {
+	color:rgb(255, 0, 0);
+}
+</style>
+</head>
+
+<body>
+<h1 id="countdown_header">Countdown</h1>
+<p id="countdown_value"></p>
+
+
+<script>
+var red = 255;
+var blue = 0;
+var color_percent = 0;
+number = 100;
+counter_p = document.getElementById("countdown_value");
+counter_h1 = document.getElementById("countdown_header");
+
+function count_down(){
+	if (number != 0) {
+		number--;
+		color_percent = Math.floor((255*number)/100);
+		red = color_percent;
+		blue = 255 - color_percent;
+		
+		counter_p.innerHTML = number + " red:" + red + " blue:" + blue;
+		counter_h1.style.color = "rgb(" + red + ",0," + blue + ")";
+		
+		setTimeout(count_down, 100);
+	}
+}
+count_down();
+</script>
+
+</body>
+</html>
