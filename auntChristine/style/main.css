@@ -1,8 +1,3 @@
-@font-face {
-	font-family: 'Vidaloka';
-	src: url('fonts/LinBiolinum_R.otf');
-}
-
 * {
 	padding: 0;
 	margin: 0;
@@ -10,16 +5,18 @@
 
 body {
 	background-color: #68237F;
+	
 	margin: 0;
 	padding: 0;
-	font-family: 'Vidaloka', Fallback, sans-serif;
 }
 
 #container {
 	margin: 0 auto;
 	max-width: 1000px;
 	background-color: #B964D4;
+/* 	background-image: url('http://www.colourbox.com/preview/2199143-303852-a-knitted-texture-made-of-yarn-this-tiles-seamlessly-as-a-pattern.jpg'); */
 	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+	border-radius: 0px 0px 5px 5px;
 }
 
 .imageHolder {
@@ -40,11 +37,25 @@ body {
 
 #menu {
 	margin: 5px auto 30px;
-    max-width: 550px;
+    max-width: 600px;
 /*     height: 80px; */
     text-align: center;
     background-color: #54026E;
-    border-radius: 8px;
+    border-radius: 3px;
+	
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, #55026E),
+		color-stop(1, #8017A3)
+	);
+	background-image: -o-linear-gradient(top, #55026E 0%, #8017A3 100%);
+	background-image: -moz-linear-gradient(top, #55026E 0%, #8017A3 100%);
+	background-image: -webkit-linear-gradient(top, #55026E 0%, #8017A3 100%);
+	background-image: -ms-linear-gradient(top, #55026E 0%, #8017A3 100%);
+	background-image: linear-gradient(to top, #55026E 0%, #8017A3 100%);
+	
 }
 
 #menu ul {
@@ -63,13 +74,27 @@ body {
 	color: white;
 	padding: 8px 20px;
 	margin: 20px;
+	background-image: none;
 /* 	border-radius: 8px; */
 }
 
 #menu a:hover {
 /* 	color: black; */
 	background-color: #68237F;
-}
+	
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, #680287),
+		color-stop(1, #AD47CF)
+	);
+	background-image: -o-linear-gradient(top, #680287 0%, #AD47CF 100%);
+	background-image: -moz-linear-gradient(top, #680287 0%, #AD47CF 100%);
+	background-image: -webkit-linear-gradient(top, #680287 0%, #AD47CF 100%);
+	background-image: -ms-linear-gradient(top, #680287 0%, #AD47CF 100%);
+	background-image: linear-gradient(to top, #680287 0%, #AD47CF 100%);
+	}
 
 .article {
 	background-color: white;
@@ -88,6 +113,23 @@ body {
 .storePic {
 	float: left;
 	background-color: #fcfcfc;
+	border-radius: 5px 0px 0px 5px;
+/* 	border: 2px solid #333; */
+	border-right: 0;
+	background-clip: padding-box;
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, #E5E1ED),
+		color-stop(1, #FFFFFF)
+	);
+	background-image: -o-linear-gradient(top, #E5E1ED 0%, #FFFFFF 100%);
+	background-image: -moz-linear-gradient(top, #E5E1ED 0%, #FFFFFF 100%);
+	background-image: -webkit-linear-gradient(top, #E5E1ED 0%, #FFFFFF 100%);
+	background-image: -ms-linear-gradient(top, #E5E1ED 0%, #FFFFFF 100%);
+	background-image: linear-gradient(to top, #E5E1ED 0%, #FFFFFF 100%);
+	
 	height: 270px;
 	width: 55%;
 	overflow: hidden;
@@ -106,6 +148,22 @@ body {
 	padding-left: 20px;
 /* 	padding-bottom: 30px; */
 	background-color: #fcfcfc;
+	border-radius: 0px 5px 5px 0px;
+/* 	border: 2px solid #333; */
+	border-left: 0;
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, #E5E1ED),
+		color-stop(1, #FFFFFF)
+	);
+	background-image: -o-linear-gradient(top, #E5E1ED 0%, #FFFFFF 100%);
+	background-image: -moz-linear-gradient(top, #E5E1ED 0%, #FFFFFF 100%);
+	background-image: -webkit-linear-gradient(top, #E5E1ED 0%, #FFFFFF 100%);
+	background-image: -ms-linear-gradient(top, #E5E1ED 0%, #FFFFFF 100%);
+	background-image: linear-gradient(to top, #E5E1ED 0%, #FFFFFF 100%);
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 	width: 40%;
 	height: 270px;
 }
@@ -132,6 +190,12 @@ body {
 
 .paypalForm {
 	padding-top: 30px;
+}
+
+.textWrap {
+	float: left;
+	margin-right: 15px;
+	margin-bottom: 10px;
 }
 
 .floatClearer {

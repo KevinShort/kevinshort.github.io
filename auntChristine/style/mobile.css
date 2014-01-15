@@ -64,6 +64,12 @@ body {
 	background-color: #68237F;
 }
 
+.article {
+	background-color: white;
+	max-width: 90%;
+	margin: 0 auto;
+	padding: 10px;
+}
 
 .storeItem {
 	background-color: white;
