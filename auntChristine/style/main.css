@@ -1,0 +1,147 @@
+@font-face {
+	font-family: 'Vidaloka';
+	src: url('fonts/LinBiolinum_R.otf');
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background-color: #68237F;
+	margin: 0;
+	padding: 0;
+	font-family: 'Vidaloka', Fallback, sans-serif;
+}
+
+#container {
+	margin: 0 auto;
+	max-width: 1000px;
+	background-color: #B964D4;
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+
+.imageHolder {
+/*     max-height: 200px; */
+/*     overflow: hidden; */
+	max-width: 100%;
+/*     background-color: blue; */
+/*     margin: 0 auto; */
+/*     padding: 0; */
+}
+
+.imageHolder img {
+	display: block;
+	margin: 0 auto;
+/* 	padding: 10px; */
+    max-width: 95%;
+}
+
+#menu {
+	margin: 5px auto 30px;
+    max-width: 550px;
+/*     height: 80px; */
+    text-align: center;
+    background-color: #54026E;
+    border-radius: 8px;
+}
+
+#menu ul {
+/*     height: auto; */
+    padding: 8px 0px;
+    margin: 0px;
+}
+
+#menu li {
+	display: inline;
+/* 	padding: 20px; */
+}
+
+#menu a {
+	text-decoration: none;
+	color: white;
+	padding: 8px 20px;
+	margin: 20px;
+/* 	border-radius: 8px; */
+}
+
+#menu a:hover {
+/* 	color: black; */
+	background-color: #68237F;
+}
+
+.article {
+	background-color: white;
+	max-width: 70%;
+	margin: 0 auto;
+	padding: 10px;
+}
+
+
+.storeItem {
+/* 	background-color: green; */
+	max-width: 90%;
+	margin: 0 auto;
+}
+
+.storePic {
+	float: left;
+	background-color: #fcfcfc;
+	height: 270px;
+	width: 55%;
+	overflow: hidden;
+}
+
+.storePic img {
+/* 	display: block; */
+/* 	margin: 0 auto; */
+	height: 280px;
+/* 	width: 100%; */
+}
+
+.itemDetails {
+/* 	text-align: center; */
+	float: left;
+	padding-left: 20px;
+/* 	padding-bottom: 30px; */
+	background-color: #fcfcfc;
+	width: 40%;
+	height: 270px;
+}
+
+.itemDetails h2 {
+	padding-top: 30px;
+}
+
+.itemDetails p {
+	padding-top: 10px;
+}
+
+.paypalBuyButton {
+	padding-top: 10px;
+}
+
+/*.storeItem > span {
+	vertical-align: middle;
+	display:table-cell;
+	height: 200px;
+	padding: 10px;
+	background-color: green;
+}*/
+
+.paypalForm {
+	padding-top: 30px;
+}
+
+.floatClearer {
+	clear: both;
+/* 	background-color: blue; */
+}
+
+#footer {
+	color: #eee;
+	clear: both;
+	text-align: center;
+	padding: 20px 0px;
+}
