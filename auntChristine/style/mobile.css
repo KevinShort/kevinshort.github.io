@@ -92,6 +92,7 @@ body {
 
 .imageLink {
 	text-decoration: none;
+	border-style: none;
 }
 
 .imgOverlay {
