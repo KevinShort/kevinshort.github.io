@@ -54,7 +54,7 @@ body {
 #menu a {
 	text-decoration: none;
 	color: white;
-	padding: 8px 10px;
+	padding: 8px 8px;
 /* 	margin: 0px 10px; */
 /* 	border-radius: 8px; */
 }
@@ -77,16 +77,40 @@ body {
 	margin: 0 auto;
 }
 
-/* .storePic { */
+.storePic {
+	position: relative;
 /* 	float: left; */
 /* 	background-color: blue; */
 /* 	width: 50%; */
-/*}*/
+}
 
 .storePic img {
 	display: block;
 	margin: 0 auto;
 	width: 100%;
+}
+
+.imageLink {
+	text-decoration: none;
+}
+
+.imgOverlay {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 200px;
+	padding: 10px;
+	color: white;
+	border-radius: 0px 0px 5px;
+	background-color: rgba(0, 0, 0, 0.5);
+	opacity: 0;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	transition: opacity .2s;
+}
+
+.storePic img:hover + .imgOverlay, .imgOverlay:hover {
+	opacity: 1;
 }
 
 .itemDetails {
