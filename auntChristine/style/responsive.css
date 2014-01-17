@@ -155,7 +155,7 @@ body {
 	left: 0px;
 	width: 200px;
 	padding: 10px;
-	color: black;
+	color: #111;
 	border-radius: 0px 0px 5px;
 	background-color: rgba(255, 255, 255, 0.5);
 	opacity: 0;
@@ -265,6 +265,7 @@ body {
 		clear: both;
 		width: 100%;
 		height: auto;
+		border-radius: 5px 5px 0px 0px;
 	}
 	.storePic img {
 		height: auto;
@@ -277,7 +278,7 @@ body {
 		padding: 0px;
 		width: 100%;
 		height: auto;
-		border-radius: 0px;
+		border-radius: 0px 0px 5px 5px;
 		text-align: center;
 	}
 	.itemDetails h2 {
