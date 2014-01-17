@@ -5,7 +5,7 @@
 
 body {
 	background-color: #68237F;
-	
+	background-image: url('/home/kevin/web/work/auntChristine/images/sewnPurpleStripe.jpg');
 	margin: 0;
 	padding: 0;
 }
@@ -13,8 +13,9 @@ body {
 #container {
 	margin: 0 auto;
 	max-width: 1000px;
-	background-color: #B964D4;
-/* 	background-image: url('http://www.colourbox.com/preview/2199143-303852-a-knitted-texture-made-of-yarn-this-tiles-seamlessly-as-a-pattern.jpg'); */
+	background-color: #C262D3;
+/* 	background-color: #B964D4; */
+/* 	background-image: url('/home/kevin/web/work/auntChristine/images/lightPurpleStripe.jpg'); */
 	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
 	border-radius: 0px 0px 5px 5px;
 }
@@ -40,10 +41,11 @@ body {
     max-width: 600px;
 /*     height: 80px; */
     text-align: center;
-    background-color: #54026E;
+	background-color: #DC0055;
+/*     background-color: #54026E; */
     border-radius: 3px;
 	
-	background-image: -webkit-gradient(
+/*	background-image: -webkit-gradient(
 		linear,
 		left bottom,
 		left top,
@@ -54,7 +56,7 @@ body {
 	background-image: -moz-linear-gradient(top, #55026E 0%, #8017A3 100%);
 	background-image: -webkit-linear-gradient(top, #55026E 0%, #8017A3 100%);
 	background-image: -ms-linear-gradient(top, #55026E 0%, #8017A3 100%);
-	background-image: linear-gradient(to top, #55026E 0%, #8017A3 100%);
+	background-image: linear-gradient(to top, #55026E 0%, #8017A3 100%);*/
 	
 }
 
@@ -80,9 +82,9 @@ body {
 
 #menu a:hover {
 /* 	color: black; */
-	background-color: #68237F;
-	
-	background-image: -webkit-gradient(
+/* 	background-color: #68237F; */
+	background-color: #EE3B80;
+/*	background-image: -webkit-gradient(
 		linear,
 		left bottom,
 		left top,
@@ -93,8 +95,20 @@ body {
 	background-image: -moz-linear-gradient(top, #680287 0%, #AD47CF 100%);
 	background-image: -webkit-linear-gradient(top, #680287 0%, #AD47CF 100%);
 	background-image: -ms-linear-gradient(top, #680287 0%, #AD47CF 100%);
-	background-image: linear-gradient(to top, #680287 0%, #AD47CF 100%);
-	}
+	background-image: linear-gradient(to top, #680287 0%, #AD47CF 100%); */
+background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #DC0054),
+	color-stop(1, #EE3B7F)
+);
+background-image: -o-linear-gradient(bottom, #DC0054 0%, #EE3B7F 100%);
+background-image: -moz-linear-gradient(bottom, #DC0054 0%, #EE3B7F 100%);
+background-image: -webkit-linear-gradient(bottom, #DC0054 0%, #EE3B7F 100%);
+background-image: -ms-linear-gradient(bottom, #DC0054 0%, #EE3B7F 100%);
+background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+}
 
 .article {
 	background-color: white;
@@ -230,7 +244,7 @@ body {
 }
 
 #footer {
-	color: #eee;
+	color: #111;
 	clear: both;
 	text-align: center;
 	padding: 20px 0px;
