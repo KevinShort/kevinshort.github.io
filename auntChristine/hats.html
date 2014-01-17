@@ -10,6 +10,19 @@
 	<link rel="stylesheet" media="screen and (min-width: 751px)" 
 			href="style/main.css" />-->
 	<script src="js/respond.min.js"></script>
+	
+	<script type="text/javascript"> 
+	var $buoop = {}; 
+	$buoop.ol = window.onload; 
+	window.onload=function(){ 
+	try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
+	var e = document.createElement("script"); 
+	e.setAttribute("type", "text/javascript"); 
+	e.setAttribute("src", "//browser-update.org/update.js"); 
+	document.body.appendChild(e); 
+	} 
+	</script> 
+	
 <!-- 	<link rel="stylesheet" type="text/css" href="style/main.css"/> -->
 	<title>Website</title>
 </head>
