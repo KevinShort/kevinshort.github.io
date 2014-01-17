@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>website</title>
+<style>
+body {
+	background-color: #aaa;
+}
+canvas {
+	border: 1px solid black;
+	display: block;
+	margin: 0 auto;
+	background-color: white;
+}
+</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+</body>
+<script>
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+canvas.width = 300;
+canvas.height = 500;
+context.rect(0, 0, canvas.width, canvas.height);
+context.fillStyle = '#eeeeee';
+context.fill();
+
+context.beginPath();
+context.moveTo(100, 400);
+context.lineTo(100, 250);
+context.lineTo(200, 250);
+context.lineTo(200, 400);
+context.fillStyle="brown";
+context.fill();
+
+context.fillStyle = "green";
+for (var i=0; i<30; i++) {
+	var randomx = Math.random() * 120;
+	var randomy = Math.random() * 50;
+	var x = 90 + randomx;
+	var y = 200 + randomy;
+	context.beginPath();
+	context.arc(x, y, 20, 0, Math.PI*2, false);
+	context.fill();
+}
+
+
+</script>
+</html>

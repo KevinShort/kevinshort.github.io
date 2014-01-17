@@ -5,7 +5,7 @@
 
 body {
 	background-color: #68237F;
-	background-image: url('images/sewnPurpleStripe.jpg');
+	background-image: url('http://kevinshort.github.io/auntChristine/images/sewnPurpleStripe.jpg');
 	margin: 0;
 	padding: 0;
 }
@@ -248,6 +248,11 @@ background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
 	clear: both;
 	text-align: center;
 	padding: 20px 0px;
+}
+
+#footer p {
+/* 	background-color: white; */
+	padding-bottom: 10px;
 }
 
 
