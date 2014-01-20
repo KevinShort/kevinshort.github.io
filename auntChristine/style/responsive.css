@@ -1,11 +1,11 @@
 * {
-	padding: 0;
-	margin: 0;
+	padding: 0px;
+	margin: 0px;
 }
 
 body {
 	background-color: #68237F;
-	background-image: url('http://kevinshort.github.io/auntChristine/images/sewnPurpleStripe.jpg');
+	background-image: url('/home/kevin/web/work/auntChristine/images/sewnPurpleStripe.jpg');
 	margin: 0;
 	padding: 0;
 }
@@ -13,11 +13,22 @@ body {
 #container {
 	margin: 0 auto;
 	max-width: 1000px;
+/* 	background-color: white; */
 	background-color: #C262D3;
 /* 	background-color: #B964D4; */
 /* 	background-image: url('/home/kevin/web/work/auntChristine/images/lightPurpleStripe.jpg'); */
 	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
 	border-radius: 0px 0px 5px 5px;
+}
+
+.headerImage {
+	max-width: 750px;
+/* 	background-color: green; */
+	margin: 0 auto;
+}
+
+.headerImage img {
+	max-width: 100%;
 }
 
 .imageHolder {
@@ -44,7 +55,7 @@ body {
 	background-color: #DC0055;
 /*     background-color: #54026E; */
     border-radius: 3px;
-	
+/* 	font-size: 18px; */
 /*	background-image: -webkit-gradient(
 		linear,
 		left bottom,
@@ -74,7 +85,7 @@ body {
 #menu a {
 	text-decoration: none;
 	color: white;
-	padding: 8px 20px;
+	padding: 8px 15px;
 	margin: 20px;
 	background-image: none;
 /* 	border-radius: 8px; */
@@ -84,6 +95,7 @@ body {
 /* 	color: black; */
 /* 	background-color: #68237F; */
 	background-color: #EE3B80;
+	text-decoration: underline;
 /*	background-image: -webkit-gradient(
 		linear,
 		left bottom,
@@ -96,32 +108,49 @@ body {
 	background-image: -webkit-linear-gradient(top, #680287 0%, #AD47CF 100%);
 	background-image: -ms-linear-gradient(top, #680287 0%, #AD47CF 100%);
 	background-image: linear-gradient(to top, #680287 0%, #AD47CF 100%); */
-background-image: -webkit-gradient(
-	linear,
-	left top,
-	left bottom,
-	color-stop(0, #DC0054),
-	color-stop(1, #EE3B7F)
-);
-background-image: -o-linear-gradient(bottom, #DC0054 0%, #EE3B7F 100%);
-background-image: -moz-linear-gradient(bottom, #DC0054 0%, #EE3B7F 100%);
-background-image: -webkit-linear-gradient(bottom, #DC0054 0%, #EE3B7F 100%);
-background-image: -ms-linear-gradient(bottom, #DC0054 0%, #EE3B7F 100%);
-background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0, #DC0054),
+		color-stop(1, #EE3B7F)
+	);
+	background-image: -o-linear-gradient(bottom, #DC0054 0%, #EE3B7F 100%);
+	background-image: -moz-linear-gradient(bottom, #DC0054 0%, #EE3B7F 100%);
+	background-image: -webkit-linear-gradient(bottom, #DC0054 0%, #EE3B7F 100%);
+	background-image: -ms-linear-gradient(bottom, #DC0054 0%, #EE3B7F 100%);
+	background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
 }
 
 .article {
 	background-color: white;
-	max-width: 70%;
+	max-width: 60%;
 	margin: 0 auto;
 	padding: 10px;
+	border-radius: 3px;
 }
 
+.sidebar {
+	float: left;
+	background-color: white;
+	width: 25%;
+}
+
+.text {
+	float: left;
+	width: 70%;
+}
+
+.text p {
+	text-indent: 1em;
+	padding-bottom: .5em;
+}
 
 .storeItem {
-/* 	background-color: green; */
+/* 	background-color: white; */
 	max-width: 90%;
 	margin: 0 auto;
+/* 	height: 270px; */
 }
 
 .storePic {
@@ -129,10 +158,11 @@ background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
 	float: left;
 	background-color: #fcfcfc;
 	border-radius: 5px 0px 0px 5px;
-	border-style: none;
-	border-right: 0;
+/* 	border-style: none; */
+/* 	border: 2px solid #C262D3; */
+/* 	border-right: 0; */
 	background-clip: padding-box;
-	background-image: -webkit-gradient(
+/*	background-image: -webkit-gradient(
 		linear,
 		left bottom,
 		left top,
@@ -143,8 +173,7 @@ background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
 	background-image: -moz-linear-gradient(top, #E5E1ED 0%, #FFFFFF 100%);
 	background-image: -webkit-linear-gradient(top, #E5E1ED 0%, #FFFFFF 100%);
 	background-image: -ms-linear-gradient(top, #E5E1ED 0%, #FFFFFF 100%);
-	background-image: linear-gradient(to top, #E5E1ED 0%, #FFFFFF 100%);
-	
+	background-image: linear-gradient(to top, #E5E1ED 0%, #FFFFFF 100%);*/
 	height: 270px;
 	width: 55%;
 	overflow: hidden;
@@ -153,8 +182,9 @@ background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
 .storePic img {
 /* 	display: block; */
 /* 	margin: 0 auto; */
-	height: 280px;
+	height: 100%;
 	border-style: none;
+/* 	box-shadow: 0px 0px 10px #333; */
 /* 	width: 100%; */
 }
 
@@ -185,13 +215,14 @@ background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
 .itemDetails {
 /* 	text-align: center; */
 	float: left;
-	padding-left: 20px;
+	padding-left: 3%;
 /* 	padding-bottom: 30px; */
 	background-color: #fcfcfc;
+/* 	background-color: lightblue; */
 	border-radius: 0px 5px 5px 0px;
-/* 	border: 2px solid #333; */
-	border-left: 0;
-	background-image: -webkit-gradient(
+/* 	border: 2px solid #C262D3; */
+/* 	border-left: 0; */
+/*	background-image: -webkit-gradient(
 		linear,
 		left bottom,
 		left top,
@@ -202,14 +233,16 @@ background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
 	background-image: -moz-linear-gradient(top, #E5E1ED 0%, #FFFFFF 100%);
 	background-image: -webkit-linear-gradient(top, #E5E1ED 0%, #FFFFFF 100%);
 	background-image: -ms-linear-gradient(top, #E5E1ED 0%, #FFFFFF 100%);
-	background-image: linear-gradient(to top, #E5E1ED 0%, #FFFFFF 100%);
+	background-image: linear-gradient(to top, #E5E1ED 0%, #FFFFFF 100%);*/
 	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-	width: 40%;
+	width: 42%;
 	height: 270px;
 }
 
-.itemDetails h2 {
+.itemDetails h1 {
 	padding-top: 30px;
+	padding-right: 10px;
+	font-size: 22px;
 }
 
 .itemDetails p {
@@ -248,18 +281,30 @@ background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
 	clear: both;
 	text-align: center;
 	padding: 20px 0px;
+	font-size: 12px;
 }
 
-#footer p {
-/* 	background-color: white; */
-	padding-bottom: 10px;
+@media only screen and (max-width: 900px) {
+/*	.storePic img {
+		height: auto;
+		width: 100%;
+	}*/
+	.storePic {
+		height: 220px;
+	}
+	.itemDetails {
+		height: 220px;
+	}
 }
 
 
 /* Media Queries */
-@media only screen and (max-width: 749px) {
+@media only screen and (max-width: 700px) {
 	#container {
 		border-radius: 0px;
+	}
+	.headerImage {
+		max-width: 100%;
 	}
 	.imageHolder {
 		width: 100%;
