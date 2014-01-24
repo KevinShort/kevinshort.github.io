@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+</html>
+<head>
+	<meta charset="utf-8"/>
+	<title>OOP</title>
+	<style>
+	canvas { border: 1px solid black; }
+	</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+</body>
+<script>
+var canvas = document.getElementById("canvas");
+var context = canvas.getContext("2d");
+
+function Fish(color) {
+	this.color = color;
+	this.x = 15;
+	this.y = 5;
+}
+
+Fish.prototype.swim = function() {
+	this.x += 10;
+	this.y += 1;
+}
+
+Fish.prototype.draw = function() {
+	context.beginPath();
+	context.arc(this.x, this.y, 10, Math.PI*2, false);
+	context.strokeStyle = this.color;
+	context.stroke();
+}
+
+var bluefish = new Fish("blue");
+var redfish = new Fish("red");
+
+redfish.swim();
+
+var fishGroup = [];
+fishGroup.push(bluefish);
+fishGroup.push(redfish);
+
+for (var i=0; i<fishGroup.length; i++) {
+	fishGroup[i].draw();
+}
+
+function main_loop() {
+	context.beginPath();
+	context.fillStyle = 'white';
+	context.fillRect(0, 0, canvas.width, canvas.height);
+	// fish
+	for (var i=0; i<fishGroup.length; i++) {
+		fishGroup[i].swim();
+		fishGroup[i].draw();
+	}
+	
+	setTimeout(main_loop, 100);
+}
+
+main_loop();
+
+</script>
+</html>
