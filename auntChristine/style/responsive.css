@@ -173,7 +173,7 @@ body {
 	background-color: #fcfcfc;
 	border-radius: 5px 0px 0px 5px;
 /* 	border-style: none; */
-/* 	border: 1px solid #DC0055; */
+	border: 1px solid #DC0055;
 /* 	border: 1px solid #C262D3; */
 	border-right: 0;
 	background-clip: padding-box;
@@ -238,7 +238,7 @@ body {
 /* 	color: white; */
 	border-radius: 0px 5px 5px 0px;
 /* 	border: 1px solid #C262D3; */
-/* 	border: 1px solid #DC0055; */
+	border: 1px solid #DC0055;
 	border-left: 0;
 /*	background-image: -webkit-gradient(
 		linear,
