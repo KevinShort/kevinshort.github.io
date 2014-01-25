@@ -378,7 +378,21 @@ body {
 
 
 /*bad animation*/
-
+@-webkit-keyframes BadAnim {
+	0% { left: -800px; top: 10px; }
+	50% {left: 30%; top: 200px; }
+	100% { left: 100%; top: 100px; }
+}
+@-moz-keyframes BadAnim {
+	0% { left: -800px; top: 10px; }
+	50% {left: 30%; top: 200px; }
+	100% { left: 100%; top: 100px; }
+}
+@-0-keyframes BadAnim {
+	0% { left: -800px; top: 10px; }
+	50% {left: 30%; top: 200px; }
+	100% { left: 100%; top: 100px; }
+}
 @keyframes BadAnim {
 	0% { left: -800px; top: 10px; }
 	50% {left: 30%; top: 200px; }
@@ -387,6 +401,12 @@ body {
 
 .badAnimation {
 	position: absolute;
+	-webkit-animation: BadAnim 15s infinite;
+	-webkit-animation-timing-function: linear;
+	-moz-animation: BadAnim 15s infinite;
+	-moz-animation-timing-function: linear;
+	-o-animation: BadAnim 15s infinite;
+	-o-animation-timing-function: linear;
 	animation: BadAnim 15s infinite;
 	animation-timing-function: linear;
 	z-index: 9999;
