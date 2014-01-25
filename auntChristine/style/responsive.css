@@ -375,3 +375,23 @@ body {
 		padding: 20px 0px;
 	}
 }
+
+
+/*bad animation*/
+
+@keyframes BadAnim {
+	0% { left: -800px; top: 10px; }
+	50% {left: 30%; top: 200px; }
+	100% { left: 100%; top: 100px; }
+}
+
+.badAnimation {
+	position: absolute;
+	animation: BadAnim 15s infinite;
+	animation-timing-function: linear;
+	z-index: 9999;
+}
+
+.badAnimation:hover {
+	border: 5px dashed red;
+}
