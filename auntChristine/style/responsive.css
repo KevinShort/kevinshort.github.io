@@ -268,6 +268,52 @@ body {
 	padding-top: 10px;
 }
 
+
+
+
+
+
+/* Testing */
+
+#container2 {
+	margin: 0 auto;
+	max-width: 1000px;
+/* 	background-color: #eed5ff; */
+	background-color: #fcfcfc;
+/* 	background-image: linear-gradient(to top, #E5E1ED 0%, #FFFFFF 100%); */
+/* 	background-color: #C262D3; */
+/* 	background-color: #B964D4; */
+/* 	background-image: url('/home/kevin/web/work/auntChristine/images/lightPurpleStripe.jpg'); */
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+	border-radius: 0px 0px 5px 5px;
+	overflow: auto;
+}
+
+
+
+.smallStoreItem {
+	float: left;
+	padding: 1%;
+	width: 30%;
+	outline: 2px dotted black;
+/* 	background-color: lightblue; */
+}
+
+.smallStoreItem h1 {
+	font-size: 1.6em;
+}
+
+.smallStoreItem img {
+	width: 100%;
+}
+
+/* End Testing */
+
+
+
+
+
+
 .paypalBuyButton {
 	padding-top: 10px;
 }
