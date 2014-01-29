@@ -315,6 +315,7 @@ body {
 	color: white;
 	padding: 5px;
 	font-size: 1em;
+	font-family: "Aller", Fallback, sans-serif;
 	margin-top: 10px;
 	box-shadow: 0px 1px 0px 1px #ab0033;
 }
@@ -346,6 +347,7 @@ body {
 }
 #viewCart input {
 	font-size: 1em;
+	font-family: "Aller", Fallback, sans-serif;
 	color: white;
 	background-color: #DC0055; 
 	background-image: none;
