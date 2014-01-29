@@ -87,13 +87,15 @@ body {
 }
 
 #menu {
-	margin: 5px auto 30px;
-    max-width: 550px;
+	margin: 0px auto 30px;
+	width: 100%;
+/*     max-width: 550px; */
 /*     height: 80px; */
     text-align: center;
+/* 	background-color: #9830dc; */
 	background-color: #DC0055;
 /*     background-color: #54026E; */
-    border-radius: 3px;
+/*     border-radius: 0 0 3px 3px; */
 /* 	box-shadow: 1px 1px 0px 1px #ab0033; */
 /* 	font-size: 18px; */
 /*	background-image: -webkit-gradient(
@@ -163,9 +165,14 @@ body {
 	background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
 }
 
+.slideshow {
+	width: 90%;
+	margin: 0 auto;
+}
+
 .article {
 	background-color: white;
-	max-width: 60%;
+	max-width: 80%;
 	margin: 0 auto;
 	padding: 15px ;
 	border-radius: 3px;
@@ -174,6 +181,7 @@ body {
 
 .article p {
 	margin-bottom: 1em;
+	font-size: 1.1em;
 }
 
 .sidebar {
@@ -302,6 +310,7 @@ body {
 	padding-top: 30px;
 	padding-right: 10px;
 	font-size: 1.2em;
+	color: #222;
 }
 
 .itemDetails p {
@@ -312,12 +321,14 @@ body {
 /* 	padding-top: 10px; */
 	border: none;
 	border-radius: 5px;
+/* 	background-color: #9830dc; */
 	background-color: #DC0055;
 	color: white;
 	padding: 5px;
 	font-size: 1em;
 	font-family: "Aller", Fallback, sans-serif;
 	margin-top: 10px;
+/* 	box-shadow: 0px 1px 0px 1px #7324a7; */
 	box-shadow: 0px 1px 0px 1px #ab0033;
 }
 
@@ -350,12 +361,14 @@ body {
 	font-size: 1em;
 	font-family: "Aller", Fallback, sans-serif;
 	color: white;
+/* 	background-color: #9830dc; */
 	background-color: #DC0055; 
 	background-image: none;
 	border: none;
 	border-radius: 0 0 5px 5px;
 	padding: 10px 5px 5px 5px;
 	margin-right: 10px;
+/* 	box-shadow: 0px 1px 0px 1px #7324a7; */
 	box-shadow: 0px 1px 0px 1px #ab0033;
 }
 #viewCart input:hover {
@@ -412,7 +425,7 @@ body {
 	}
 	
 	.itemDetails h1 {
-		padding-top: 2px;
+		padding-top: 5px;
 	}
 	.paypalForm {
 		padding-top: 10px;
@@ -452,7 +465,7 @@ body {
 		width: 100%;
 		height: auto;
 		border-radius: 5px 5px 0px 0px;
-		border: 1px solid #DC0055;
+/* 		border: 1px solid #DC0055; */
 		border-bottom: 0;
 	}
 	.storePic img {
@@ -467,7 +480,7 @@ body {
 		width: 100%;
 		height: auto;
 		border-radius: 0px 0px 5px 5px;
-		border: 1px solid #DC0055;
+/* 		border: 1px solid #DC0055; */
 		border-top: 0;
 		text-align: center;
 	}
