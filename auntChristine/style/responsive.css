@@ -7,6 +7,10 @@
 	font-family: "Oswald";
 	src: url('/auntChristine/fonts/oswald/Oswald-Regular.otf');
 }
+@font-face {
+	font-family: "Aller";
+	src: url('/auntChristine/fonts/oswald/Aller-Rg.ttf');
+}
 
 * {
 	padding: 0;
@@ -124,7 +128,7 @@ body {
 	padding: 8px 10px;
 	margin: 20px;
 	background-image: none;
-	font-family: "Oswald", Fallback, sans-serif;
+	font-family: "Aller", Fallback, sans-serif;
 /* 	border-radius: 8px; */
 }
 
