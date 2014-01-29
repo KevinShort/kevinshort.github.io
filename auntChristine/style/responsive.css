@@ -1,6 +1,6 @@
 @font-face {
 	font-family: "Nobile";
-	src: url('/auntChristine/fonts/Nobile/Nobile-Regular.ttf');
+	src: url('/auntChristine/fonts/nobile/Nobile-Regular.ttf');
 }
 
 @font-face {
@@ -9,7 +9,7 @@
 }
 @font-face {
 	font-family: "Aller";
-	src: url('/auntChristine/fonts/oswald/Aller-Rg.ttf');
+	src: url('/auntChristine/fonts/aller/Aller-Rg.ttf');
 }
 
 * {
