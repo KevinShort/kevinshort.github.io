@@ -1,3 +1,8 @@
+@font-face {
+	font-family: "Nobile";
+	src: url('/auntChristine/fonts/Nobile/Nobile-Regular.ttf');
+}
+
 * {
 	padding: 0;
 	margin: 0;
@@ -154,6 +159,7 @@ body {
 	margin: 0 auto;
 	padding: 10px;
 	border-radius: 3px;
+	font-family: "Nobile", Fallback, sans-serif;
 }
 
 .sidebar {
@@ -328,9 +334,11 @@ body {
 	font-size: 1em;
 	color: white;
 	background-color: #DC0055; 
+	background-image: none;
 	border: none;
 	border-radius: 0 0 5px 5px;
 	padding: 10px 5px 5px 5px;
+	margin-right: 10px;
 	box-shadow: 0px 1px 0px 1px #ab0033;
 }
 #viewCart input:hover {
@@ -369,6 +377,9 @@ body {
 	.itemDetails {
 		height: 220px;
 	}
+	.itemDetails h1 {
+		padding-top: 5px;
+	}
 }
 
 @media only screen and (max-width: 600px) {
@@ -384,6 +395,9 @@ body {
 	}
 	
 	.itemDetails h1 {
+		padding-top: 2px;
+	}
+	.paypalForm {
 		padding-top: 10px;
 	}
 }
