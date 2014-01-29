@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8' />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+	<meta name="viewport" content="width=device-width, user-scalable=no" />
+	<meta name="description" content="Handmade crochet hats for you and your family!" />
+	<!--<link rel="stylesheet" media="screen and (max-width: 750px)" 
+			href="style/mobile.css" />
+	<link rel="stylesheet" media="screen and (min-width: 751px)" 
+			href="style/main.css" />-->
+	<link rel="stylesheet" href="../style/responsive.css"/>
+<!-- 	<script src="js/respond.min.js"></script> -->
+	
+<!-- 	<link rel="stylesheet" type="text/css" href="style/main.css"/> -->
+	<title>Chris' Crochet Corner</title>
+</head>
+<body>
+
+<div id="container">
+	<div class="header">
+		<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr"
+				method="post" id="headerCart">
+
+			<!-- Identify your business so that you can collect the payments. -->
+			<input type="hidden" name="business" value="kin@kinskards.com">
+
+			<!-- Specify a PayPal Shopping Cart View Cart button. -->
+			<input type="hidden" name="cmd" value="_cart">
+			<input type="hidden" name="display" value="1">
+
+			<!-- Continue shopping on the current webpage of the merchant site. -->
+			<input type="hidden" name="shopping_url"
+				value="http://www.kinskards.com/birthday_cards">
+
+			<!-- Display the View Cart button. -->
+			<input type="image" name="submit" border="0"
+				src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_LG.gif"
+			alt="PayPal - The safer, easier way to pay online">
+			<img alt="" border="0" width="1" height="1"
+				src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+		</form>
+		<div class="headerImage">
+			<img src="../images/headerLogo1_solid.png" />
+		</div>
+	</div>
+	<div class="floatClearer"></div>
+	
+	<div id="menu">
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="girl/">Girl</a></li>
+			<li><a href="hats2.html">More Hats</a></li>
+			<li><a href="contact.html">Contact</a></li>
+		</ul>
+	</div>
+	
+	<div class="storeItem">
+		<div class="storePic">
+			<a href="../images/hats/unisex/BabyChick.JPG" class="imageLink">
+				<img src="../images/hats/unisex/BabyChick_small.JPG"/>
+				<div class="imgOverlay">Click to enlarge</div>
+			</a>
+		</div>
+		<div class="itemDetails">
+			<h1>Baby Chick</h1>
+			<p>This hat is fantastic.</p>
+			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr"
+					method="post" class="paypalForm">
+
+				<!-- Identify your business so that you can collect the payments. -->
+				<input type="hidden" name="business" value="kin@kinskards.com">
+
+				<!-- Specify an Add to Cart button. -->
+				<input type="hidden" name="cmd" value="_cart">
+				<input type="hidden" name="add" value="1">
+
+				<!-- Specify details about the item that buyers will purchase. -->
+				<input type="hidden" name="item_name"
+					value="Baby Chick">
+				<input type="hidden" name="currency_code" value="USD">
+
+				<!-- Provide a dropdown menu option field. -->
+<!--				<input type="hidden" name="on0" value="Color">Color scheme <br />
+					<select name="os0">
+						<option
+							value="Select a color scheme">
+							-- Select a color scheme --</option>
+						<option value="Blue">Blue</option>
+						<option value="Pink">Pink</option>
+						<option value="Yellow">Yellow</option>
+					</select> <br />-->
+
+				<!-- Provide a dropdown menu option field with prices. -->
+				<input type="hidden" name="on1" value="Size">Size:
+					<select name="os1">
+						<option value="0-3 months">0-3 Months - $15</option>
+						<option value="3-6 months">3-6 Months - $15</option>
+						<option value="6-9 months">6-9 Months - $15</option>
+						<option value="9-12 months">9-12 Months - $15</option>
+						<option value="toddler">Toddler - $20</option>
+						<option value="child">Child - $20</option>
+						<option value="adult">Adult - $20</option>
+					</select> <br />
+
+				<!-- Specify the price that PayPal uses for each option. -->
+				<input type="hidden" name="option_index" value="1">
+				<input type="hidden" name="option_select0" value="0-3 months">
+				<input type="hidden" name="option_amount0" value="15">
+				<input type="hidden" name="option_select1" value="3-6 months">
+				<input type="hidden" name="option_amount1" value="15">
+				<input type="hidden" name="option_select2" value="6-9 months">
+				<input type="hidden" name="option_amount2" value="15">
+				<input type="hidden" name="option_select3" value="9-12 months">
+				<input type="hidden" name="option_amount3" value="15">
+				<input type="hidden" name="option_select4" value="toddler">
+				<input type="hidden" name="option_amount4" value="20">
+				<input type="hidden" name="option_select5" value="child">
+				<input type="hidden" name="option_amount5" value="20">
+				<input type="hidden" name="option_select6" value="adult">
+				<input type="hidden" name="option_amount6" value="20">
+
+				<!-- Display the payment button. -->
+				<input type="image" name="submit" border="0" class="paypalBuyButton"
+					src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
+					alt="PayPal - The safer, easier way to pay online">
+				<img alt="" border="0" width="1" height="1"
+					src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+			</form>
+		</div>
+	</div>
+	
+	<div class="floatClearer">
+		<br/>
+	</div>
+
+</div>
+
+<div id="footer">
+	Copyright &copy; 2014 Chris' Crochet Corner
+</div>
+
+</body>
+</html>

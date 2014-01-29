@@ -13,9 +13,8 @@ body {
 #container {
 	margin: 0 auto;
 	max-width: 1000px;
-	background-color: #f6e9ff;
 /* 	background-color: #eed5ff; */
-/* 	background-color: #fcfcfc; */
+	background-color: #fcfcfc;
 /* 	background-image: linear-gradient(to top, #E5E1ED 0%, #FFFFFF 100%); */
 /* 	background-color: #C262D3; */
 /* 	background-color: #B964D4; */
@@ -27,8 +26,6 @@ body {
 .header {
 	width: 100%;
 	overflow: auto;
-	position: relative;
-/* 	box-shadow: 0px 5px 5px -5px #00909b; */
 /* 	background-color: #3f2860; */
 /* 	background-color: #b4abec; */
 	background-color: #00a0ac;
@@ -74,13 +71,12 @@ body {
 
 #menu {
 	margin: 5px auto 30px;
-    max-width: 550px;
+    max-width: 600px;
 /*     height: 80px; */
     text-align: center;
 	background-color: #DC0055;
 /*     background-color: #54026E; */
     border-radius: 3px;
-/* 	box-shadow: 1px 1px 0px 1px #ab0033; */
 /* 	font-size: 18px; */
 /*	background-image: -webkit-gradient(
 		linear,
@@ -111,7 +107,7 @@ body {
 #menu a {
 	text-decoration: none;
 	color: white;
-	padding: 8px 10px;
+	padding: 8px 15px;
 	margin: 20px;
 	background-image: none;
 /* 	border-radius: 8px; */
@@ -192,7 +188,7 @@ body {
 	background-color: #fcfcfc;
 	border-radius: 5px 0px 0px 5px;
 /* 	border-style: none; */
-/* 	border: 1px solid #DC0055; */
+	border: 1px solid #DC0055;
 /* 	border: 1px solid #C262D3; */
 	border-right: 0;
 	background-clip: padding-box;
@@ -257,7 +253,7 @@ body {
 /* 	color: white; */
 	border-radius: 0px 5px 5px 0px;
 /* 	border: 1px solid #C262D3; */
-/* 	border: 1px solid #DC0055; */
+	border: 1px solid #DC0055;
 	border-left: 0;
 /*	background-image: -webkit-gradient(
 		linear,
@@ -287,22 +283,83 @@ body {
 	padding-top: 10px;
 }
 
-.paypalBuyButton {
-/* 	padding-top: 10px; */
-	border: none;
-	border-radius: 5px;
-	background-color: #DC0055;
-	color: white;
-	padding: 5px;
-	font-size: 1em;
-	margin-top: 10px;
-	box-shadow: 0px 1px 0px 1px #ab0033;
+
+
+
+
+
+/* Testing */
+
+#container2 {
+	margin: 0 auto;
+	max-width: 1000px;
+	background-color: #f6e9ff;
+/* 	background-color: #fcfcfc; */
+/* 	background-image: linear-gradient(to top, #E5E1ED 0%, #FFFFFF 100%); */
+/* 	background-color: #C262D3; */
+/* 	background-color: #B964D4; */
+/* 	background-image: url('/home/kevin/web/work/auntChristine/images/lightPurpleStripe.jpg'); */
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+	border-radius: 0px 0px 5px 5px;
+	overflow: auto;
+	padding-bottom: 2em;
 }
 
-.paypalBuyButton:hover {
+.smallStoreItem {
+	float: left;
+	padding: 5px 0.5%;
+	margin: 0 0.5% 15px;
+	width: 22%;
+	border: 1px solid white;
+	border-radius: 4px;
+	transition: border .15s;
+	background: white;
+	
+/* 	text-align: center; */
+/* 	outline: 1px dotted gray; */
+/* 	background-color: lightblue; */
+}
+
+.smallStoreItem a {
+	text-decoration: none;
+	color: #222;
+/* 	transition: color .2s; */
+}
+
+.smallStoreItem:hover {
+/* 	border: 1px solid #666; */
+/* 	box-shadow: 0px 0px 5px #555; */
+}
+
+.smallStoreItem:hover a {
 	text-decoration: underline;
-	cursor: pointer;
-	background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+	color: #00858f;
+/* 	color: #00a0ac; */
+/* 	color: #a300f5; */
+}
+
+.smallStoreItem h1 {
+	font-size: 1em;
+/* 	color: black; */
+}
+
+.smallStoreItem img {
+	width: 100%;
+}
+
+.mFloatClearer {
+	clear: none;
+}
+
+/* End Testing */
+
+
+
+
+
+
+.paypalBuyButton {
+	padding-top: 10px;
 }
 
 /*.storeItem > span {
@@ -317,26 +374,10 @@ body {
 	padding-top: 30px;
 }
 
-#viewCart {
-	position: absolute;
-/* 	bottom: 0; */
-	right: 0;
-	top: 0;
-/* 	padding-top: 10px; */
-}
-#viewCart input {
-	font-size: 1em;
-	color: white;
-	background-color: #DC0055; 
-	border: none;
-	border-radius: 0 0 5px 5px;
-	padding: 10px 5px 5px 5px;
-	box-shadow: 0px 1px 0px 1px #ab0033;
-}
-#viewCart input:hover {
-	text-decoration: underline;
-	cursor: pointer;
-	background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+#headerCart {
+	float: right;
+	position: relative;
+	bottom: 20%;
 }
 
 .textWrap {
@@ -358,7 +399,7 @@ body {
 	font-size: 12px;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 900px) {
 /*	.storePic img {
 		height: auto;
 		width: 100%;
@@ -368,29 +409,12 @@ body {
 	}
 	.itemDetails {
 		height: 220px;
-	}
-}
-
-@media only screen and (max-width: 600px) {
-/*	.storePic img {
-		height: auto;
-		width: 100%;
-	}*/
-	.storePic {
-		height: 180px;
-	}
-	.itemDetails {
-		height: 180px;
-	}
-	
-	.itemDetails h1 {
-		padding-top: 10px;
 	}
 }
 
 
 /* Media Queries */
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 700px) {
 	#container {
 		border-radius: 0px;
 	}
@@ -443,13 +467,101 @@ body {
 	.itemDetails h2 {
 		padding: 10px;
 	}
-	.paypalForm {
-		padding-top: 10px;
-	}
 	.paypalBuyButton {
-/* 		padding: 20px 0px; */
-		margin: 20px 0px;
+		padding: 20px 0px;
 	}
 }
 
 
+/* Testing */
+
+@media only screen and (max-width: 850px) {
+	.clearFloat1, .clearFloat2, .clearFloat4 {
+		clear: none;
+	}
+	.clearFloat3 {
+		clear: left;
+	}
+	.smallStoreItem {
+		float: left;
+		padding: 5px 0.5%;
+		margin: 0 0.5% 15px;
+		width: 30%;
+
+	}
+}
+
+@media only screen and (max-width: 550px) {
+	.clearFloat1, .clearFloat3, .clearFloat4 {
+		clear: none;
+	}
+	.clearFloat2 {
+		clear: left;
+	}
+	.smallStoreItem {
+		float: left;
+		padding: 5px 0.5%;
+		margin: 0 0.5% 15px;
+		width: 47%;
+
+	}
+}
+
+/*@media only screen and (max-width: 550px) {
+	.smallStoreItem {
+		padding: 0;
+		padding-bottom: 2em;
+		background: lightblue;
+		padding: 5px 0.5%;
+		margin: 0 0.5% 15px;
+		width: 45%;
+		border: 1px solid gray;
+		border-radius: 4px;
+		transition: border .15s;
+		
+	}
+	
+	.clearFloat1, .clearFloat2, .clearFloat3, .clearFloat4 {
+		clear: left;
+	}
+}*/
+
+
+/*bad animation*/
+@-webkit-keyframes BadAnim {
+	0% { left: -800px; top: 10px; }
+	50% {left: 30%; top: 200px; }
+	100% { left: 100%; top: 100px; }
+}
+@-moz-keyframes BadAnim {
+	0% { left: -800px; top: 10px; }
+	50% {left: 30%; top: 200px; }
+	100% { left: 100%; top: 100px; }
+}
+@-0-keyframes BadAnim {
+	0% { left: -800px; top: 10px; }
+	50% {left: 30%; top: 200px; }
+	100% { left: 100%; top: 100px; }
+}
+@keyframes BadAnim {
+	0% { left: -800px; top: 10px; }
+	50% {left: 30%; top: 200px; }
+	100% { left: 100%; top: 100px; }
+}
+
+.badAnimation {
+	position: absolute;
+	-webkit-animation: BadAnim 15s infinite;
+	-webkit-animation-timing-function: linear;
+	-moz-animation: BadAnim 15s infinite;
+	-moz-animation-timing-function: linear;
+	-o-animation: BadAnim 15s infinite;
+	-o-animation-timing-function: linear;
+	animation: BadAnim 15s infinite;
+	animation-timing-function: linear;
+	z-index: 9999;
+}
+
+.badAnimation:hover {
+	border: 5px dashed red;
+}
