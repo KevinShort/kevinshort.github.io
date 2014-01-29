@@ -3,6 +3,11 @@
 	src: url('/auntChristine/fonts/Nobile/Nobile-Regular.ttf');
 }
 
+@font-face {
+	font-family: "Oswald";
+	src: url('/auntChristine/fonts/oswald/Oswald-Regular.ttf');
+}
+
 * {
 	padding: 0;
 	margin: 0;
@@ -119,6 +124,7 @@ body {
 	padding: 8px 10px;
 	margin: 20px;
 	background-image: none;
+	font-family: "Oswald", Fallback, sans-serif;
 /* 	border-radius: 8px; */
 }
 
