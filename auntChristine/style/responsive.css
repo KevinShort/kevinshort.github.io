@@ -2,7 +2,6 @@
 	font-family: "Nobile";
 	src: url('/auntChristine/fonts/nobile/Nobile-Regular.ttf');
 }
-
 @font-face {
 	font-family: "Oswald";
 	src: url('/auntChristine/fonts/oswald/Oswald-Regular.otf');
@@ -11,7 +10,11 @@
 	font-family: "Aller";
 	src: url('/auntChristine/fonts/aller/Aller_Rg.ttf');
 }
-
+@font-face {
+	font-family: "Open-Sans";
+	src: url('/auntChristine/fonts/open-sans/OpenSans-Regular.ttf');
+}
+	
 * {
 	padding: 0;
 	margin: 0;
