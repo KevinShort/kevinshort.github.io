@@ -207,22 +207,6 @@ a.button.icon img {
 	padding-right: 10px;
 }
 
-.sidebar {
-	float: left;
-	background-color: white;
-	width: 25%;
-}
-
-.text {
-	float: left;
-	width: 70%;
-}
-
-.text p {
-	text-indent: 1em;
-	padding-bottom: .5em;
-}
-
 .storeItem {
 /* 	background-color: white; */
 	max-width: 90%;
@@ -341,7 +325,7 @@ a.button.icon img {
 	padding-right: 10px;
 }
 
-.paypalBuyButton {
+.addToCart {
 /* 	padding-top: 10px; */
 	border: none;
 	border-radius: 5px;
@@ -357,7 +341,7 @@ a.button.icon img {
 	box-shadow: 0px 1px 0px 1px #ab0033;
 }
 
-.paypalBuyButton:hover{
+.addToCart:hover{
 	text-decoration: underline;
 	cursor: pointer;
 	background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
@@ -396,16 +380,11 @@ a.button.icon img {
 /* 	box-shadow: 0px 1px 0px 1px #7324a7; */
 	box-shadow: 0px 1px 0px 1px #ab0033;
 }
+
 #viewCart input:hover {
 	text-decoration: underline;
 	cursor: pointer;
 	background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
-}
-
-.textWrap {
-	float: left;
-	margin-right: 15px;
-	margin-bottom: 10px;
 }
 
 .floatClearer {
@@ -418,7 +397,8 @@ a.button.icon img {
 	clear: both;
 	text-align: center;
 	padding: 20px 0px;
-	font-size: 12px;
+	font-size: 0.8em;
+	font-family: sans-serif;
 }
 
 @media only screen and (max-width: 700px) {
@@ -483,7 +463,7 @@ a.button.icon img {
 		border-radius: 0px;
 	}
 	#menu a {
-		padding: 8px 8px;
+		padding: 8px 6px;
 		margin: 0px;
 	}
 	.article {
