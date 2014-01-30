@@ -137,7 +137,7 @@ body {
 /* 	border-radius: 8px; */
 }
 
-#menu a:hover {
+#menu a:hover{
 /* 	color: black; */
 /* 	background-color: #68237F; */
 	background-color: #EE3B80;
@@ -185,6 +185,26 @@ body {
 .article p {
 	margin-bottom: 1em;
 	font-size: 1.1em;
+}
+
+a.button {
+	background-color: #DC0055;
+	border-radius: 5px;
+	padding: 5px 15px;
+	text-decoration: none;
+/* 	text-shadow: #fff 0 1px 0; */
+	float: left;
+	margin-right: 15px;
+	margin-bottom: 15px;
+	display: block;
+	color: white;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+a.button.icon img {
+	height: 18px;
+	padding-right: 10px;
 }
 
 .sidebar {
@@ -242,7 +262,7 @@ body {
 	height: 270px;
 	width: 55%;
 	overflow: hidden;
-	transition: height .5s ease-in;
+/* 	transition: height .5s ease-in; */
 }
 
 .storePic img {
@@ -306,7 +326,7 @@ body {
 	font-family: "Nobile", Fallback, sans-serif;
 	width: 40%;
 	height: 270px;
-	transition: height .5s ease-in;
+/* 	transition: height .5s ease-in; */
 }
 
 .itemDetails h1 {
@@ -318,6 +338,7 @@ body {
 
 .itemDetails p {
 	padding-top: 10px;
+	padding-right: 10px;
 }
 
 .paypalBuyButton {
@@ -326,6 +347,7 @@ body {
 	border-radius: 5px;
 /* 	background-color: #9830dc; */
 	background-color: #DC0055;
+	background-image: none;
 	color: white;
 	padding: 5px;
 	font-size: 1em;
@@ -335,7 +357,7 @@ body {
 	box-shadow: 0px 1px 0px 1px #ab0033;
 }
 
-.paypalBuyButton:hover {
+.paypalBuyButton:hover{
 	text-decoration: underline;
 	cursor: pointer;
 	background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
@@ -411,16 +433,23 @@ body {
 		height: 220px;
 	}
 	.itemDetails h1 {
-		padding-top: 5px;
+		padding-top: 10px;
+		font-size: 1em;
+	}
+	.itemDetails p {
+		font-size: 0.9em;
+	}
+	.paypalForm {
+		padding-top: 10px;
 	}
 }
 
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) { */
 /*	.storePic img {
 		height: auto;
 		width: 100%;
 	}*/
-	.storePic {
+	/*.storePic {
 		height: 180px;
 	}
 	.itemDetails {
@@ -433,11 +462,11 @@ body {
 	.paypalForm {
 		padding-top: 10px;
 	}
-}
+}*/
 
 
 /* Media Queries */
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
 	#container {
 		border-radius: 0px;
 	}
@@ -489,6 +518,10 @@ body {
 	}
 	.itemDetails h2 {
 		padding: 10px;
+	}
+	.itemDetails p {
+		padding-left: 20px;
+		padding-right: 20px;
 	}
 	.paypalForm {
 		padding-top: 10px;

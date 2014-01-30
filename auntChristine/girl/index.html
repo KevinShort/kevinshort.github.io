@@ -10,13 +10,16 @@
 	<link rel="stylesheet" media="screen and (min-width: 751px)" 
 			href="style/main.css" />-->
 	<link rel="stylesheet" href="../style/responsive.css"/>
+	<!-- Magnific Popup core CSS file -->
+	<link rel="stylesheet" href="../style/magnific-popup.css"> 
+
 <!-- 	<script src="js/respond.min.js"></script> -->
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	
 <!-- 	<link rel="stylesheet" type="text/css" href="style/main.css"/> -->
 	<title>Chris' Crochet Corner</title>
 </head>
 <body>
-
 <div id="container">
 	<div class="header">
 		<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr"
@@ -66,7 +69,9 @@
 		</div>
 		<div class="itemDetails">
 			<h1>Striped Pom Pom Pink</h1>
-			<p>This hat is fantastic.</p>
+			<p>This sweet pink and cream striped hat 
+			accessorized with a heart will have your 
+			little one pretty in pink.</p>
 			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr"
 					method="post" class="paypalForm">
 
@@ -202,6 +207,28 @@
 <div id="footer">
 	Copyright &copy; 2014 Chris' Crochet Corner
 </div>
+
+
+
+<!-- Magnific Popup core JS file -->
+<script src="../js/jquery.magnific-popup.min.js"></script> 
+
+<script>
+	$('.imageLink').magnificPopup({ 
+		type: 'image',
+		closeOnContentClick: true,
+		
+		zoom: {
+			enabled: true,
+			duration: 300,
+			easing: 'ease-in-out',
+			
+			opener: function(openerElement) {
+				return openerElement.is('img') ? openerElement : openerElement.find('img');
+			}
+		}
+	});
+</script>
 
 </body>
 </html>
