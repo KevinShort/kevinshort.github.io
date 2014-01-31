@@ -50,11 +50,13 @@ body {
 /* 	background-color: #3f2860; */
 /* 	background-color: #b4abec; */
 	background-color: #00a0ac;
+/* 	background-color: #DC0055; */
 }
 
 .headerImage {
 	max-width: 550px;
-	float: left;
+/* 	margin: 0 auto; */
+/* 	float: left; */
 /* 	outline: 1px solid white; */
 /* 	max-width: 750px; */
 /* 	background-color: #b4abec; */
