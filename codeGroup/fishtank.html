@@ -1,0 +1,406 @@
+<html>
+ <head>
+ <title>Fish</title>
+ </head>
+ 
+<body>
+<canvas id="canvas" width="1000" height="600"></canvas>
+ 
+<script type="application/javascript">
+  
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var sideWidth = 200;
+var sideHeigth = 150;
+var maxspeed = 5;
+
+function tankBehind() {
+
+	lineWidth = 7;
+	ctx.lineWidth=15;
+	
+	// back side
+	ctx.beginPath();
+	ctx.fillStyle='#39f';
+	ctx.strokeStyle="#000";
+	
+	ctx.moveTo(lineWidth,							lineWidth);
+	ctx.lineTo(canvas.width-sideWidth-lineWidth,	lineWidth);
+	ctx.lineTo(canvas.width-sideWidth-lineWidth,	canvas.height-sideHeigth);
+	ctx.lineTo(lineWidth,							canvas.height-sideHeigth);
+	ctx.lineTo(lineWidth,							lineWidth);
+	ctx.stroke();
+	ctx.fill();	
+	
+	// bottom
+	ctx.beginPath();
+	ctx.fillStyle='#36f';
+	ctx.strokeStyle="#000";
+	ctx.moveTo(lineWidth,			canvas.height-sideHeigth);
+	ctx.lineTo(canvas.width-sideWidth-lineWidth,	canvas.height-sideHeigth);
+	ctx.lineTo(canvas.width-lineWidth,	canvas.height-lineWidth);
+	ctx.lineTo(sideWidth-lineWidth,	canvas.height-lineWidth);
+	ctx.lineTo(lineWidth,			canvas.height-sideHeigth);
+	ctx.stroke();
+	ctx.fill();	
+	
+	// right side
+	ctx.fillStyle='#09f';
+	ctx.strokeStyle="#222";
+	ctx.beginPath();
+	ctx.moveTo(canvas.width-sideWidth-lineWidth,	lineWidth);
+	ctx.lineTo(canvas.width-lineWidth,				sideHeigth);
+	ctx.lineTo(canvas.width-lineWidth,				canvas.height-lineWidth);
+	ctx.lineTo(canvas.width-sideWidth-lineWidth,	canvas.height-sideHeigth-lineWidth);
+	ctx.lineTo(canvas.width-sideWidth-lineWidth,	lineWidth);
+	ctx.stroke();
+	ctx.fill();
+	}  // end of tank-behind function
+
+function tank() {
+
+	ctx.shadowBlur = 30;
+	// left side
+	ctx.beginPath();
+	ctx.strokeStyle="rgb(100,100,100)";
+	ctx.lineWidth=5;
+	ctx.moveTo(0,			0);
+	ctx.lineTo(sideWidth,	sideHeigth);
+	ctx.lineTo(sideWidth,	canvas.height);
+	ctx.lineTo(0,			canvas.height-sideHeigth);
+	ctx.lineTo(0,			0);
+	ctx.stroke();
+	
+	// front side
+	ctx.beginPath();
+	ctx.strokeStyle="rgb(30,30,30)";
+	ctx.lineWidth=5;
+	ctx.moveTo(sideWidth,		sideHeigth);
+	ctx.lineTo(canvas.width,	sideHeigth);
+	ctx.lineTo(canvas.width,	canvas.height);
+	ctx.lineTo(sideWidth,		canvas.height);
+	ctx.lineTo(sideWidth,		sideHeigth);
+	ctx.stroke();
+	
+	// right side top hide with white
+	ctx.fillStyle='#fff';
+	ctx.beginPath();
+	ctx.moveTo(canvas.width-sideWidth,	0);
+	ctx.lineTo(canvas.width,			0);
+	ctx.lineTo(canvas.width,			sideHeigth);
+	ctx.lineTo(canvas.width-sideWidth,	0);
+	ctx.fill();
+	
+	// left side bottom hide with white
+	ctx.fillStyle='#fff';
+	ctx.strokeStyle="#fff";
+	ctx.beginPath();
+	ctx.moveTo(0,			canvas.height-sideHeigth);
+	ctx.lineTo(sideWidth,	canvas.height);
+	ctx.lineTo(0,	canvas.height);
+	ctx.lineTo(0,			canvas.height-sideHeigth);
+	ctx.fill();
+	ctx.shadowBlur = 0;
+}  // end of tank function
+
+function fish(colorR, colorG, colorB, X, Y, D) {
+	var difs = Math.random();
+
+	// random variables if needed
+	if(colorR==0) {this.colorR=Math.floor(Math.random()*255);} else {this.colorR=colorR;}
+	if(colorG==0) {this.colorG=Math.floor(Math.random()*255);} else {this.colorG=colorG;}
+	if(colorB==0) {this.colorB=Math.floor(Math.random()*255);} else {this.colorB=colorB;}
+	if(D==0) {this.size=Math.random();} else {this.size = Math.abs(D);}
+	if(D==0) {this.way = 1;} else {this.way = D/Math.abs(D);}					// direction, positive is nose on left
+	this.colorRGB = 'rgb('+this.colorR+','+this.colorG+','+this.colorB+')';
+	this.colorVar = 30;
+	this.eye = Math.abs(this.size);
+	
+	// random location if needed
+	if(X==0) {this.x=Math.floor(Math.random()*canvas.width);} else {this.x=X;}
+	if(Y==0) {this.y=Math.floor(Math.random()*canvas.height);} else {this.y=Y;}
+
+	/*
+	this.bodyX=60*this.size; 			// body length
+	this.tailX=20*this.size; 			// tail length
+	this.bodyY=Math.abs(50*this.size); // body height
+	this.tailY=Math.abs(40*this.size); // tail height
+	this.tailB=Math.abs(10*this.size)*difs; // tail base
+	this.eye=3*this.size;						// eye radius
+	this.width=Math.abs(this.bodyX+this.tailX+this.tailB)	// total length of fish
+	this.height=Math.abs(this.bodyY/2)			// distance from nose to edge
+	*/
+	
+	// Random speed 
+	this.speedX=Math.floor(Math.random()*maxspeed*this.size+1) *this.way;
+	this.speedY=Math.floor(Math.random()*4-2);				// +2 to -2 range
+	
+}  // end of fish function
+
+function fish2(colorR, colorG, colorB, X, Y, D) {
+	var difs = Math.random();
+
+	// random variables if needed
+	if(colorR==0) {this.colorR=Math.floor(Math.random()*255);} else {this.colorR=colorR;}
+	if(colorG==0) {this.colorG=Math.floor(Math.random()*255);} else {this.colorG=colorG;}
+	if(colorB==0) {this.colorB=Math.floor(Math.random()*255);} else {this.colorB=colorB;}
+	if(D==0) {this.size=Math.random();} else {this.size = Math.abs(D);}
+	if(D==0) {this.way = 1;} else {this.way = D/Math.abs(D);}					// direction, positive is nose on left
+	this.colorRGB = 'rgb('+this.colorR+','+this.colorG+','+this.colorB+')';
+	this.colorVar = 30;
+	this.eye = Math.abs(this.size);
+	
+	// random location if needed
+	if(X==0) {this.x=Math.floor(Math.random()*canvas.width);} else {this.x=X;}
+	if(Y==0) {this.y=Math.floor(Math.random()*canvas.height);} else {this.y=Y;}
+	
+	this.bX = this.size* 20;			this.bY = this.size* 40*-1;
+	this.bX = this.size* (20-10*difs);	this.bY = this.size* 40*-1;
+	this.cX = this.size* (40+20*difs);	this.cY = this.size* 30*-1;
+	this.dX = this.size* 60;			this.dY = this.size*  5*-1;
+	this.eX = this.size* 110;			this.eY = this.size* 30*-1;
+	this.fX = this.size* 110;			this.fY = this.size* 20*-1 ;
+	this.gX = this.size* (70+10*difs);	this.gY = 0;
+	this.b2X = this.size* 30;			this.b2Y = this.size* 20;
+	this.c2X = this.size* (40-20*difs);	this.c2Y = this.size* 20;
+	this.d2X = this.size* 60;			this.d2Y = this.size* 5;
+	this.e2X = this.size* 100;			this.e2Y = this.size* 20;
+	this.f2X = this.size* 100;			this.f2Y = this.size* 10;
+	
+	this.width=Math.abs(this.eX*.9)			// total length of fish
+	this.height=Math.abs(this.eY*.95)		// distance from nose to edge
+	
+	// Random speed 
+	this.speedX=Math.floor(Math.random()*maxspeed*this.size+1) *this.way;
+	this.speedY=Math.floor(Math.random()*4-2);				// +2 to -2 range
+	
+	}  // end of fish2 function
+ 
+fish.prototype.draw = function(){
+	var difs = Math.random();
+
+	this.bodyX=60*this.size; 			// body length
+	this.tailX=20*this.size; 			// tail length
+	this.bodyY=Math.abs(50*this.size); // body height
+	this.tailY=Math.abs(40*this.size); // tail height
+	this.tailB=Math.abs(10*this.size)*difs; // tail base
+	this.eye=3*this.size;						// eye radius
+	this.width=Math.abs(this.bodyX+this.tailX+this.tailB)	// total length of fish
+	this.height=Math.abs(this.bodyY/2)			// distance from nose to edge	
+	
+	ctx.beginPath();
+	ctx.lineWidth=3;
+// 	ctx.shadowBlur=30;
+	ctx.shadowColor="black";
+	
+	ctx.fillStyle = this.colorRGB;
+	ctx.moveTo(this.x,						this.y);				// nose tip
+	ctx.bezierCurveTo(
+		this.x,								this.y+this.bodyY/2,
+		this.x+this.way*(this.bodyX)-200,		this.y+this.bodyY/2,
+		this.x+this.way*(this.bodyX),		this.y+this.tailB/2);	
+	ctx.lineTo(this.x+this.way*(this.bodyX+this.tailX),				this.y+this.tailY/2);	// bottom of tail
+	ctx.stroke();
+	ctx.lineTo(this.x+this.way*(this.bodyX+this.tailX+this.tailB),	this.y);				// center of tail	
+	ctx.lineTo(this.x+this.way*(this.bodyX+this.tailX),				this.y-this.tailY/2);	// top of tail
+	ctx.lineTo(this.x+this.way*(this.bodyX),						this.y-this.tailB/2);	// top of body/tail joint
+	ctx.bezierCurveTo(
+		this.x+(this.way*this.bodyX*1.5)-100,	this.y-this.bodyY/2,
+		this.x,								this.y-this.bodyY/2-50,
+		this.x-50,								this.y);
+	ctx.fill();
+	
+	// draw fish eye
+	ctx.beginPath();
+	ctx.strokeStyle="rgb(200,256,0)";
+	ctx.lineWidth=3;
+	ctx.fillStyle = "rgb(200,100,0)";
+	ctx.arc(this.x+this.way*(this.bodyX/5),this.y-Math.abs(this.bodyY/8),this.eye,0,Math.PI*2,true);
+	ctx.stroke();
+	ctx.fill();
+	
+// 	ctx.shadowBlur = 0;
+	} // end of fish draw function
+ 
+fish2.prototype.draw =function(){
+	var difs = Math.random();
+
+	ctx.beginPath();
+	ctx.lineWidth=3;
+// 	ctx.shadowBlur=30;
+	ctx.shadowColor="black";
+	ctx.fillStyle = this.colorRGB;
+	ctx.moveTo(this.x,	this.y);				// nose tip
+	ctx.bezierCurveTo(
+		this.x+(this.size* (20-5*difs))*this.way, 	this.y+(this.size* 40*-1), 
+		this.x+(this.size* (40+9*difs))*this.way, 	this.y+(this.size* 30*-1), 
+		this.x+(this.size* 60)*this.way, 			this.y+(this.size*  5*-1)		); // end of curve
+	ctx.bezierCurveTo(
+		this.x+(this.size* 110)*this.way, 			this.y+(this.size* 30*-1), 
+		this.x+(this.size* 110)*this.way, 			this.y+(this.size* 20*-1), 
+		this.x+(this.size* (70+5*difs))*this.way, 	this.y							); // end of curve
+	ctx.bezierCurveTo(
+		this.x+(this.size* 100)*this.way, 			this.y+(this.size* 10), 
+		this.x+(this.size* 100)*this.way, 			this.y+(this.size* 20), 
+		this.x+(this.size* 60)*this.way, 			this.y+(this.size* 5)			); // end of curve
+	ctx.bezierCurveTo(
+		this.x+(this.size* (40-9*difs))*this.way, 	this.y+(this.size* 20), 
+		this.x+(this.size* 30)*this.way, 			this.y+(this.size* 20), 
+		this.x,   this.y															); // end of curve
+	ctx.stroke();
+	ctx.fill();
+	
+	// draw fish eye
+	ctx.beginPath();
+	ctx.strokeStyle="black";
+	ctx.lineWidth=this.size;
+	ctx.fillStyle = "rgb(200,100,0)";
+	ctx.arc(this.x+(15*this.size*this.way),this.y-(this.size*10),this.size*3,0,Math.PI*2,true);
+	ctx.stroke();
+	ctx.fill();
+	
+	
+	} // end of fish2 draw function
+  
+fish.prototype.swim = fish2.prototype.swim = function(){
+
+	//bump right wall
+	if (this.x >= canvas.width-Math.floor(Math.random()*sideWidth*.75) && this.way == -1) {   
+		this.way *= -1;					// 1 = moving left,  -1 = moving right
+		this.x -= this.width
+		this.speedX=Math.floor(Math.random()*maxspeed*this.size+1) *this.way;
+		this.speedY=Math.floor(Math.random()*4-2);				// +2 to -2 range
+		}
+	else {
+		//bump left wall
+		if (this.x <= Math.floor(Math.random()*sideWidth*.75) && this.way == 1) {   
+			this.way *= -1;
+			this.x += this.width
+			this.speedX=Math.floor(Math.random()*maxspeed*this.size+1) *this.way;
+			this.speedY=Math.floor(Math.random()*4-2);				// +2 to -2 range
+			}
+		} // end of bump right wall, darken and flip
+		
+	// bounce bottom
+	if (this.y >= canvas.height-this.height-Math.floor(Math.random()*sideHeigth*.75) && this.speedY > 0) { 
+		this.speedY *= -1;
+
+		}
+	else {
+		// bounce top
+		if (this.y <= this.height+Math.floor(Math.random()*sideHeigth*.75) && this.speedY < 0) {    
+			this.speedY *= -1;
+			this.speedX=Math.floor(Math.random()*maxspeed*this.size+1) *this.way;
+			}
+		}  // end of bounce bottom
+	
+	// move X,Y of fish nose
+	this.x -= this.speedX;  // neg speed moves move right, pos speed move left
+	this.y = this.y + this.speedY //+(Math.random()*2-1);
+}
+ 
+fish.prototype.eat = fish2.prototype.eat = function(){
+var diffX = 0;
+	for (var i=0; i<schoolfish.length; i++) 
+	{
+		for (var j=i+1; j<schoolfish.length; j++)
+		{	
+		diffX = Math.ceil(Math.abs(schoolfish[i].x - schoolfish[j].x) + Math.abs(schoolfish[i].y - schoolfish[j].y))
+
+		// document.write(schoolfish[i].x + " " + schoolfish[j].x + "<br />");	
+		//schoolfish[i].x == schoolfish[j].x && schoolfish[i].y == schoolfish[j].y
+		
+			if (diffX < 10 )
+			{
+				if ( schoolfish[i].size < schoolfish[j].size )
+				{
+					schoolfish[i].size = 0;
+					schoolfish[i].x = canvas.width + canvas.width;
+					//document.write(diffX + " ");
+					schoolfish[j].size += .1;
+					schoolfish[j].speedX *= 3;
+				}
+				else
+				{
+					schoolfish[j].size = 0;
+					schoolfish[j].x = canvas.width + canvas.width;
+					//document.write(diffX + " ");
+					schoolfish[i].size += .1;
+					schoolfish[i].speedX *= 3;
+				}
+			}
+		}
+
+	}
+	//document.write(" . ");
+}
+
+
+//                          R    G    B    X   Y direction/size
+var redfish     =new fish( 255,   0,   0, 100, 100, 5);
+var yellowfish  =new fish( 255, 128,   0, 100, 200,  -.1);
+var greenfish   =new fish(   0, 255,   0, 100, 250,  0.3);
+var bluefish    =new fish(  70,  70, 200, 300, 150, 1);
+
+var red2fish    =new fish2(255,   0, 200, 400, 150, 1);
+var blue2fish   =new fish2(  0,   0, 200, 400, 100,  -.1);
+var yellow2fish =new fish2(255, 128,   0, 400, 200,   4);
+
+
+var schoolfish = new Array();
+var schoolfish2 = new Array();
+
+for (var i=0; i<10; i++) 
+	{
+	schoolfish[i]    =new fish(0,0,0, 0,0, 0);
+	schoolfish2[i]   =new fish2(0,0,0, 0,0, 0);
+	}
+
+
+function gameLoop(){
+// 	tankBehind ();
+	
+	
+	redfish.draw(); 
+	yellowfish.draw();
+	greenfish.draw(); 
+	bluefish.draw();
+	red2fish.draw(); 
+	blue2fish.draw(); 
+	yellow2fish.draw();
+	
+	bluefish.swim();
+	red2fish.swim(); 
+// 	
+// 
+	redfish.swim(); 
+	yellowfish.swim();
+	greenfish.swim(); 
+
+	blue2fish.swim(); 
+	yellow2fish.swim();
+	
+	
+	
+	for (var i=0; i<schoolfish.length; i++) {
+		schoolfish[i].draw();
+		schoolfish[i].swim();
+		schoolfish[1].eat();
+		
+		//schoolfish2[i].draw();
+		//schoolfish2[i].swim();
+		}
+
+
+	
+	tank();
+	
+	
+	setTimeout(gameLoop,10);
+	}
+gameLoop();
+	
+</script>
+
+ </body>
+</html>
