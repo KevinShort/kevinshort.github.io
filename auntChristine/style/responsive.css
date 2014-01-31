@@ -21,7 +21,8 @@
 }
 
 body {
-	background-color: #68237F;
+/* 	background-color: #68237F; */
+	background-color: #e0d4ff;
 	background-image: url('http://kevinshort.github.io/auntChristine/images/sewnPurpleStripe.jpg');
 	margin: 0;
 	padding: 0;
@@ -187,6 +188,13 @@ body {
 	font-size: 1.1em;
 }
 
+h1.contact {
+/* 	float: left; */
+	padding-right: 30px;
+	padding-bottom: 0.5em;
+	font-size: 1.4em;
+}
+
 a.button {
 	background-color: #DC0055;
 	border-radius: 5px;
@@ -202,7 +210,11 @@ a.button {
 	font-weight: bold;
 }
 
-a.button.icon img {
+a.button:hover {
+	padding: 4px 15px 6px;
+}
+
+a.button img {
 	height: 18px;
 	padding-right: 10px;
 }
@@ -271,7 +283,8 @@ a.button.icon img {
 	padding: 10px;
 	color: #111;
 	border-radius: 0px 0px 5px;
-	background-color: rgba(255, 255, 255, 0.5);
+	background-color: white;
+	background-color: rgba(255, 255, 255, 0.7);
 	opacity: 0;
 	text-align: center;
 	font-family: Arial, Helvetica, sans-serif;
@@ -392,6 +405,19 @@ a.button.icon img {
 /* 	background-color: blue; */
 }
 
+#disclaimer {
+	width: 60%;
+	background-color: white;
+	border-radius: 5px 5px 0 0;
+	margin: 1em auto;
+	padding: 15px;
+}
+#disclaimer p {
+	color: #333;
+	font-size: 0.8em;
+	font-family: sans-serif;
+}
+
 #footer {
 	color: #111;
 	clear: both;
@@ -421,6 +447,9 @@ a.button.icon img {
 	}
 	.paypalForm {
 		padding-top: 10px;
+	}
+	#disclaimer {
+		width: 80%;
 	}
 }
 
@@ -509,6 +538,21 @@ a.button.icon img {
 	.paypalBuyButton {
 /* 		padding: 20px 0px; */
 		margin: 20px 0px;
+	}
+	a.button {
+		background-color: #DC0055;
+		border-radius: 5px;
+		padding: 5px 10px;
+		float: left;
+		margin-right: 10px;
+		margin-bottom: 10px;
+		display: block;
+		color: white;
+		font-size: 0.9em;
+		font-weight: bold;
+	}
+	#disclaimer {
+		width: 90%;
 	}
 }
 
