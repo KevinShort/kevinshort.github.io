@@ -141,6 +141,10 @@ body {
 /* 	border-radius: 8px; */
 }
 
+#menu a.active {
+	background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+}
+
 #menu a:hover{
 /* 	color: black; */
 /* 	background-color: #68237F; */
