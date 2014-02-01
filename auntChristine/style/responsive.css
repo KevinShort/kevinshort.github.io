@@ -496,8 +496,12 @@ a.button img {
 	.imageHolder img {
 		width: 100%;
 	}
+	.slideshow {
+		width: 100%;
+	}
 	#menu {
 		border-radius: 0px;
+		margin-bottom: 0;
 	}
 	#menu a {
 		padding: 8px 6px;
