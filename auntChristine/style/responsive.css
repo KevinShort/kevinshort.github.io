@@ -307,10 +307,11 @@ a.button img {
 	padding: 0;
 	color: black;
 	text-align: center;
+	font-family: sans-serif;
 }
 
 .captionImg {
-	background: #fee;
+	background: #ffeaf2;
 	border-radius: 5px;
 	border: 1px solid #aaa;
 	padding: 1%;
@@ -321,7 +322,7 @@ a.button img {
 }
 .captionImg:hover {
 	border: 1px solid #555;
-	background: #fdd;
+	background: #ffdbe9;
 }
 .captionImg a {
 	text-decoration: none;
@@ -330,7 +331,7 @@ a.button img {
 
 #hatChoicesPager .activePager {
 	border: 1px solid #222;
-	background: #fcc;
+	background: #ffbad5;
 }
 
 .imageLink {
