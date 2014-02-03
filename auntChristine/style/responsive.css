@@ -278,6 +278,61 @@ a.button img {
 /* 	width: 100%; */
 }
 
+.multiChoice {
+	background-color: white;
+	border-radius: 5px;
+	overflow: auto;
+}
+
+.multiChoice .storePic {
+	height: 270px;
+	background: none;
+}
+.multiChoice .storePic img {
+	height: 270px;
+}
+.multiChoice .itemDetails {
+	height: 270px;
+	background: none;
+}
+.multiChoice ul {
+	padding: 0;
+}
+
+#hatChoicesPager img {
+	width: 100%;
+	height: auto;
+}
+#hatChoicesPager p {
+	padding: 0;
+	color: black;
+	text-align: center;
+}
+
+.captionImg {
+	background: #fee;
+	border-radius: 5px;
+	border: 1px solid #aaa;
+	padding: 1%;
+	margin: 1%;
+	float: left;
+	max-width: 140px;
+	width: 25%;
+}
+.captionImg:hover {
+	border: 1px solid #555;
+	background: #fdd;
+}
+.captionImg a {
+	text-decoration: none;
+	outline: none;
+}
+
+#hatChoicesPager .activePager {
+	border: 1px solid #222;
+	background: #fcc;
+}
+
 .imageLink {
 	text-decoration: none;
 	border-style: none;
@@ -435,6 +490,7 @@ a.button img {
 	font-family: sans-serif;
 }
 
+
 @media only screen and (max-width: 700px) {
 /*	.storePic img {
 		height: auto;
@@ -453,6 +509,9 @@ a.button img {
 	.itemDetails p {
 		font-size: 0.9em;
 	}
+	/*.captionImg {
+		width: 32%;
+	}*/
 	.paypalForm {
 		padding-top: 10px;
 	}
@@ -528,6 +587,21 @@ a.button img {
 		margin: 0 auto;
 		width: 100%;
 	}
+	.multiChoice .storePic img {
+		height: auto;
+		display: block;
+		margin: 0 auto;
+		width: 100%;
+	}
+	.multiChoice .storePic {
+		height: auto;
+	}
+	.multiChoice .itemDetails {
+		height: auto;
+	}
+	/*.captionImg {
+		width: 25%;
+	}*/
 	.itemDetails {
 		clear: both;
 		padding: 0px;
