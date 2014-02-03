@@ -512,6 +512,7 @@ a.button img {
 	}
 	.storeItem {
 		max-width: 95%;
+		margin-top: 10px;
 	}
 	.storePic {
 		clear: both;
