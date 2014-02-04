@@ -361,7 +361,6 @@ a.button img {
 
 .multiChoice .storePic {
 	height: 270px;
-	background: none;
 }
 .multiChoice .storePic img {
 	height: 270px;
@@ -393,7 +392,7 @@ a.button img {
 	margin: 1%;
 	float: left;
 	max-width: 140px;
-	width: 25%;
+	width: 28%;
 }
 .captionImg:hover {
 	border: 1px solid #555;
@@ -427,8 +426,12 @@ a.button img {
 	opacity: 0;
 	text-align: center;
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 1.1em;
+	font-size: 1em;
 	transition: opacity .2s;
+}
+
+.multiChoice .imgOverlay {
+	font-size: 1.2em;
 }
 
 .storePic img:hover + .imgOverlay, .imgOverlay:hover {
