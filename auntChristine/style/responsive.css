@@ -228,9 +228,13 @@ a.button img {
 }
 
 .storeItem {
-/* 	background-color: white; */
+	background-color: white;
 	max-width: 90%;
 	margin: 0 auto;
+	overflow: auto;
+	border-radius: 5px;
+/* 	padding: 5px; */
+/* 	outline: 1px solid red; */
 /* 	height: 270px; */
 }
 
@@ -282,6 +286,7 @@ a.button img {
 	background-color: white;
 	border-radius: 5px;
 	overflow: auto;
+/* 	max-width: 90%; */
 }
 
 .multiChoice .storePic {
