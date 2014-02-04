@@ -230,7 +230,7 @@ a.button img {
 .storeItem {
 /* 	background-color: white; */
 	max-width: 90%;
-	margin: 0 auto;
+	margin: 2em auto;
 /* 	height: 270px; */
 }
 
@@ -352,6 +352,7 @@ a.button img {
 	opacity: 0;
 	text-align: center;
 	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.1em;
 	transition: opacity .2s;
 }
 

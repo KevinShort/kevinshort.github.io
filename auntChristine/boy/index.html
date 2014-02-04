@@ -12,7 +12,8 @@
 	<link rel="stylesheet" href="../style/responsive.css"/>
 	<!-- Magnific Popup core CSS file -->
 	<link rel="stylesheet" href="../style/magnific-popup.css"> 
-
+<!-- 	<link href='http://fonts.googleapis.com/css?family=Frijole' rel='stylesheet' type='text/css'> -->
+<!-- 	<link href='http://fonts.googleapis.com/css?family=Titan+One' rel='stylesheet' type='text/css'> -->
 <!-- 	<script src="js/respond.min.js"></script> -->
 <!-- 		<script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
 	
@@ -71,8 +72,18 @@
 			
 			
 			<ul class="hatChoices">
-				<li><img src="../images/hats/boy/aviatorBrown_medium.jpg"/></li>
-				<li><img src="../images/hats/boy/aviatorTan_medium.jpg"/></li>
+				<li>
+					<a href="../images/hats/boy/aviatorBrown_large.jpg" class="imageLink">
+						<img src="../images/hats/boy/aviatorBrown_medium.jpg"/>
+						<div class="imgOverlay">Click to enlarge</div>
+					</a>
+				</li>
+				<li>
+					<a href="../images/hats/boy/aviatorTan_large.jpg" class="imageLink">
+						<img src="../images/hats/boy/aviatorTan_medium.jpg"/>
+						<div class="imgOverlay">Click to enlarge</div>
+					</a>
+				</li>
 			</ul>
 			
 			
@@ -170,7 +181,7 @@
 		
 	</div>
 	
-	<div class="floatClearer">
+	<!--<div class="floatClearer">
 		<br/>
 	</div>
 	
@@ -188,19 +199,15 @@
 			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr"
 					method="post" class="paypalForm">
 
-				<!-- Identify your business so that you can collect the payments. -->
 				<input type="hidden" name="business" value="kin@kinskards.com">
 
-				<!-- Specify an Add to Cart button. -->
 				<input type="hidden" name="cmd" value="_cart">
 				<input type="hidden" name="add" value="1">
 
-				<!-- Specify details about the item that buyers will purchase. -->
 				<input type="hidden" name="item_name"
 					value="Brown Aviator Hat">
 				<input type="hidden" name="currency_code" value="USD">
 
-				<!-- Provide a dropdown menu option field with prices. -->
 				<input type="hidden" name="on1" value="Size">Size:
 					<select name="os1">
 						<option value="0-3 months">0-3 Months - $15</option>
@@ -212,7 +219,6 @@
 						<option value="adult">Adult - $20</option>
 					</select> <br />
 
-				<!-- Specify the price that PayPal uses for each option. -->
 				<input type="hidden" name="option_index" value="1">
 				<input type="hidden" name="option_select0" value="0-3 months">
 				<input type="hidden" name="option_amount0" value="15">
@@ -232,11 +238,10 @@
 				<input type="hidden" name="shopping_url"
 				value="http://kevinshort.github.io/auntChristine/boy/">
 
-				<!-- Display the payment button. -->
 				<!--<input type="image" name="submit" border="0" class="paypalBuyButton"
 					src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
 					alt="PayPal - The safer, easier way to pay online">-->
-				<input type="submit" name="submit" border="0" class="addToCart"
+				<!--<input type="submit" name="submit" border="0" class="addToCart"
 					value="Add to Cart">
 				<img alt="" border="0" width="1" height="1"
 					src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
@@ -262,19 +267,15 @@
 			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr"
 					method="post" class="paypalForm">
 
-				<!-- Identify your business so that you can collect the payments. -->
 				<input type="hidden" name="business" value="kin@kinskards.com">
 
-				<!-- Specify an Add to Cart button. -->
 				<input type="hidden" name="cmd" value="_cart">
 				<input type="hidden" name="add" value="1">
 
-				<!-- Specify details about the item that buyers will purchase. -->
 				<input type="hidden" name="item_name"
 					value="Tan Aviator Hat">
 				<input type="hidden" name="currency_code" value="USD">
 
-				<!-- Provide a dropdown menu option field with prices. -->
 				<input type="hidden" name="on1" value="Size">Size:
 					<select name="os1">
 						<option value="0-3 months">0-3 Months - $15</option>
@@ -286,7 +287,6 @@
 						<option value="adult">Adult - $20</option>
 					</select> <br />
 
-				<!-- Specify the price that PayPal uses for each option. -->
 				<input type="hidden" name="option_index" value="1">
 				<input type="hidden" name="option_select0" value="0-3 months">
 				<input type="hidden" name="option_amount0" value="15">
@@ -306,11 +306,10 @@
 				<input type="hidden" name="shopping_url"
 				value="http://kevinshort.github.io/auntChristine/boy/">
 
-				<!-- Display the payment button. -->
 				<!--<input type="image" name="submit" border="0" class="paypalBuyButton"
 					src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
 					alt="PayPal - The safer, easier way to pay online">-->
-				<input type="submit" name="submit" border="0" class="addToCart"
+				<!--<input type="submit" name="submit" border="0" class="addToCart"
 					value="Add to Cart">
 				<img alt="" border="0" width="1" height="1"
 					src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
@@ -320,7 +319,7 @@
 	
 	<div class="floatClearer">
 		<br/>
-	</div>
+	</div> -->
 	
 	<div class="storeItem">
 		<div class="storePic">
@@ -656,27 +655,40 @@
 	});
 	
 	$(document).ready(function(){
-			$('.hatChoices').bxSlider({
-				pagerCustom: '#hatChoicesPager',
-				mode: 'fade',
-				speed: 200,
-				controls: false,
-			});
+		var slider = $('.hatChoices').bxSlider({
+			pagerCustom: '#hatChoicesPager',
+			mode: 'fade',
+			speed: 150,
+			controls: false,
 		});
 		
-	$('.captionImg').click(function() {
-// 		$(this).parent().find('.captionImg').css('background-color', '#000');
-// 		$(this).css('background-color', '#fff');
-		$('.captionImg').removeClass('activePager');
-		$(this).addClass('activePager');
-		$('#aviatorColor').val($(this).attr('id'));
+		$('#aviatorColor').change(function() {
+			var color = $(this).find('option:selected').attr('value');
+			$('.captionImg').removeClass('activePager');
+			var activeElement = $('.captionImg#'+color);
+			activeElement.addClass('activePager');
+			
+			var slideNum = activeElement.parent().attr('data-slide-index');
+			slideNum = parseInt(slideNum);
+			
+			slider.goToSlide(slideNum);
+// 				console.log(slider.getCurrentSlide());
+		});
+		
+		$('.captionImg').click(function() {
+	// 		$(this).parent().find('.captionImg').css('background-color', '#000');
+	// 		$(this).css('background-color', '#fff');
+			$('.captionImg').removeClass('activePager');
+			$(this).addClass('activePager');
+			$('#aviatorColor').val($(this).attr('id'));
+		});
 	});
-	
+/*	
 	$('#aviatorColor').change(function() {
 		var color = $(this).find('option:selected').attr('value');
 		$('.captionImg').removeClass('activePager');
 		var activeElement = $('.captionImg#'+color);
-		activeElement.addClass('activePager');
+		activeElement.addClass('activePager');*/
 		
 // 		var slideNum = activeElement.parent().attr('data-slide-index');
 // 		slideNum = parseInt(slideNum);
@@ -687,7 +699,7 @@
 // 		console.log(slider.getCurrentSlide());
 // 		console.log(slider.getSlideCount());
 // 		activeElement.click();
-	});
+// 	});
 </script>
 
 </body>
