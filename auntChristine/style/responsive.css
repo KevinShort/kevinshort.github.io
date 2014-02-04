@@ -202,6 +202,76 @@ h1.contact {
 	padding-bottom: 0.5em;
 	font-size: 1.4em;
 }
+a.facebook {
+	color: #22d;
+/* 	color: #eee; */
+/* 	background: #33c; */
+/* 	padding: .1em .2em; */
+/* 	border-radius: 5px; */
+	text-decoration: none;
+	font-weight: bold;
+/* 	box-shadow: 0px 2px 0px 1px #009; */
+}
+a.facebook:hover {
+	text-decoration: underline;
+	color: #33e;
+/* 	background: #12c; */
+}
+
+#emailForm {
+	margin: 2em auto;
+	width: 60%;
+	padding: 1em;
+	border: 1px solid #ccc;
+	border-radius: 1em;
+}
+#emailForm div + div {
+	margin-top: 1em;
+}
+#emailForm label {
+	display: block;
+/* 	width: 20%; */
+/* 	text-align: right; */
+}
+#emailForm input, textarea {
+	font: 1em sans-serif;
+	padding: .4em;
+	width: 95%;
+	border: 1px solid #999;
+}
+#emailForm textarea {
+	vertical-align: top;
+	height: 5em;
+	resize: vertical;
+}
+#emailForm input:focus, #emailForm textarea:focus {
+	border-color: #333;
+}
+.emailButton {
+	width: 45%;
+	min-width: 140px;
+	margin: 0 auto;
+/* 	padding-left: 20%; */
+}
+/*.emailbutton > input {
+	background-color: blue;
+	color: white;
+	background-color: #DC0055; 
+	background-image: none;
+	border: none;
+}*/
+#submitEmail {
+	background-color: #DC0055; 
+	color: white;
+	padding: 5px;
+	border-radius: 5px;
+	border: none;
+	text-decoration: none;
+	cursor: pointer;
+}
+#submitEmail:hover {
+	background-color: #ED2277;
+}
 
 a.button {
 	background-color: #DC0055;
@@ -522,6 +592,9 @@ a.button img {
 	.paypalForm {
 		padding-top: 10px;
 	}
+	#emailForm {
+		width: 80%;
+	}
 	#disclaimer {
 		width: 80%;
 	}
@@ -647,6 +720,9 @@ a.button img {
 	}
 	a.button:hover {
 		padding: 4px 10px 6px;
+	}
+	#emailForm {
+		width: 90%;
 	}
 	#disclaimer {
 		width: 90%;
