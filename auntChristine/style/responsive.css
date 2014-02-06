@@ -301,6 +301,7 @@ a.button img {
 	background-color: #fcfcfc;
 	max-width: 90%;
 	margin: 0 auto;
+	margin-bottom: 1em;
 	overflow: auto;
 	border-radius: 5px;
 /* 	padding: 5px; */
@@ -339,6 +340,7 @@ a.button img {
 	background-image: linear-gradient(to top, #E5E1ED 0%, #FFFFFF 100%);*/
 	height: 270px;
 	width: 55%;
+	max-width: 400px;
 	overflow: hidden;
 /* 	transition: height .5s ease-in; */
 }
@@ -547,6 +549,13 @@ a.button img {
 	clear: both;
 /* 	background-color: blue; */
 }
+/*.storeItem:after {
+	content: " ";
+	display: block;
+	height: auto;
+	clear: both;
+	background-color: blue;
+}*/
 
 #disclaimer {
 	width: 60%;
@@ -578,6 +587,7 @@ a.button img {
 	}*/
 	.storePic, .multiChoice .storePic {
 		height: 220px;
+		max-width: 300px;
 	}
 	.multiChoice .storePic img {
 		height: 220px;
@@ -662,6 +672,7 @@ a.button img {
 	.storePic {
 		clear: both;
 		width: 100%;
+		max-width: none;
 		height: auto;
 		border-radius: 5px 5px 0px 0px;
 /* 		border: 1px solid #DC0055; */
@@ -681,6 +692,7 @@ a.button img {
 	}
 	.multiChoice .storePic {
 		height: auto;
+		max-width: none;
 	}
 	.multiChoice .itemDetails {
 		height: auto;
