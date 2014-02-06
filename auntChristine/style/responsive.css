@@ -576,10 +576,13 @@ a.button img {
 		height: auto;
 		width: 100%;
 	}*/
-	.storePic {
+	.storePic, .multiChoice .storePic {
 		height: 220px;
 	}
-	.itemDetails {
+	.multiChoice .storePic img {
+		height: 220px;
+	}
+	.itemDetails, .multiChoice .itemDetails {
 		height: 220px;
 	}
 	.itemDetails h1 {
