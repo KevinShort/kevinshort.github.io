@@ -298,7 +298,7 @@ a.button img {
 }
 
 .storeItem {
-	background-color: white;
+	background-color: #fcfcfc;
 	max-width: 90%;
 	margin: 0 auto;
 	overflow: auto;
@@ -353,7 +353,7 @@ a.button img {
 }
 
 .multiChoice {
-	background-color: white;
+	background-color: #fcfcfc;
 	border-radius: 5px;
 	overflow: auto;
 /* 	max-width: 90%; */
