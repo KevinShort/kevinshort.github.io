@@ -225,7 +225,7 @@ a.facebook:hover {
 	width: 60%;
 	padding: 1em;
 	border: 1px solid #ccc;
-	border-radius: 1em;
+	border-radius: 5px;
 }
 #emailForm div + div {
 	margin-top: 1em;
