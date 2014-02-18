@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8' />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+	<meta name="viewport" content="width=device-width" />
+	<meta name="description" content="Handmade crochet hats for you and your family!" />
+	<!--<link rel="stylesheet" media="screen and (max-width: 750px)" 
+			href="style/mobile.css" />
+	<link rel="stylesheet" media="screen and (min-width: 751px)" 
+			href="style/main.css" />-->
+	<link rel="stylesheet" href="../style/responsive.css"/>
+<!-- 	<script src="js/respond.min.js"></script> -->
+	
+<!-- 	<link rel="stylesheet" type="text/css" href="style/main.css"/> -->
+	<title>Contact - Chris' Crochet Corner</title>
+	
+<!-- 	<script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
+	<!-- bxSlider Javascript file -->
+<!-- 	<script src="../js/jquery.bxslider.min.js"></script> -->
+	<!-- bxSlider CSS file -->
+<!--	<link href="../style/jquery.bxslider.css" rel="stylesheet" />
+	
+	<script>
+		$(document).ready(function(){
+			$('.bxslider').bxSlider({
+				auto: true,
+				speed: 1000,
+				pause: 6000,
+				mode: 'fade',
+			});
+		});
+	</script>-->
+  
+</head>
+<body>
+
+<div id="container">
+	<div class="header">
+		<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr"
+				method="post" id="viewCart">
+
+			<!-- Identify your business so that you can collect the payments. -->
+			<input type="hidden" name="business" value="kin@kinskards.com">
+
+			<!-- Specify a PayPal Shopping Cart View Cart button. -->
+			<input type="hidden" name="cmd" value="_cart">
+			<input type="hidden" name="display" value="1">
+
+			<!-- Continue shopping on the current webpage of the merchant site. -->
+			<input type="hidden" name="shopping_url"
+				value="http://www.kinskards.com/birthday_cards">
+
+			<!-- Display the View Cart button. -->
+			<!--<input type="image" name="submit" border="0"
+				src="https://www.paypalobjects.com/en_US/i/btn/btn_viewcart_LG.gif"
+			alt="View Cart">-->
+			<input type="submit" name="submit" border="0"
+				value="View Cart">
+			<img alt="" border="0" width="1" height="1"
+				src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+		</form>
+		<div class="headerImage">
+			<img src="../images/ChrisChrochetCornerBanner.png" />
+		</div>
+	</div>
+	<div class="floatClearer"></div>
+	
+	<div id="menu">
+		<ul>
+			<li><a href="../index.html">Home</a></li>
+			<li><a href="../girl/index.html">Girl</a></li>
+			<li><a href="../boy/index.html">Boy</a></li>
+			<li><a href="../unisex/index.html">Unisex</a></li>
+			<li><a href="" class="active">Contact</a></li>
+		</ul>
+	</div>
+	
+	<div class="article">
+		<h1 class="contact">Contact Me</h1>
+		<p>Uh oh! Something went wrong when processing your message.
+		Make sure you fill out all fields, then try again.
+		</p>
+		
+		<form id="emailForm" action="http://pancake-apps-php.appspot.com/" method="post">
+			<div>
+				<label for="name">Name:</label>
+				<input type="text" id="name" name="name"/>
+			</div>
+			<div>
+				<label for="email">Email Address:</label>
+				<input type="email" id="email" name="email"/>
+			</div>
+			<div>
+				<label for="msg">Message:</label>
+				<textarea id="msg" name="message"></textarea>
+			</div>
+			<div class="emailButton">
+				<input type="submit" name="submit" value="Send Message" 
+					id="submitEmail" />
+			</div>
+		</form>
+		
+	</div>
+	<br/>
+</div>
+
+<div id="footer">
+	Copyright &copy; 2014 Chris' Crochet Corner
+</div>
+
+</body>
+</html>
