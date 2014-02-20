@@ -602,10 +602,10 @@ a.button img {
 	}
 	.itemDetails h1 {
 		padding-top: 10px;
-		font-size: 1em;
+/* 		font-size: 1em; */
 	}
 	.itemDetails p {
-		font-size: 0.9em;
+/* 		font-size: 0.9em; */
 	}
 	/*.captionImg {
 		width: 32%;
