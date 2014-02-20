@@ -364,7 +364,7 @@ a.button img {
 }
 
 .multiChoice .storePic {
-	height: 270px;
+	height: auto;
 }
 .multiChoice .storePic img {
 	height: 270px;
@@ -587,8 +587,11 @@ a.button img {
 		height: auto;
 		width: 100%;
 	}*/
-	.storePic, .multiChoice .storePic {
+	.storePic {
 		height: 220px;
+		max-width: 300px;
+	}
+	.multiChoice .storePic {
 		max-width: 300px;
 	}
 	.multiChoice .storePic img {
@@ -712,12 +715,14 @@ a.button img {
 		border-top: 0;
 		text-align: center;
 	}
-	.itemDetails h2 {
-		padding: 10px;
+	.itemDetails h1 {
+/* 		padding: 10px; */
+		font-size: 1.1em;
 	}
 	.itemDetails p {
 		padding-left: 20px;
 		padding-right: 20px;
+		font-size: 1em;
 	}
 	.paypalForm {
 		padding-top: 10px;

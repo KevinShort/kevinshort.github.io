@@ -297,7 +297,22 @@
 				</li>
 			</ul>
 			
-			
+			<div id="hatChoicesPager">
+				<a data-slide-index="0" href="">
+					<div class="captionImg activePager" id="Brown">
+						<img src="../images/hats/boy/aviatorBrown_medium.jpg" />
+<!-- 						<p>Brown</p> -->
+					</div>
+				</a>
+				
+				<a data-slide-index="1" href="">
+					<div class="captionImg" id="Tan">
+						<img src="../images/hats/boy/aviatorTan_medium.jpg"/>
+<!-- 						<p>Tan</p> -->
+					</div>
+				</a>
+			</div>
+<!-- 			<div class="floatClearer"></div> -->
 			
 		</div>
 		<div class="itemDetails">
@@ -372,23 +387,6 @@
 					src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
 			</form>
 		</div>
-		
-		<div id="hatChoicesPager">
-			<a data-slide-index="0" href="">
-				<div class="captionImg activePager" id="Brown">
-					<img src="../images/hats/boy/aviatorBrown_medium.jpg" />
-					<p>Brown</p>
-				</div>
-			</a>
-			
-			<a data-slide-index="1" href="">
-				<div class="captionImg" id="Tan">
-					<img src="../images/hats/boy/aviatorTan_medium.jpg"/>
-					<p>Tan</p>
-				</div>
-			</a>
-		</div>
-		<div class="floatClearer"></div>
 	</div>
 	
 	<!--<div class="floatClearer"></div>-->
@@ -653,6 +651,7 @@
 			mode: 'fade',
 			speed: 150,
 			controls: false,
+			touchEnabled: false,
 		});
 		
 		$('#aviatorColor').change(function() {
