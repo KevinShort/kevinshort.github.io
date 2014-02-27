@@ -319,7 +319,7 @@ a.button img {
 .multiChoice .storePic {
 	height: auto;
 }
-.multiChoice .storePic img {
+.multiChoice .hatChoices img {
 	height: 270px;
 }
 .multiChoice .itemDetails {
@@ -330,11 +330,11 @@ a.button img {
 	padding: 0;
 }
 
-#hatChoicesPager img {
+.hatChoicesPager img {
 	width: 100%;
 	height: auto;
 }
-#hatChoicesPager p {
+.hatChoicesPager p {
 	padding: 0;
 	color: black;
 	text-align: center;
@@ -360,7 +360,7 @@ a.button img {
 	outline: none;
 }
 
-#hatChoicesPager .activePager {
+.hatChoicesPager .activePager {
 	border: 1px solid #222;
 	background: #ffbad5;
 }
@@ -536,7 +536,7 @@ a.button img {
 	.multiChoice .storePic {
 		max-width: 300px;
 	}
-	.multiChoice .storePic img {
+	.multiChoice .hatChoices img {
 		height: 220px;
 	}
 	.itemDetails, .multiChoice .itemDetails {

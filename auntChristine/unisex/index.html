@@ -275,7 +275,7 @@
 	<div class="storeItem multiChoice">
 		<div class="storePic">
 			
-			<ul class="hatChoices">
+			<ul class="hatChoices" id="minionHatChoices">
 				<li>
 					<a href="../images/hats/unisex/oneEyedMinion_large.jpg" class="imageLink">
 						<img src="../images/hats/unisex/oneEyedMinion_medium.jpg"
@@ -293,22 +293,19 @@
 			</ul>
 			
 			
-			<div id="hatChoicesPager">
+			<div class="hatChoicesPager" id="minionPager">
 				<a data-slide-index="0" href="">
-					<div class="captionImg activePager" id="One-Eye">
+					<div class="captionImg activePager minion" id="One-Eye">
 						<img src="../images/hats/unisex/oneEyedMinion_small.jpg" />
-	<!-- 					<p>Purple</p> -->
 					</div>
 				</a>
 				
 				<a data-slide-index="1" href="">
-					<div class="captionImg" id="Two-Eyes">
+					<div class="captionImg minion" id="Two-Eyes">
 						<img src="../images/hats/unisex/twoEyedMinion_small.jpg"/>
-	<!-- 					<p>Pink</p> -->
 					</div>
 				</a>
 			</div>
-<!-- 			<div class="floatClearer"></div> -->
 			
 			
 			
@@ -527,16 +524,48 @@
 	<div class="floatClearer">
 		<br/>
 	</div>-->
-	
-	<div class="storeItem">
+    
+    
+    <div class="storeItem multiChoice">
 		<div class="storePic">
-			<a href="../images/hats/unisex/owlBlue_large.jpg" class="imageLink">
-				<img src="../images/hats/unisex/owlBlue_medium.jpg"/>
-				<div class="imgOverlay">Click to enlarge</div>
-			</a>
+			
+			<ul class="hatChoices" id="owlHatChoices">
+				<li>
+					<a href="../images/hats/unisex/owlBlue_large.jpg" class="imageLink">
+						<img src="../images/hats/unisex/owlBlue_medium.jpg"
+							alt="Blue Owl Hat"/>
+						<div class="imgOverlay">Click to enlarge</div>
+					</a>
+				</li>
+				<li>
+					<a href="../images/hats/unisex/owlGreen_large.jpg" class="imageLink">
+						<img src="../images/hats/unisex/owlGreen_medium.jpg"
+							alt="Green Owl Hat"/>
+						<div class="imgOverlay">Click to enlarge</div>
+					</a>
+				</li>
+			</ul>
+			
+			
+			<div class="hatChoicesPager" id="owlPager">
+				<a data-slide-index="0" href="">
+					<div class="captionImg owl activePager" id="blue"> 
+						<img src="../images/hats/unisex/owlBlue_small.jpg" />
+					</div>
+				</a>
+				
+				<a data-slide-index="1" href="">
+					<div class="captionImg owl" id="green">
+						<img src="../images/hats/unisex/owlGreen_small.jpg"/>
+					</div>
+				</a>
+			</div>
+			
+			
+			
 		</div>
 		<div class="itemDetails">
-			<h1>Blue Owl</h1>
+			<h1>Owl</h1>
 			<p>Whooooooo looks great in this hat?  You do!</p>
 			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr"
 					method="post" class="paypalForm">
@@ -550,8 +579,14 @@
 
 				<!-- Specify details about the item that buyers will purchase. -->
 				<input type="hidden" name="item_name"
-					value="Blue Owl Hat">
+					value="Minion Hat">
 				<input type="hidden" name="currency_code" value="USD">
+				
+				<input type="hidden" name="on0" value="Color">Color:
+					<select name="os0" id="owlColor">
+						<option value="blue" selected="selected">Blue</option>
+						<option value="green">Green</option>
+					</select> <br /><br />
 
 				<!-- Provide a dropdown menu option field with prices. -->
 				<input type="hidden" name="on1" value="Size">Size:
@@ -581,6 +616,9 @@
 				<input type="hidden" name="option_amount5" value="20">
 				<input type="hidden" name="option_select6" value="adult">
 				<input type="hidden" name="option_amount6" value="20">
+				
+				<input type="hidden" name="shopping_url"
+				value="http://kevinshort.github.io/auntChristine/unisex/">
 
 				<!-- Display the payment button. -->
 				<!--<input type="image" name="submit" border="0" class="paypalBuyButton"
@@ -592,81 +630,13 @@
 					src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
 			</form>
 		</div>
+		
+		
+		
 	</div>
-	
-	<div class="floatClearer">
-		<br/>
-	</div>
-	
-	<div class="storeItem">
-		<div class="storePic">
-			<a href="../images/hats/unisex/owlGreen_large.jpg" class="imageLink">
-				<img src="../images/hats/unisex/owlGreen_medium.jpg"/>
-				<div class="imgOverlay">Click to enlarge</div>
-			</a>
-		</div>
-		<div class="itemDetails">
-			<h1>Green Owl</h1>
-			<p>Whooooooo looks great in this hat?  You do!</p>
-			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr"
-					method="post" class="paypalForm">
+    
+    <div class="floatClearer"></div>
 
-				<!-- Identify your business so that you can collect the payments. -->
-				<input type="hidden" name="business" value="kin@kinskards.com">
-
-				<!-- Specify an Add to Cart button. -->
-				<input type="hidden" name="cmd" value="_cart">
-				<input type="hidden" name="add" value="1">
-
-				<!-- Specify details about the item that buyers will purchase. -->
-				<input type="hidden" name="item_name"
-					value="Green Owl Hat">
-				<input type="hidden" name="currency_code" value="USD">
-
-				<!-- Provide a dropdown menu option field with prices. -->
-				<input type="hidden" name="on1" value="Size">Size:
-					<select name="os1">
-						<option value="0-3 months">0-3 Months - $15</option>
-						<option value="3-6 months">3-6 Months - $15</option>
-						<option value="6-9 months">6-9 Months - $15</option>
-						<option value="9-12 months">9-12 Months - $15</option>
-						<option value="toddler">Toddler - $20</option>
-						<option value="child">Child - $20</option>
-						<option value="adult">Adult - $20</option>
-					</select> <br />
-
-				<!-- Specify the price that PayPal uses for each option. -->
-				<input type="hidden" name="option_index" value="1">
-				<input type="hidden" name="option_select0" value="0-3 months">
-				<input type="hidden" name="option_amount0" value="15">
-				<input type="hidden" name="option_select1" value="3-6 months">
-				<input type="hidden" name="option_amount1" value="15">
-				<input type="hidden" name="option_select2" value="6-9 months">
-				<input type="hidden" name="option_amount2" value="15">
-				<input type="hidden" name="option_select3" value="9-12 months">
-				<input type="hidden" name="option_amount3" value="15">
-				<input type="hidden" name="option_select4" value="toddler">
-				<input type="hidden" name="option_amount4" value="20">
-				<input type="hidden" name="option_select5" value="child">
-				<input type="hidden" name="option_amount5" value="20">
-				<input type="hidden" name="option_select6" value="adult">
-				<input type="hidden" name="option_amount6" value="20">
-
-				<!-- Display the payment button. -->
-				<!--<input type="image" name="submit" border="0" class="paypalBuyButton"
-					src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
-					alt="PayPal - The safer, easier way to pay online">-->
-				<input type="submit" name="submit" border="0" class="addToCart"
-					value="Add to Cart">
-				<img alt="" border="0" width="1" height="1"
-					src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
-			</form>
-		</div>
-	</div>
-	
-	<div class="floatClearer">
-		<br/>
-	</div>
 	
 	<div class="storeItem">
 		<div class="storePic">
@@ -780,8 +750,15 @@
 	
 	
 	$(document).ready(function(){
-		var slider = $('.hatChoices').bxSlider({
-			pagerCustom: '#hatChoicesPager',
+		var minionSlider = $('#minionHatChoices').bxSlider({
+			pagerCustom: '#minionPager',
+			mode: 'fade',
+			speed: 150,
+			controls: false,
+			touchEnabled: false,
+		});
+        var owlSlider = $('#owlHatChoices').bxSlider({
+			pagerCustom: '#owlPager',
 			mode: 'fade',
 			speed: 150,
 			controls: false,
@@ -790,23 +767,41 @@
 		
 		$('#minionStyle').change(function() {
 			var style = $(this).find('option:selected').attr('value');
-			$('.captionImg').removeClass('activePager');
+			$('.captionImg.minion').removeClass('activePager');
 			var activeElement = $('.captionImg#'+style);
 			activeElement.addClass('activePager');
-			
 			var slideNum = activeElement.parent().attr('data-slide-index');
 			slideNum = parseInt(slideNum);
 			
-			slider.goToSlide(slideNum);
+			minionSlider.goToSlide(slideNum);
+// 				console.log(slider.getCurrentSlide());
+		});
+        
+        $('#owlColor').change(function() {
+			var color = $(this).find('option:selected').attr('value');
+			$('.captionImg.owl').removeClass('activePager');
+			var activeElement = $('.captionImg#'+color);
+			activeElement.addClass('activePager');
+			var slideNum = activeElement.parent().attr('data-slide-index');
+			slideNum = parseInt(slideNum);
+			
+			owlSlider.goToSlide(slideNum);
 // 				console.log(slider.getCurrentSlide());
 		});
 		
-		$('.captionImg').click(function() {
+		$('.captionImg.minion').click(function() {
 	// 		$(this).parent().find('.captionImg').css('background-color', '#000');
 	// 		$(this).css('background-color', '#fff');
-			$('.captionImg').removeClass('activePager');
+			$('.captionImg.minion').removeClass('activePager');
 			$(this).addClass('activePager');
 			$('#minionStyle').val($(this).attr('id'));
+		});
+        $('.captionImg.owl').click(function() {
+	// 		$(this).parent().find('.captionImg').css('background-color', '#000');
+	// 		$(this).css('background-color', '#fff');
+			$('.captionImg.owl').removeClass('activePager');
+			$(this).addClass('activePager');
+			$('#owlColor').val($(this).attr('id'));
 		});
 	});
 </script>
