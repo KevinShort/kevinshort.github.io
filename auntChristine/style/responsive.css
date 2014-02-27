@@ -47,6 +47,7 @@ body {
 	width: 100%;
 	overflow: auto;
 	position: relative;
+	padding-top: 20px;
 /* 	box-shadow: 0px 5px 5px -5px #00909b; */
 /* 	background-color: #3f2860; */
 /* 	background-color: #b4abec; */
@@ -106,7 +107,7 @@ body {
 /*     background-color: #54026E; */
 /*     border-radius: 0 0 3px 3px; */
 /* 	box-shadow: 1px 1px 0px 1px #ab0033; */
-	background-image: linear-gradient(to top, #55026E 0%, #8017A3 100%);*/
+/* 	background-image: linear-gradient(to top, #55026E 0%, #8017A3 100%); */
 	
 }
 
