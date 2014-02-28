@@ -313,7 +313,7 @@ function gameLoop() {						// things that happen repeating during game
 	drawTargets ();
 	Scoreboard ();							// redraw the whole scoreboard so that the numbers update
 	MyPlayerObject.displayOnCanvas();		// draw MyPlayer based on current X and Y coordinates
-	GameLogic();							// run GameLogic to see if we are close to target
+	//GameLogic();							// run GameLogic to see if we are close to target
 
 	setTimeout(gameLoop,100);				// rerun this function to keep game running
 	}
