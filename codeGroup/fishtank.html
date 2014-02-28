@@ -10,8 +10,8 @@
   
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
-var sideWidth = 200;
-var sideHeigth = 150;
+var sideWidth = 500;
+var sideHeigth = 350;
 var maxspeed = 5;
 
 function tankBehind() {
@@ -174,7 +174,7 @@ function fish2(colorR, colorG, colorB, X, Y, D) {
 	this.speedX=Math.floor(Math.random()*maxspeed*this.size+1) *this.way;
 	this.speedY=Math.floor(Math.random()*4-2);				// +2 to -2 range
 	
-	}  // end of fish2 function
+}  // end of fish2 function
  
 fish.prototype.draw = function(){
 	var difs = Math.random();
@@ -358,7 +358,7 @@ for (var i=0; i<10; i++)
 
 
 function gameLoop(){
-// 	tankBehind ();
+	tankBehind ();
 	
 	
 	redfish.draw(); 
