@@ -161,6 +161,9 @@ body {
 	margin-bottom: 1em;
 	font-size: 1.1em;
 }
+.article img {
+    max-width: 100%;
+}
 
 h1.contact {
 /* 	float: left; */
