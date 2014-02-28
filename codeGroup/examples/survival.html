@@ -1,0 +1,346 @@
+<html>
+ <head>
+ <title>Survival Game</title>
+ </head>
+ 
+<body>
+<canvas id="myScore" width="200" height="600"></canvas>				<!-- 	%   these are bottom align right now -->
+<canvas id="mySpace" width="10" height="200"></canvas>				<!-- 	%   space between visible canvases -->
+<canvas id="canvas" width="800" height="600"></canvas>
+
+
+<script type="application/javascript">
+  
+  
+  
+// SETUP GLOBAL VARIABLES   -- VALUES SET HERE CAN BE USED OR CHANGED IN ANY FUNCTION
+
+// setup objects for both canvases
+	var canvas = document.getElementById("canvas");				// game canvas
+	var ctx = canvas.getContext("2d");
+	var ctxOverlay = canvas.getContext("2d");	
+	ctxOverlay.globalAlpha  = 1;
+
+	var canvas2 = document.getElementById("myScore");			// Get the score canvas element.
+	var ctx2 = canvas2.getContext("2d");	
+
+// simple numberic variables
+	var value_of_key_pressed = 0; 								// key press variable, changes once key is pressed in DoSomethingWhenKeyPresses
+	var LookingForElement = 0;									// which item of array to find now, start at 0
+	var howFarApart_X = 0;
+	var howFarApart_Y = 0;
+	var viewable = 50;
+	var gather = 10;
+	var food = 100;
+	var water = 100;
+	var gold = 50;
+	var foodTargets = Math.ceil(Math.random()*4)+3;			// RANDOM NUMBER FOR FOODS OF EACH TARGET
+	var waterTargets = Math.ceil(Math.random()*7)+3;		// RANDOM NUMBER FOR FOODS OF EACH TARGET
+	var goldTargets = Math.ceil(Math.random()*2)+3;			// RANDOM NUMBER FOR FOODS OF EACH TARGET	
+  
+// variables that contain objects
+	var MyPlayerObject     =new MyPlayer();	
+	var targetObj 		  = new Array();
+
+		// make FOOD targets			
+			for (var i=0; i < foodTargets; i++) {				
+						targetObj[i] =new TargetSetup(1,0,0,"red");
+				}	
+		// make WATER targets			
+			for (var i = foodTargets; i < foodTargets + waterTargets; i++) {				
+						targetObj[i] =new TargetSetup(0,1,0,"#0963BD");
+				}
+		// make GOLD targets			
+			for (var i = foodTargets + waterTargets; i < foodTargets + waterTargets + goldTargets; i++) {				
+						targetObj[i] =new TargetSetup(0,0,1,"gold");
+				}			
+			
+
+
+
+function DoSomethingWhenKeyPresses(evt) {	
+						
+		var moveBy = viewable / 2;
+		value_of_key_pressed = evt.keyCode;							// value_of_key_pressed is a global var so we can use in Scoreboard function
+
+        switch (evt.keyCode) {
+			case 39:												// Right arrow.  increase .x by moveBy 
+				MyPlayerObject.x = MyPlayerObject.x + moveBy;
+				break;
+			case 40:												// Down arrow.   increase .y by moveBy 
+				MyPlayerObject.y = MyPlayerObject.y + moveBy;
+				break;
+			case 37:												// Left arrow.    decrease .x by moveBy 
+				MyPlayerObject.x = MyPlayerObject.x - moveBy;
+				break;
+			case 38:												// Up arrow. 	  decrease .x by moveBy 
+				MyPlayerObject.y = MyPlayerObject.y - moveBy;
+				break;
+			case 79:												// O. 	  decrease opacity of overlay
+				ctxOverlay.globalAlpha  -= .01;
+				break;
+			case 76:												// L. 	  larger viewable area in overlay
+				viewable  += 5;
+				break;
+			case 67:												// C. 	  increase gather circle diameter 
+				gather  += 5;
+				break;	
+		
+			case 70:												// F. 	  increase food stacks 
+				for (var i=0; i < foodTargets; i++) {				
+						targetObj[i].food += 1;
+					}
+				break;	
+			case 87:												// W. 	  increase food stacks 
+				for (var i = foodTargets; i < foodTargets + waterTargets; i++) {				
+						targetObj[i].water += 1;
+					}
+				break;				
+			case 71:												// G. 	  increase gold stacks 
+				for (var i = foodTargets + waterTargets; i < foodTargets + waterTargets + goldTargets; i++) {				
+						targetObj[i].gold += 1;
+					}	
+				break;				
+
+				
+			default:												// If any other keys were presssed
+				// HANDLE WRONG KEY PRESS ACTIVITY HERE
+				//alert("Please only use the arrow keys.");
+			}  	// end of switch
+      }		// end of DoSomethingWhenKeyPresses function
+
+	  
+
+function GameBackground() {									// CURRENTLY ONLY USED ONCE 
+	ctx.fillStyle='#dfd';									// LIGHT GREY
+	ctx.fillRect(0,0,canvas.width,canvas.height);			// DRAW A BOX,  CURRENTLY IF CANVAS SIZE IS CHANGED, BOX ISN'T CHANGED.
+	}  // end of GameBackground function
+
+
+	
+	
+	
+	
+function Scoreboard() {									// using CTX2 object
+	
+	ctx2.fillStyle='#ddd';								// set a fill color
+	ctx2.fillRect(0,0,canvas2.width, canvas2.height);	// background display
+
+	ctx2.font = "20 point Ariel";						// font 
+	ctx2.fillStyle = 'blue';							// set a fill color -- text color in box - used with .fill and .fillText  
+	ctx2.fillText("XY", 				10, 20);
+    ctx2.fillText(MyPlayerObject.x +","+MyPlayerObject.y, 50, 20);		// I RESTRICTED TARGET'S X AND Y VALUES TO MULTIPLES OF 10 ALSO IN THE TargetSetup FUNCTION
+	ctx2.fillText("OLC FWG", 			10, 40);
+	
+	ctx2.fillText("key", 				10, 60);
+	ctx2.fillText(value_of_key_pressed , 60, 60);
+	ctx2.fillText(ctxOverlay.globalAlpha , 90, 60);
+	
+	ctx2.fillText("food", 				10, 80);
+	ctx2.fillText(food, 			 	60, 80);
+	
+	ctx2.fillText("water", 				10, 100);
+	ctx2.fillText(water, 				60, 100);
+	
+	ctx2.fillText("gold", 				10, 120);
+	ctx2.fillText(gold, 				60, 120);
+	
+	for (var i=0; i<targetObj.length; i++) {						// for each element of the array of targets
+				ctx2.fillText(
+					i+" , "+targetObj[i].food+" , "+targetObj[i].water+" , "+targetObj[i].gold+" , "+targetObj[i].color, 10, 160+ i*20 );
+		}
+	
+}	// end of scoreboard function
+	
+	
+	
+	
+	
+	
+	
+	
+	
+function MyPlayer() {						// information about your player
+this.x = 10;								// X coordinate
+this.y = 10;								// Y coordinate
+} //end MyPlayer function
+
+
+	
+MyPlayer.prototype.displayOnCanvas = function() {				// THIS ACTUALLY DRAW YOUR PLAYER BASED ON PLAYER OBJECT VALUES
+	ctxOverlay.fillStyle='#ddd';								// COLOR SET HERE, COULD BE SET SOMEWHERE ELSE IF YOU WANT TO CHANGE IT DURING GAME PLAY
+	
+	ctxOverlay.beginPath();											// START DRAWING	
+	ctxOverlay.moveTo(0,0);											// top left
+	ctxOverlay.lineTo(canvas.width, 0);								// top right
+	ctxOverlay.lineTo(canvas.width, this.y);						// right, circle height
+	ctxOverlay.lineTo(this.x, this.y);								// center of circle
+	ctxOverlay.arc(this.x, this.y, viewable,0,Math.PI*2,true);		// draw circle
+	ctxOverlay.lineTo(canvas.width, this.y);						// back to right, circle height
+	ctxOverlay.lineTo(canvas.width, canvas.height);					// bottom right
+	ctxOverlay.lineTo(0, canvas.height);							// bottom left
+	ctxOverlay.lineTo(0, 0);										// back to start
+	ctxOverlay.fill();
+	// ctxOverlay.stroke();											// NOT USED... SHOW THE PATH OF THE ABOVE FILL AREA
+	
+	ctxOverlay.beginPath();												// stroke the circle for viewable area (grey)
+	ctxOverlay.strokeStyle='#999';	
+	ctxOverlay.arc(this.x, this.y, viewable,0,Math.PI*2,true);
+	ctxOverlay.stroke();
+	
+	ctxOverlay.beginPath();												// stroke the circle for the gather area (green)
+	ctxOverlay.strokeStyle='#0f0';
+	ctxOverlay.arc(this.x, this.y, gather,0,Math.PI*2,true);
+	ctxOverlay.stroke();
+
+}  // end MyPlayer.prototype.displayOnCanvas function
+
+
+
+
+
+
+
+
+
+
+function TargetSetup(F, W, G, Color) {							// RANDOM LOCATIONS OF TARGET ELEMENTS
+
+		var xMax = Math.floor(canvas.width / 10)-3;
+		var yMax = Math.floor(canvas.height / 10)-3;	
+		var Xcheck = 100;
+		var Ycheck = 100;
+
+		this.x = Math.ceil(Math.random() *xMax) *10;				// RANDOM NUMBER FOR X OF EACH TARGET
+		this.y = Math.ceil(Math.random() * yMax) *10;				// RANDOM NUMBER FOR Y OF EACH TARGET
+		this.food = Math.ceil(Math.random() * 15 + 5) * F;				// RANDOM FOOD
+		this.water = Math.ceil(Math.random() * 15 + 5) * W;				// RANDOM WATER
+		this.gold = Math.ceil(Math.random() * 5 + 5 ) * G ;				// RANDOM GOLD
+		this.color = Color;
+		
+		if (targetObj.length > 1 ) {
+				for (var i=0; i<targetObj.length-1; i++) {						// for each element of the array of targets
+						Xcheck = Math.abs(this.x -targetObj[i].x);
+						Ycheck = Math.abs(this.y -targetObj[i].y);		
+						if( Xcheck + Ycheck < 50 ) {
+							this.x += 20;
+							this.y += 20;
+							} // end of if
+					}  // end of for
+			}  // end of if
+	} // end of TargetSetup function
+	
+	
+	
+	
+// calls displayTargetOnCanvas for each array element	-- called from gameloop 	
+function drawTargets () {												// draw each target in array
+			for (var i=0; i<targetObj.length; i++) {					// for each element of the array of targets
+				targetObj[i].displayTargetOnCanvas(i, '#0f0');		// display target
+			}
+		} // end of drawTargets
+	
+	
+	
+	
+// called multiple time from drawTargets function
+TargetSetup.prototype.displayTargetOnCanvas = function(item, colorOfTarget) {	// arrary item number and color sent in
+	var radius = this.food + this.water + this.gold;
+
+	ctx.fillStyle=this.color;												
+
+	ctx.beginPath();
+	ctx.arc(this.x, this.y, radius,0,Math.PI*2,true);						// DRAW THE TARGET CIRCLE
+	ctx.fill();																	// fill it in
+	
+	ctx.font = "20 point Ariel"													// font to use
+	ctx.fillStyle="black";														// color OF TEXT IN TARGET CIRCLE
+	ctx.fillText(item, 	this.x, this.y);										// put array element number inside of circle
+	
+}	// end of TargetSetup.prototype.displayTargetOnCanvas function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function GameLogic () {
+	// CHECK POSITION OF MyPlayer .x and.y  AGAINST TARGET ARRAY ELEMENT .x and .y
+	// NEEDS CHECK FOR WHEN LAST ELEMENT IS REACHED, RIGHT NOW THIS GIVES AN ERROR WHEN CHECKING AN ELEMENT THAT IS PAST THE ARRAY LENGTH
+	
+	// how far apart are the X coordinates?
+	howFarApart_X = 			MyPlayerObject.x   -   targetObj[LookingForElement].x
+	
+	// how far apart are the Y coordinates?
+	howFarApart_Y =				MyPlayerObject.y   -   targetObj[LookingForElement].y
+
+
+	if (howFarApart_X + howFarApart_Y == 0)														// if difference in X and difference in Y IS ZERO 
+		{
+			// when MyPlayer reaches center of Target
+			targetObj[LookingForElement].displayTargetOnCanvas(LookingForElement, "#444");	// redraw this element in different color
+																								// RUN THE DISPLAY FUNCTION ON THE ELEMENT OF THE ARRAY
+																								// WHEN MyPlayer gets close enough
+			LookingForElement = LookingForElement + 1;											// increase number of target that we are looking for
+			
+		}  // end of if
+	
+} //end of GameLogic function
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+function gameLoop() {						// things that happen repeating during game
+
+	GameBackground ();						
+	drawTargets ();
+	Scoreboard ();							// redraw the whole scoreboard so that the numbers update
+	MyPlayerObject.displayOnCanvas();		// draw MyPlayer based on current X and Y coordinates
+	GameLogic();							// run GameLogic to see if we are close to target
+
+	setTimeout(gameLoop,100);				// rerun this function to keep game running
+	}
+
+	
+
+		
+		
+			
+// keyboard listener...... look for DoSomethingWhenKeyPresses function to see what happens
+	document.addEventListener('keydown', DoSomethingWhenKeyPresses, true);	
+			
+
+
+			
+			
+			
+
+// START GAME LOOPING NOW
+
+gameLoop ();												// starts game running first time	
+
+
+
+
+	
+</script>
+
+ </body>
+</html>

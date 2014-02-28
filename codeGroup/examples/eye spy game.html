@@ -1,0 +1,201 @@
+<html>
+ <head>
+ <title>Eye Spy Game</title>
+ </head>
+ 
+<body>
+<canvas id="myScore" width="100" height="600"></canvas>				<!-- 	%   these are bottom align right now -->
+<canvas id="mySpace" width="3"   height="200"></canvas>				<!-- 	%   space between visible canvases -->
+<canvas id="canvas"  width="900" height="600"></canvas>
+
+
+<script type="application/javascript">
+
+  
+  
+// SETUP GLOBAL VARIABLES   -- VALUES SET HERE CAN BE USED OR CHANGED IN ANY FUNCTION
+
+// setup objects for both canvases
+	var canvas = document.getElementById("canvas");				// game canvas
+	var ctx = canvas.getContext("2d");
+
+	var canvas2 = document.getElementById("myScore");			// Get the score canvas element.
+	var ctx2 = canvas2.getContext("2d");	
+
+// simple numberic variables
+	var clickX = 0;
+	var clickY = 0;
+	var farX = 1000;
+	var farY = 1000;
+	
+	
+	
+	
+
+// TO DISPLAY IMAGES ON A CANVAS YOU NEED A NEW IMAAGE OBJECT VARIABLE, SET THE .SCR OF THAT VARIABLE TO THE FILE NAME, 
+// AND ---- YOU HAVE TO LOAD THE IMAGE "BEFORE" YOU CAN DISPLAY IT !	SO, WE USE THE .ONLOAD AS BELOW
+
+	var img = new Image();
+	img.src = "eyespy.jpg"
+
+	img.onload = function() {
+			ctx.drawImage(img,   5, 5,      canvas.width-10, canvas.height-10);
+		};  // I made the image to have a 5 pcx border
+  
+
+
+
+
+  
+// function that can be used any time to outline canvas area  (does NOT work until called)
+function outlineCanvas () {
+		ctx.fillStyle='#f33';									// RED
+		ctx.beginPath();
+		ctx.rect(0,0,     canvas.width,canvas.height);
+		ctx.fill();
+	}  // end of outlineCanvas
+
+
+	
+
+  
+  
+
+// initialize target array -- array will contain objects
+	var targetObject = new Array();
+
+//											ITEM			 X    Y   FOUND?  SIZE
+	targetObject[0]		=new TargetSetup("soccer ball",		100, 100, false,   50);		// adjust circle size with last number
+	targetObject[1]		=new TargetSetup("football",		815, 103, false,   10);
+
+	
+
+	
+	
+	  
+// I DID NOT WRITE THIS FUNCTION -- I DID MODIFY IT	 -- NEEDS TO BE CLEANED UP SOME  
+function getPosition(event) {
+		var x = new Number();
+		var y = new Number();
+		// var canvas = document.getElementById("canvas"); 				// from original ..... global var make these not needed
+		// var ctx = canvas.getContext("2d");							// from original...... global var
+
+		if (event.x != undefined && event.y != undefined) {
+				x = event.x;
+				y = event.y;
+			}
+			else  {											 // Firefox method to get the position 
+					x = event.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+					y = event.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+				}  // end if/else
+
+		x -= canvas.offsetLeft;
+		y -= canvas.offsetTop;
+
+		clickX = x;			// probably could replace the x with clickX above...
+		clickY = y;			// clean up by making x and y not local but ClickX and ClickY are global
+		
+		//alert("x: " + x + "  y: " + y);				// this and below lines are from original function.... I display info in Scoreboard area
+		
+		//ctx.fillStyle='#f00';				// RED
+		//ctx.fillText(    x+","+y,		x, y);  // TEXT IS -- number in X then a comma then the number in Y
+		//ctx.fill();
+		} // end function getPostition	  
+	  
+	  
+	
+	
+	
+function Scoreboard() {										// using CTX2 object
+	
+		ctx2.fillStyle='#ddd';								// set a fill color
+		ctx2.fillRect(0,0,canvas.width, canvas.height);		// background display
+
+		ctx2.font = "20 point Ariel";						// font 
+		ctx2.fillStyle = 'blue';							// set a fill color -- text color in box - used with .fill and .fillText  
+		ctx2.fillText(clickX, 			10, 20);	
+		ctx2.fillText(clickY,			60, 20);	
+	
+		ctx2.fillText(targetObject[0].name, 	10, 50);
+		ctx2.fillText(targetObject[1].name, 	10, 70);
+		
+		ctx2.fillText(farX, 		10, 100);	
+		ctx2.fillText(farY,			60, 100);		
+		
+		ctx2.fillText("only ",			5, 150);	// REMOVE THESE LINES!!!!
+		ctx2.fillText(" football",		5, 170);	
+		ctx2.fillText(" is",			5, 190);	
+		ctx2.fillText(" working",		5, 210);	
+		
+	}	// end of scoreboard function
+	
+
+
+
+function TargetSetup(ItemName, X, Y, Found, Radius) {
+		this.name = ItemName;
+		this.x = X;
+		this.y = Y;
+		this.found = Found;
+		this.radius = Radius;
+	} // end of TargetSetup function
+	
+	
+	
+
+TargetSetup.prototype.displayTargetOnCanvas = function() {	
+		ctx.strokeStyle="#f00";									
+		ctx.beginPath();
+		ctx.arc(this.x, this.y, this.radius,0,Math.PI*2,true);						// TARGET CIRCLE COORDINATES
+		ctx.stroke();																// draw circle
+	}	// end of TargetSetup.prototype.displayTargetOnCanvas function
+
+
+
+
+
+
+function GameLogic () {													//  NEEDS WORK!
+			// for (var i=0; i < TargetSetup.length; i++) {				// FINISH for loop to check each array element
+			
+				farX = Math.abs(clickX - targetObject[1].x);			// farX was a negative number!  which was less than 10  PROBLEM!
+				farY = Math.abs(clickY - targetObject[1].y);	
+				if (farX < 10) {										// CURRENTLY ONLY CHECKS X VALUE ... NEEDS TO CHECK Y ALSO!
+					targetObject[1].displayTargetOnCanvas();
+					}
+																		// CHANGE .FOUND of each element when found
+																		// NEEDS put counter in for how many elements are found
+																		// NEEDS logic for what to do when all are found
+		} //end of GameLogic function
+	
+	
+	
+
+	
+	
+	
+function gameLoop() {						// things that happen repeating during game
+
+		Scoreboard ();							// redraw the whole scoreboard so that the numbers update
+		GameLogic();							// run GameLogic to see if we are close to target
+
+		setTimeout(gameLoop,100);				// rerun this function to keep game running
+		}
+
+	
+	
+// called once	
+		outlineCanvas ();	// call function to outline canvas area 
+			
+// click listener...... look for DoSomethingWhenClick function to see what happens	
+		canvas.addEventListener("mousedown", getPosition, false);
+
+// START GAME LOOPING NOW
+		gameLoop ();												// starts game running first time	
+
+
+
+</script>
+
+ </body>
+</html>

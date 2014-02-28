@@ -1,0 +1,492 @@
+<html>
+ <head>
+ <title>html file with CANVAS</title>
+ </head>
+<body>
+   <canvas id="canvas" width="800" height="500"></canvas>
+ 
+<script type="application/javascript">
+  
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+
+
+var boxes = new Array();
+
+boxes[0] = 15;
+boxes[1] = 18;
+boxes[2] = 10;
+boxes[3] = 35;
+boxes[4] = 30;
+boxes[5] = 25;
+boxes[6] = 20;
+boxes[7] = 22;
+boxes[8] = 10;
+boxes[9] = 25;
+boxes[10] = 30;
+boxes[11] = 25;
+
+var boxesUP = new Array();
+
+boxesUP[0] = 5;
+boxesUP[1] = 10;
+boxesUP[2] = 15;
+boxesUP[3] = 20;
+boxesUP[4] = 20;
+boxesUP[5] = 25;
+boxesUP[6] = 30;
+boxesUP[7] = 35;
+boxesUP[8] = 40;
+boxesUP[9] = 45;
+boxesUP[10] = 50;
+boxesUP[11] = 50;
+boxesUP[12] = 50;
+boxesUP[13] = 60;
+boxesUP[14] = 60;
+boxesUP[15] = 70;
+boxesUP[16] = 70;
+
+
+// function that can be used anytime to outline canvas area  (does NOT work until called)
+function outlineCanvas () {
+	ctx.fillStyle='#cfc';									// light green
+	ctx.strokeStyle='#0f0';									// green
+	ctx.lineWidth=20;
+	
+	ctx.beginPath();
+	ctx.rect(0,0,     canvas.width,canvas.height);
+	ctx.fill();
+	ctx.stroke();
+
+	}  // end of outlineCanvas
+
+
+	
+	
+	
+	
+	
+outlineCanvas ();	// call function to outline canvas area
+
+
+//  *************
+//  *****    CHOOSE ONLY ONE OF THE IF STATEMENT SEGMENTS AT A TIME, CHANGE true TO false
+//  *************
+
+
+
+if (true) {				// NOTE:   what is wrong with this one?
+		
+		// var howManytoShow = 2;
+		var x = 0;
+		var y = 0;
+		var bar_tall = 0;
+		var bar_wide = 8;
+		var bar_color = "#f00";
+		
+		var howManytoShow = 5;
+		//var howManytoShow = boxes.length;
+		
+		for (		var i=0;		 i < howManytoShow; 		i++) {
+			ctx.fillStyle='#eee';									// LIGHT GREY
+			ctx.strokeStyle='#f00';									// red
+			ctx.lineWidth=1;
+			
+			x = 10 + i*10;
+			y = 1;
+			bar_tall = 10 * boxes[i];
+			// bar_wide = 8;
+			// bar_color = "#f00";
+			
+			ctx.beginPath();
+			ctx.rect(x,y,     x,bar_tall);
+			ctx.stroke();
+			ctx.fill();
+			
+			} // end of for loop
+			
+			
+} // end if statement		
+
+
+
+
+if (false) {			// NOTE:  bar charts working from top down
+		
+		var x = 0;
+		var y = 0;
+		var bar_tall = 0;
+		var bar_wide = 8;
+		var bar_color = "#f00";
+		
+		var howManytoShow = 5;
+		//var howManytoShow = boxes.length;
+		
+		for (		var i=0;		 i < howManytoShow; 		i++) {
+			ctx.fillStyle='#eee';									// LIGHT GREY
+			ctx.strokeStyle='#f00';									// red
+			ctx.lineWidth=1;
+			
+			x = 10 + i*10;
+			y = 1;
+			bar_tall = 10 * boxes[i];
+			// bar_wide = 8;
+			// bar_color = "#f00";
+			
+			ctx.beginPath();
+			ctx.rect(x,y,     7,bar_tall);
+			ctx.stroke();
+			ctx.fill();
+			
+			} // end of for loop
+
+}  // end if statement
+	
+	
+	
+	
+if (false) {			// NOTE:  	wider
+			
+		var x = 0;
+		var y = 0;
+		var bar_tall = 0;
+		var bar_wide = 8;
+		var bar_color = "#f00";
+		// var howManytoShow = 2;
+		var howManytoShow = boxes.length;
+		
+		
+		
+		for (		var i=0;		 i < howManytoShow; 		i++) {
+			ctx.fillStyle='#eee';									// LIGHT GREY
+			ctx.strokeStyle='#f00';									// red
+			ctx.lineWidth=1;
+	
+			x = 50 + i*30;
+			y = 1;
+			bar_tall = 10 * boxes[i];
+			// bar_wide = 8;
+			// bar_color = "#f00";
+			
+			ctx.beginPath();
+			ctx.rect(x,y,     20,bar_tall);
+			ctx.stroke();
+			ctx.fill();
+			
+			} // end of for loop
+	
+}  // end if statement
+	
+
+	
+	
+	
+if (false) {			// NOTE:  	bottom up -- what's wrong with this one?
+			
+		var x = 0;
+		var y = canvas.height;
+		var bar_tall = 0;
+		var bar_wide = 8;
+		var bar_color = "#f00";
+		var howManytoShow = 2;
+		//var howManytoShow = boxes.length;
+		
+		
+		
+		for (		var i=0;		 i < howManytoShow; 		i++) {
+			ctx.fillStyle='#eee';									// LIGHT GREY
+			ctx.strokeStyle='#f00';									// red
+			ctx.lineWidth=1;
+	
+			x = 50 + i*30;
+			y = canvas.height;
+
+			bar_tall = 10 * boxes[i];
+			topY_ofBox = canvas.height - bar_tall;
+			
+			// bar_wide = 8;
+			// bar_color = "#f00";
+			
+			ctx.beginPath();
+			ctx.rect(x,y,     20,topY_ofBox);
+			ctx.stroke();
+			ctx.fill();
+			
+			} // end of for loop
+	
+}  // end if statement	
+
+
+
+
+if (false) {			// NOTE:  	bottom up -- working
+			
+		var bar_color = "#f00";
+		ctx.lineWidth=1;
+		
+		// var howManytoShow = 2;
+		var howManytoShow = boxes.length;
+		
+		for (		var i=0;		 i < howManytoShow; 		i++) {
+			ctx.fillStyle='#eee';									// LIGHT GREY
+			ctx.strokeStyle='#f00';									// red
+	
+			x = 50 + i*30;
+			y = canvas.height;
+			bar_tall = 10 * boxes[i];
+			
+			ctx.beginPath();
+			ctx.rect(x,y,     20, -bar_tall);
+			ctx.stroke();
+			ctx.fill();
+			
+			} // end of for loop
+	
+}  // end if statement
+
+
+
+
+if (false) {			// NOTE:  	bottom up -- DIFFERENT COLOR BARS
+		
+		var bar_color = "#f00";
+		ctx.lineWidth=5;
+		
+		
+		for (		var i=0;		 i < boxes.length; 		i++) {
+			// IF STATEMENT CHECKS FOR LENGTH OF BAR AND CHANGES COLORS BASED ON LENGTH
+			if (boxes[i] > 25) {
+								ctx.fillStyle='#f88';									// LIGHT GREY
+								ctx.strokeStyle='#f00';									// red
+								}
+					else 		{
+								ctx.fillStyle='#88f';									// LIGHT blue
+								ctx.strokeStyle='#00f';									// blue
+								
+								}
+	
+			x = 50 + i*30;
+			y = canvas.height;
+			bar_tall = 10 * boxes[i];
+			
+			ctx.beginPath();
+			ctx.rect(x,y,     20, -bar_tall);
+			ctx.stroke();
+			ctx.fill();
+			
+			} // end of for loop
+	
+}  // end if statement
+
+
+
+
+if (false) {			// NOTE:  	bottom up and backwards  --- position counter
+		
+		var bar_color = "#f00";
+		ctx.lineWidth=5;
+		
+		
+		for (		var i=boxes.length;		 i > 0; 		i--) {
+			// IF STATEMENT CHECKS FOR LENGTH OF BAR AND CHANGES COLORS BASED ON LENGTH
+			if (boxes[i] > 25) {
+								ctx.fillStyle='#f88';									// LIGHT GREY
+								ctx.strokeStyle='#f00';									// red
+								}
+					else 		{
+								ctx.fillStyle='#88f';									// LIGHT blue
+								ctx.strokeStyle='#00f';									// blue
+								
+								}
+	
+			x = 50 + i*30;
+			y = canvas.height;
+			bar_tall = 10 * boxes[i];
+			
+			ctx.beginPath();
+			ctx.rect(x,y,     20, -bar_tall);
+			ctx.stroke();
+			ctx.fill();
+			ctx.fillStyle='#fff';				// color for text
+			ctx.fillText(i,		x, y);			// put number in box
+			
+			} // end of for loop
+	
+}  // end if statement
+
+
+if (false) {			// NOTE:  	bottom up and backwards    USING boxesUP ARRAY
+		
+		var bar_color = "#f00";
+		ctx.lineWidth=5;
+		var barOrderDrawn = 1;
+		
+		for (		var i=boxesUP.length;		 i > 0; 		i--) {
+			// IF STATEMENT CHECKS FOR LENGTH OF BAR AND CHANGES COLORS BASED ON LENGTH
+			if (boxesUP[i] > 25) {
+								ctx.fillStyle='#f88';									// LIGHT GREY
+								ctx.strokeStyle='#f00';									// red
+								}
+					else 		{
+								ctx.fillStyle='#88f';									// LIGHT blue
+								ctx.strokeStyle='#00f';									// blue	
+								}
+	
+			x = 50 + i*30;
+			y = canvas.height;
+			bar_tall = 10 * boxesUP[i];
+			
+			ctx.beginPath();
+			ctx.rect(x,y,     20, -bar_tall);
+			ctx.stroke();
+			ctx.fill();
+			ctx.fillStyle='#fff';						// color for text, WHITE
+			ctx.fillText(i,		x, y);					// put number in box
+			ctx.fillStyle='#f00';						// color for text, RED
+			ctx.fillText(barOrderDrawn,	x, y-20);		// put number in box
+			ctx.fillStyle='#0f0';						// color for text, GREEN
+			ctx.fillText(boxesUP[i],	x, y-40);		// put number in box
+			
+			barOrderDrawn++;
+			
+			} // end of for loop
+	
+}  // end if statement
+
+
+
+
+if (false) {			// NOTE:  	bottom up and backwards    USING boxesUP ARRAY
+		
+		var bar_color = "#f00";
+		ctx.lineWidth=5;
+		var barOrderDrawn = 1;
+		
+		for (		var i=boxesUP.length;		 i >= 0; 		i--) {
+
+			ctx.fillStyle='#f88';									// LIGHT GREY
+			ctx.strokeStyle='#f00';									// red
+	
+			x = canvas.width - 50 - i*30;	// change the x value to decrease
+			y = canvas.height;
+			bar_tall = 5 * boxesUP[i-1];		// multiply by 5 (not 10) to keep on canvas
+			
+			ctx.beginPath();
+			ctx.rect(x,y,     20, -bar_tall);
+			ctx.stroke();
+			ctx.fill();
+			ctx.fillStyle='#fff';						// color for text, WHITE
+			ctx.fillText(i-1,		x, y);					// put number in box
+			ctx.fillStyle='#f00';						// color for text, RED
+			ctx.fillText(barOrderDrawn,	x, y-20);		// put number in box
+			ctx.fillStyle='#0f0';						// color for text, GREEN
+			ctx.fillText(boxesUP[i-1],	x, y-40);		// put number in box
+			
+			barOrderDrawn++;
+			
+			} // end of for loop
+	
+}  // end if statement
+
+
+
+
+
+if (false) {			// NOTE:  	CENTERED WITH SPACERS DISPLAYED  WHAT'S WRONG
+		
+		var bar_color = "#f00";
+		ctx.lineWidth=1;
+		var barOrderDrawn = 1;
+		var	widthofchart = boxesUP.length * 30;		
+		var bufferSides = (canvas.width - widthofchart ) / 2;
+		
+		ctx.fillStyle='#ccc';									// centering box
+		ctx.beginPath();
+		ctx.rect(0,canvas.height-50,     			bufferSides, 10);
+		ctx.rect(canvas.width,canvas.height-50,     -bufferSides, 10);
+		ctx.rect(bufferSides,canvas.height-30,     	widthofchart, 10);
+		ctx.fill();
+		
+		
+		for (		var i=0;		 i < boxesUP.length; 		i++) {
+
+			ctx.fillStyle='#f88';									// LIGHT GREY
+			ctx.strokeStyle='#f00';									// red
+	
+			x = bufferSides + i*30;		// change the x value to decrease
+			y = canvas.height - 50;				// MOVED OFF OF BOTTOM LINE
+			bar_tall = 5 * boxesUP[i];		// multiply by 5 (not 10) to keep on canvas
+			
+			ctx.beginPath();
+			ctx.rect(x,y,     20, -bar_tall);
+			ctx.stroke();
+			ctx.fill();
+			ctx.fillStyle='#fff';						// color for text, WHITE
+			ctx.fillText(i,		x, y);					// put number in box
+			ctx.fillStyle='#f00';						// color for text, RED
+			ctx.fillText(barOrderDrawn,	x, y-20);		// put number in box
+			ctx.fillStyle='#0f0';						// color for text, GREEN
+			ctx.fillText(boxesUP[i],	x, y-40);		// put number in box
+			
+			barOrderDrawn++;
+			
+			} // end of for loop
+	
+}  // end if statement
+
+
+
+
+
+if (false) {			// NOTE:  	CENTERED WITH ORIGINAL ARRAY
+		
+		var bar_color = "#f00";
+		ctx.lineWidth=1;
+		var barOrderDrawn = 1;
+		var	widthofchart = boxesUP.length * 30;		
+		var bufferSides = (canvas.width - widthofchart ) / 2;
+		
+		ctx.fillStyle='#ccc';									// centering box
+		ctx.beginPath();
+		ctx.rect(0,canvas.height-50,     			bufferSides, 3);
+		ctx.rect(canvas.width,canvas.height-50,     -bufferSides, 3);
+		ctx.rect(bufferSides,canvas.height-30,     	widthofchart, 3);
+		ctx.fill();
+		
+		
+		for (		var i=0;		 i < boxes.length; 		i++) {
+
+			ctx.fillStyle='#f88';									// LIGHT GREY
+			ctx.strokeStyle='#f00';									// red
+	
+			x = bufferSides + i*30;		// change the x value to decrease
+			y = canvas.height - 50;				// MOVED OFF OF BOTTOM LINE
+			bar_tall = 5 * boxes[i];		// multiply by 5 (not 10) to keep on canvas
+			
+			ctx.beginPath();
+			ctx.rect(x,y,     20, -bar_tall);
+			ctx.stroke();
+			ctx.fill();
+			ctx.fillStyle='#fff';						// color for text, WHITE
+			ctx.fillText(i,		x, y);					// put number in box
+			ctx.fillStyle='#f00';						// color for text, RED
+			ctx.fillText(barOrderDrawn,	x, y-20);		// put number in box
+			ctx.fillStyle='#0f0';						// color for text, GREEN
+			ctx.fillText(boxes[i],	x, y-40);		// put number in box
+			
+			barOrderDrawn++;
+			
+			} // end of for loop
+	
+}  // end if statement
+
+
+
+
+
+
+</script>
+
+  
+ </body>
+</html>

@@ -1,0 +1,203 @@
+<html>
+ <head>
+ <title>Snake Game</title>
+ </head>
+ 
+<body>
+<canvas id="myScore" width="100" height="600"></canvas>				<!-- 	%   these are bottom align right now -->
+<canvas id="mySpace" width="10" height="200"></canvas>				<!-- 	%   space between visible canvases -->
+<canvas id="canvas" width="800" height="400"></canvas>
+
+
+<script type="application/javascript">
+  
+
+// setup objects for both canvases
+	var canvas = document.getElementById("canvas");				// game canvas
+	var ctx = canvas.getContext("2d");
+
+	var canvas2 = document.getElementById("myScore");			// Get the score canvas element.
+	var ctx2 = canvas2.getContext("2d");	
+
+// VARIABLES
+	var value_of_key_pressed = 0; 								// key press variable, changes once key is pressed in DoSomethingWhenKeyPresses
+
+	var snake = new Array();
+	
+			snake[0]		=new snakeLink(60, 10);
+			snake[1]		=new snakeLink(60, 20);
+			snake[2]		=new snakeLink(60, 30);
+			snake[3]		=new snakeLink(70, 30);
+	
+	
+// FUNCTIONS THAT CAN BE CALLED	
+
+
+function DoSomethingWhenKeyPresses(evt) {							
+
+	   value_of_key_pressed = evt.keyCode;							// value_of_key_pressed is a global var so we can use in Scoreboard function
+
+        switch (evt.keyCode) {
+			case 39:												// Right arrow.  increase .x by 10 
+				snakeMove ();
+				snake[0].x = snake[0].x + 10;
+				break;
+			case 40:												// Down arrow.   increase .y by 10 
+				snakeMove ();
+				snake[0].y = snake[0].y + 10;
+				break;
+			case 37:												// Left arrow.    decrease .x by 10 
+				snakeMove ();
+				snake[0].x = snake[0].x - 10;
+				break;
+			case 38:												// Up arrow. 	  decrease .x by 10 
+				snakeMove ();
+				snake[0].y = snake[0].y - 10;
+				break;
+			case 32:												// SPACE BAR MAKES SNAKE LONGER
+
+				tempX = snake[snake.length-1].x  ;					// where is the last one right now X?
+				tempY = snake[snake.length-1].y  ;					// where is the last one right now Y?
+			
+				snakeMove ();										// move all of the coordinates
+				snake[0].y = snake[0].y + 10;						// head of snake moved down
+		
+				snake[snake.length]	=new snakeLink(tempX, tempY);	//	add a new snake array element with old last position coordinates		
+				break;
+			}  	// end of switch
+      }		// end of DoSomethingWhenKeyPresses function
+
+	  
+	  /*  ........FOR LOOP VERSION IS BELOW....
+function snakeMove () {
+			snake[4].x		=snake[3].x;
+			snake[4].y		=snake[3].y;
+			
+			snake[3].x		=snake[2].x;
+			snake[3].y		=snake[2].y;
+						
+			snake[2].x		=snake[1].x;
+			snake[2].y		=snake[1].y;
+
+			snake[1].x		=snake[0].x;
+			snake[1].y		=snake[0].y;
+		}	  // end of snakeMove function
+		*/
+		
+// ABOVE FUNCTION DONE WITH FOR LOOP
+function snakeMove () {		
+
+			for (		var i = snake.length -1 ;		 i > 0; 		i--) {
+				snake[i].x		=snake[i-1].x;
+				snake[i].y		=snake[i-1].y;
+				} // end of for loop
+				
+		}	  // end of snakeMove function
+
+
+	  
+
+	  
+function GameBackground() {		
+			ctx.fillStyle='#eee';									// LIGHT GREY
+			ctx.fillRect(0,0,canvas.width,canvas.height);			// DRAW A BOX
+		}  // end of GameBackground function
+
+
+	
+function Scoreboard() {											// using CTX2 object
+			ctx2.fillStyle='#ddd';								// set a fill color
+			ctx2.fillRect(0,0,canvas2.width, canvas2.height);	// background display
+
+			ctx2.font = "20 point Ariel";						// font 
+			ctx2.fillStyle = 'blue';							// set a fill color -- text color in box - used with .fill and .fillText  	
+
+			ctx2.fillText("key", 				10, 20);
+			ctx2.fillText(value_of_key_pressed, 60, 20);
+
+			for (var i=0; i<snake.length; i++) {								// for each element in the snake, display on scoreboard
+					ctx2.fillText(snake[i].x, 	20, 50+ i*20);
+					ctx2.fillText(snake[i].y, 	60, 50+ i*20 );
+				}
+		}	// end of scoreboard function
+	
+
+
+function snakeLink(X, Y) {		
+			this.x = X;	
+			this.y = Y;				
+		} // end of snakeLink function
+	
+
+	
+
+snakeLink.prototype.drawSnake = function(item, colorOfTarget) {					// arrary item number and color sent in
+			ctx.fillStyle=colorOfTarget;												// SET COLOR to what was sent in to function
+
+			ctx.beginPath();
+			ctx.arc(this.x, this.y, 5,0,Math.PI*2,true);								// DRAW THE TARGET CIRCLE
+			ctx.fill();																	// fill it in
+			ctx.stroke();
+		}	// end of snakeLink.prototype.drawSnake function
+
+
+
+
+
+function GameLogic () {
+
+			// check each snake element AFTER HEAD to see if it equals the HEAD
+			for (var i=1; i<snake.length; i++) {					// for each element of the snake array
+				
+					if ( snake[0].x == snake[i].x  && snake[0].y == snake[i].y) {
+							snake[0].drawSnake(i, '#f00');
+						} // end if -- does snake head hit snake body
+
+				} // end for check each elemet
+
+		} //end of GameLogic function
+	
+
+
+	
+	
+function gameLoop() {						// things that happen repeating during game
+
+			Scoreboard ();							// redraw the whole scoreboard so that the numbers update
+			GameBackground ();	
+
+			// draw head of snake in RED
+			snake[0].drawSnake(0, '#0f0');
+							
+			// draw each snake element AFTER HEAD
+			for (var i=1; i<snake.length; i++) {					// for each element of the snake array
+				snake[i].drawSnake(i, '#00f');
+				}
+	
+			GameLogic();							// run GameLogic to see if we are close to target
+
+			setTimeout(gameLoop,100);				// rerun this function to keep game running
+		}
+
+
+	
+// ALL FUNCTIONS THAT CAN BE CALLED ARE ABOVE HERE  
+		
+			
+// keyboard listener...... look for DoSomethingWhenKeyPresses function to see what happens
+document.addEventListener('keydown', DoSomethingWhenKeyPresses, true);	
+			
+
+
+// START GAME LOOPING NOW
+
+gameLoop ();												// starts game running first time	
+
+
+
+
+	
+</script>
+
+ </body>
+</html>
