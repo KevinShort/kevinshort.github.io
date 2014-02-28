@@ -14,7 +14,6 @@
 	<link rel="stylesheet" href="../style/magnific-popup.css"> 
 
 <!-- 	<script src="js/respond.min.js"></script> -->
-		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	
 <!-- 	<link rel="stylesheet" type="text/css" href="style/main.css"/> -->
 	<title>Girls Hats - Chris' Crochet Corner</title>
@@ -46,7 +45,7 @@
 				src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
 		</form>
 		<div class="headerImage">
-			<img src="../images/headerLogo1_solid.png" />
+			<img src="../images/ChrisChrochetCornerBanner.png" alt="Chris' Crochet Corner"/>
 		</div>
 	</div>
 	<div class="floatClearer"></div>
@@ -54,23 +53,25 @@
 	<div id="menu">
 		<ul>
 			<li><a href="../index.html">Home</a></li>
-			<li><a href="">Girl</a></li>
+			<li><a href="" class="active">Girl</a></li>
 			<li><a href="../boy/index.html">Boy</a></li>
 			<li><a href="../unisex/index.html">Unisex</a></li>
 			<li><a href="../contact/index.html">Contact</a></li>
 		</ul>
 	</div>
-	
-	<div class="storeItem">
+    
+    <div class="storeItem">
 		<div class="storePic">
-			<a href="../images/hats/girl/StripedPomPomPink.JPG" class="imageLink">
-				<img src="../images/hats/girl/StripedPomPomPink_small.JPG"/>
+			<a href="../images/hats/girl/babyPuppyDogPink_large.jpg" class="imageLink">
+				<img src="../images/hats/girl/babyPuppyDogPink_medium.jpg"
+					alt="Crocheted Pink Puppy Dog Hat"/>
 				<div class="imgOverlay">Click to enlarge</div>
 			</a>
 		</div>
 		<div class="itemDetails">
-			<h1>Striped Pom Pom Pink</h1>
-			<p>This is a hat.</p>
+			<h1>Pink Puppy Dog</h1>
+			<p>Does your child want a puppy but you don’t?  
+			Compromise with this cute little puppy.</p>
 			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr"
 					method="post" class="paypalForm">
 
@@ -83,7 +84,76 @@
 
 				<!-- Specify details about the item that buyers will purchase. -->
 				<input type="hidden" name="item_name"
-					value="Striped Pom Pom Pink Hat">
+					value="Pink Puppy Dog Hat">
+				<input type="hidden" name="currency_code" value="USD">
+
+				<!-- Provide a dropdown menu option field with prices. -->
+				<input type="hidden" name="on1" value="Size">Size:
+					<select name="os1">
+						<option value="0-3 months">0-3 Months - $15</option>
+						<option value="3-6 months">3-6 Months - $15</option>
+						<option value="6-9 months">6-9 Months - $15</option>
+						<option value="9-12 months">9-12 Months - $15</option>
+						<option value="toddler">Toddler - $20</option>
+						<option value="child">Child - $20</option>
+						<option value="adult">Adult - $20</option>
+					</select> <br />
+
+				<!-- Specify the price that PayPal uses for each option. -->
+				<input type="hidden" name="option_index" value="1">
+				<input type="hidden" name="option_select0" value="0-3 months">
+				<input type="hidden" name="option_amount0" value="15">
+				<input type="hidden" name="option_select1" value="3-6 months">
+				<input type="hidden" name="option_amount1" value="15">
+				<input type="hidden" name="option_select2" value="6-9 months">
+				<input type="hidden" name="option_amount2" value="15">
+				<input type="hidden" name="option_select3" value="9-12 months">
+				<input type="hidden" name="option_amount3" value="15">
+				<input type="hidden" name="option_select4" value="toddler">
+				<input type="hidden" name="option_amount4" value="20">
+				<input type="hidden" name="option_select5" value="child">
+				<input type="hidden" name="option_amount5" value="20">
+				<input type="hidden" name="option_select6" value="adult">
+				<input type="hidden" name="option_amount6" value="20">
+
+				<!-- Display the payment button. -->
+				<!--<input type="image" name="submit" border="0" class="paypalBuyButton"
+					src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
+					alt="PayPal - The safer, easier way to pay online">-->
+				<input type="submit" name="submit" border="0" class="addToCart"
+					value="Add to Cart">
+				<img alt="" border="0" width="1" height="1"
+					src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+			</form>
+		</div>
+	</div>
+	
+	<div class="floatClearer"></div>
+	
+	<div class="storeItem">
+		<div class="storePic">
+			<a href="../images/hats/girl/stripedPomPomPink_large.jpg" class="imageLink">
+				<img src="../images/hats/girl/stripedPomPomPink_medium.jpg"
+					alt="Crotcheted Pink Striped Pom Pom Hat"/>
+				<div class="imgOverlay">Click to enlarge</div>
+			</a>
+		</div>
+		<div class="itemDetails">
+			<h1>Pink Striped Pom Pom</h1>
+			<p>Be comfy, warm and stylish in this classic striped hat.</p>
+			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr"
+					method="post" class="paypalForm">
+
+				<!-- Identify your business so that you can collect the payments. -->
+				<input type="hidden" name="business" value="kin@kinskards.com">
+
+				<!-- Specify an Add to Cart button. -->
+				<input type="hidden" name="cmd" value="_cart">
+				<input type="hidden" name="add" value="1">
+
+				<!-- Specify details about the item that buyers will purchase. -->
+				<input type="hidden" name="item_name"
+					value="Pink Striped Pom Pom Hat">
 				<input type="hidden" name="currency_code" value="USD">
 
 				<!-- Provide a dropdown menu option field with prices. -->
@@ -131,16 +201,72 @@
 		<br/>
 	</div>
 	
-	<div class="storeItem">
+	
+	
+	
+	
+	
+	
+	<div class="storeItem multiChoice">
 		<div class="storePic">
-			<a href="../images/hats/girl/FlowerPetalsPurple.JPG" class="imageLink">
-				<img src="../images/hats/girl/FlowerPetalsPurple_small.JPG"/>
+			<!--<a href="../images/hats/girl/flowerPetalsPurple_large.jpg" class="imageLink">
+				<img src="../images/hats/girl/flowerPetalsPurple_medium.jpg"/>
 				<div class="imgOverlay">Click to enlarge</div>
-			</a>
+			</a>-->
+			
+			<ul class="hatChoices">
+                <li>
+					<a href="../images/hats/girl/babyFlowerPetalsPink_large.jpg" class="imageLink">
+						<img src="../images/hats/girl/babyFlowerPetalsPink_medium.jpg"
+							alt="Crocheted Pink Flower Petals Hat"/>
+						<div class="imgOverlay">Click to enlarge</div>
+					</a>
+				</li>
+				<li>
+					<a href="../images/hats/girl/flowerPetalsPurple_large.jpg" class="imageLink">
+						<img src="../images/hats/girl/flowerPetalsPurple_medium.jpg"
+							alt="Crocheted Purple Flower Petals Hat"/>
+						<div class="imgOverlay">Click to enlarge</div>
+					</a>
+				</li>
+				<li>
+					<a href="../images/hats/girl/flowerPetalsYellow_large.jpg" class="imageLink">
+						<img src="../images/hats/girl/flowerPetalsYellow_medium.jpg"
+							alt="Crotchet Yellow Flower Petals Hat"/>
+						<div class="imgOverlay">Click to enlarge</div>
+					</a>
+				</li>
+			</ul>
+			
+			
+			<div class="hatChoicesPager">
+                <a data-slide-index="0" href="">
+					<div class="captionImg activePager" id="Pink">
+						<img src="../images/hats/girl/flowerPetalsPink_medium.jpg"/>
+	<!-- 					<p>Pink</p> -->
+					</div>
+				</a>
+				<a data-slide-index="1" href="">
+					<div class="captionImg" id="Purple">
+						<img src="../images/hats/girl/flowerPetalsPurple_medium.jpg" />
+	<!-- 					<p>Purple</p> -->
+					</div>
+				</a>
+				<a data-slide-index="2" href="">
+					<div class="captionImg" id="Yellow">
+						<img src="../images/hats/girl/flowerPetalsYellow_medium.jpg"/>
+	<!-- 					<p>Yellow</p> -->
+					</div>
+				</a>
+			</div>
+<!-- 			<div class="floatClearer"></div> -->
+			
+			
+			
 		</div>
 		<div class="itemDetails">
-			<h1>Flower Petals Purple</h1>
-			<p>This hat is pink.</p>
+			<h1>Flower Petals</h1>
+			<p>Any girl would look adorable in this lovely flower petal hat.</p>
 			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr"
 					method="post" class="paypalForm">
 
@@ -153,7 +279,363 @@
 
 				<!-- Specify details about the item that buyers will purchase. -->
 				<input type="hidden" name="item_name"
-					value="Flower Petals Purple Hat">
+					value="Flower Petals Hat">
+				<input type="hidden" name="currency_code" value="USD">
+				
+				<input type="hidden" name="on0" value="Color">Color:
+					<select name="os0" id="petalsColor">
+                        <option value="Pink">Pink</option>
+						<option value="Purple">Purple</option>
+						<option value="Yellow">Yellow</option>
+					</select> <br /><br />
+
+				<!-- Provide a dropdown menu option field with prices. -->
+				<input type="hidden" name="on1" value="Size">Size:
+					<select name="os1">
+						<option value="0-3 months">0-3 Months - $15</option>
+						<option value="3-6 months">3-6 Months - $15</option>
+						<option value="6-9 months">6-9 Months - $15</option>
+						<option value="9-12 months">9-12 Months - $15</option>
+						<option value="toddler">Toddler - $20</option>
+						<option value="child">Child - $20</option>
+						<option value="adult">Adult - $20</option>
+					</select> <br />
+
+				<!-- Specify the price that PayPal uses for each option. -->
+				<input type="hidden" name="option_index" value="1">
+				<input type="hidden" name="option_select0" value="0-3 months">
+				<input type="hidden" name="option_amount0" value="15">
+				<input type="hidden" name="option_select1" value="3-6 months">
+				<input type="hidden" name="option_amount1" value="15">
+				<input type="hidden" name="option_select2" value="6-9 months">
+				<input type="hidden" name="option_amount2" value="15">
+				<input type="hidden" name="option_select3" value="9-12 months">
+				<input type="hidden" name="option_amount3" value="15">
+				<input type="hidden" name="option_select4" value="toddler">
+				<input type="hidden" name="option_amount4" value="20">
+				<input type="hidden" name="option_select5" value="child">
+				<input type="hidden" name="option_amount5" value="20">
+				<input type="hidden" name="option_select6" value="adult">
+				<input type="hidden" name="option_amount6" value="20">
+				
+				<input type="hidden" name="shopping_url"
+				value="http://kevinshort.github.io/auntChristine/girl/">
+
+				<!-- Display the payment button. -->
+				<!--<input type="image" name="submit" border="0" class="paypalBuyButton"
+					src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
+					alt="PayPal - The safer, easier way to pay online">-->
+				<input type="submit" name="submit" border="0" class="addToCart"
+					value="Add to Cart">
+				<img alt="" border="0" width="1" height="1"
+					src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+			</form>
+		</div>
+		
+		
+		
+	</div>
+	
+	<div class="floatClearer">
+		<br/>
+	</div>
+	
+	<!--<div class="storeItem">
+		<div class="storePic">
+			<a href="../images/hats/girl/flowerPetalsPurple_large.jpg" class="imageLink">
+				<img src="../images/hats/girl/flowerPetalsPurple_medium.jpg"/>
+				<div class="imgOverlay">Click to enlarge</div>
+			</a>
+		</div>
+		<div class="itemDetails">
+			<h1>Purple Flower Petals</h1>
+			<p>Any girl would look adorable in this lovely flower petal hat.</p>
+			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr"
+					method="post" class="paypalForm">
+
+				<!-- Identify your business so that you can collect the payments. -->
+				<!--<input type="hidden" name="business" value="kin@kinskards.com">
+
+				<!-- Specify an Add to Cart button. -->
+				<!--<input type="hidden" name="cmd" value="_cart">
+				<input type="hidden" name="add" value="1">
+
+				<!-- Specify details about the item that buyers will purchase. -->
+				<!--<input type="hidden" name="item_name"
+					value="Purple Flower Petals Hat">
+				<input type="hidden" name="currency_code" value="USD">
+
+				<!-- Provide a dropdown menu option field with prices. -->
+				<!--<input type="hidden" name="on1" value="Size">Size:
+					<select name="os1">
+						<option value="0-3 months">0-3 Months - $15</option>
+						<option value="3-6 months">3-6 Months - $15</option>
+						<option value="6-9 months">6-9 Months - $15</option>
+						<option value="9-12 months">9-12 Months - $15</option>
+						<option value="toddler">Toddler - $20</option>
+						<option value="child">Child - $20</option>
+						<option value="adult">Adult - $20</option>
+					</select> <br />
+
+				<!-- Specify the price that PayPal uses for each option. -->
+				<!--<input type="hidden" name="option_index" value="1">
+				<input type="hidden" name="option_select0" value="0-3 months">
+				<input type="hidden" name="option_amount0" value="15">
+				<input type="hidden" name="option_select1" value="3-6 months">
+				<input type="hidden" name="option_amount1" value="15">
+				<input type="hidden" name="option_select2" value="6-9 months">
+				<input type="hidden" name="option_amount2" value="15">
+				<input type="hidden" name="option_select3" value="9-12 months">
+				<input type="hidden" name="option_amount3" value="15">
+				<input type="hidden" name="option_select4" value="toddler">
+				<input type="hidden" name="option_amount4" value="20">
+				<input type="hidden" name="option_select5" value="child">
+				<input type="hidden" name="option_amount5" value="20">
+				<input type="hidden" name="option_select6" value="adult">
+				<input type="hidden" name="option_amount6" value="20">
+
+				<!-- Display the payment button. -->
+				<!--<input type="image" name="submit" border="0" class="paypalBuyButton"
+					src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
+					alt="PayPal - The safer, easier way to pay online">-->
+				<!--<input type="submit" name="submit" border="0" class="addToCart"
+					value="Add to Cart">
+				<img alt="" border="0" width="1" height="1"
+					src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+			</form>
+		</div>
+	</div>
+	
+	<div class="floatClearer">
+		<br/>
+	</div>
+	
+	<!--<div class="storeItem">
+		<div class="storePic">
+			<a href="../images/hats/girl/flowerPetalsPink_large.jpg" class="imageLink">
+				<img src="../images/hats/girl/flowerPetalsPink_medium.jpg"/>
+				<div class="imgOverlay">Click to enlarge</div>
+			</a>
+		</div>
+		<div class="itemDetails">
+			<h1>Pink Flower Petals</h1>
+			<p>Any girl would look adorable in this lovely flower petal hat.</p>
+			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr"
+					method="post" class="paypalForm">
+
+				<input type="hidden" name="business" value="kin@kinskards.com">
+
+				<input type="hidden" name="cmd" value="_cart">
+				<input type="hidden" name="add" value="1">
+
+				<input type="hidden" name="item_name"
+					value="Pink Flower Petals Hat">
+				<input type="hidden" name="currency_code" value="USD">
+
+				<input type="hidden" name="on1" value="Size">Size:
+					<select name="os1">
+						<option value="0-3 months">0-3 Months - $15</option>
+						<option value="3-6 months">3-6 Months - $15</option>
+						<option value="6-9 months">6-9 Months - $15</option>
+						<option value="9-12 months">9-12 Months - $15</option>
+						<option value="toddler">Toddler - $20</option>
+						<option value="child">Child - $20</option>
+						<option value="adult">Adult - $20</option>
+					</select> <br />
+
+				<input type="hidden" name="option_index" value="1">
+				<input type="hidden" name="option_select0" value="0-3 months">
+				<input type="hidden" name="option_amount0" value="15">
+				<input type="hidden" name="option_select1" value="3-6 months">
+				<input type="hidden" name="option_amount1" value="15">
+				<input type="hidden" name="option_select2" value="6-9 months">
+				<input type="hidden" name="option_amount2" value="15">
+				<input type="hidden" name="option_select3" value="9-12 months">
+				<input type="hidden" name="option_amount3" value="15">
+				<input type="hidden" name="option_select4" value="toddler">
+				<input type="hidden" name="option_amount4" value="20">
+				<input type="hidden" name="option_select5" value="child">
+				<input type="hidden" name="option_amount5" value="20">
+				<input type="hidden" name="option_select6" value="adult">
+				<input type="hidden" name="option_amount6" value="20">
+
+				<!-- Display the payment button. -->
+				<!--<input type="image" name="submit" border="0" class="paypalBuyButton"
+					src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
+					alt="PayPal - The safer, easier way to pay online">-->
+				<!--<input type="submit" name="submit" border="0" class="addToCart"
+					value="Add to Cart">
+				<img alt="" border="0" width="1" height="1"
+					src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+			</form>
+		</div>
+	</div>
+	
+	<div class="floatClearer">
+		<br/>
+	</div>
+	
+	<div class="storeItem">
+		<div class="storePic">
+			<a href="../images/hats/girl/flowerPetalsYellow_large.jpg" class="imageLink">
+				<img src="../images/hats/girl/flowerPetalsYellow_medium.jpg"/>
+				<div class="imgOverlay">Click to enlarge</div>
+			</a>
+		</div>
+		<div class="itemDetails">
+			<h1>Yellow Flower Petals</h1>
+			<p>Any girl would look adorable in this lovely flower petal hat.</p>
+			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr"
+					method="post" class="paypalForm">
+
+				<input type="hidden" name="business" value="kin@kinskards.com">
+
+				<input type="hidden" name="cmd" value="_cart">
+				<input type="hidden" name="add" value="1">
+
+				<input type="hidden" name="item_name"
+					value="Yellow Flower Petals Hat">
+				<input type="hidden" name="currency_code" value="USD">
+
+				<input type="hidden" name="on1" value="Size">Size:
+					<select name="os1">
+						<option value="0-3 months">0-3 Months - $15</option>
+						<option value="3-6 months">3-6 Months - $15</option>
+						<option value="6-9 months">6-9 Months - $15</option>
+						<option value="9-12 months">9-12 Months - $15</option>
+						<option value="toddler">Toddler - $20</option>
+						<option value="child">Child - $20</option>
+						<option value="adult">Adult - $20</option>
+					</select> <br />
+
+				<!-- Specify the price that PayPal uses for each option. -->
+				<!--<input type="hidden" name="option_index" value="1">
+				<input type="hidden" name="option_select0" value="0-3 months">
+				<input type="hidden" name="option_amount0" value="15">
+				<input type="hidden" name="option_select1" value="3-6 months">
+				<input type="hidden" name="option_amount1" value="15">
+				<input type="hidden" name="option_select2" value="6-9 months">
+				<input type="hidden" name="option_amount2" value="15">
+				<input type="hidden" name="option_select3" value="9-12 months">
+				<input type="hidden" name="option_amount3" value="15">
+				<input type="hidden" name="option_select4" value="toddler">
+				<input type="hidden" name="option_amount4" value="20">
+				<input type="hidden" name="option_select5" value="child">
+				<input type="hidden" name="option_amount5" value="20">
+				<input type="hidden" name="option_select6" value="adult">
+				<input type="hidden" name="option_amount6" value="20">
+
+				<!-- Display the payment button. -->
+				<!--<input type="image" name="submit" border="0" class="paypalBuyButton"
+					src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
+					alt="PayPal - The safer, easier way to pay online">-->
+				<!--<input type="submit" name="submit" border="0" class="addToCart"
+					value="Add to Cart">
+				<img alt="" border="0" width="1" height="1"
+					src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+			</form>
+		</div>
+	</div>
+	
+	<div class="floatClearer">
+		<br/>
+	</div>-->
+	
+	<div class="storeItem">
+		<div class="storePic">
+			<a href="../images/hats/girl/babyPinkStripedHeart_large.jpg" class="imageLink">
+				<img src="../images/hats/girl/babyPinkStripedHeart_medium.jpg"
+					alt="Crocheted Pink Striped Heart Hat"/>
+				<div class="imgOverlay">Click to enlarge</div>
+			</a>
+		</div>
+		<div class="itemDetails">
+			<h1>Pink Striped Heart</h1>
+			<p>This sweet pink and cream striped hat accessorized with a heart 
+			will have your little one pretty in pink.</p>
+			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr"
+					method="post" class="paypalForm">
+
+				<!-- Identify your business so that you can collect the payments. -->
+				<input type="hidden" name="business" value="kin@kinskards.com">
+
+				<!-- Specify an Add to Cart button. -->
+				<input type="hidden" name="cmd" value="_cart">
+				<input type="hidden" name="add" value="1">
+
+				<!-- Specify details about the item that buyers will purchase. -->
+				<input type="hidden" name="item_name"
+					value="Pink Striped Heart Hat">
+				<input type="hidden" name="currency_code" value="USD">
+
+				<!-- Provide a dropdown menu option field with prices. -->
+				<input type="hidden" name="on1" value="Size">Size:
+					<select name="os1">
+						<option value="0-3 months">0-3 Months - $15</option>
+						<option value="3-6 months">3-6 Months - $15</option>
+						<option value="6-9 months">6-9 Months - $15</option>
+						<option value="9-12 months">9-12 Months - $15</option>
+						<option value="toddler">Toddler - $20</option>
+						<option value="child">Child - $20</option>
+						<option value="adult">Adult - $20</option>
+					</select> <br />
+
+				<!-- Specify the price that PayPal uses for each option. -->
+				<input type="hidden" name="option_index" value="1">
+				<input type="hidden" name="option_select0" value="0-3 months">
+				<input type="hidden" name="option_amount0" value="15">
+				<input type="hidden" name="option_select1" value="3-6 months">
+				<input type="hidden" name="option_amount1" value="15">
+				<input type="hidden" name="option_select2" value="6-9 months">
+				<input type="hidden" name="option_amount2" value="15">
+				<input type="hidden" name="option_select3" value="9-12 months">
+				<input type="hidden" name="option_amount3" value="15">
+				<input type="hidden" name="option_select4" value="toddler">
+				<input type="hidden" name="option_amount4" value="20">
+				<input type="hidden" name="option_select5" value="child">
+				<input type="hidden" name="option_amount5" value="20">
+				<input type="hidden" name="option_select6" value="adult">
+				<input type="hidden" name="option_amount6" value="20">
+
+				<!-- Display the payment button. -->
+				<!--<input type="image" name="submit" border="0" class="paypalBuyButton"
+					src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
+					alt="PayPal - The safer, easier way to pay online">-->
+				<input type="submit" name="submit" border="0" class="addToCart"
+					value="Add to Cart">
+				<img alt="" border="0" width="1" height="1"
+					src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+			</form>
+		</div>
+	</div>
+	
+	<div class="floatClearer"></div>
+	
+	<div class="storeItem">
+		<div class="storePic">
+			<a href="../images/hats/girl/babyFloweredGrannySquare_large.jpg" class="imageLink">
+				<img src="../images/hats/girl/babyFloweredGrannySquare_medium.jpg"
+					alt="Crocheted Flowered Granny Square Hat"/>
+				<div class="imgOverlay">Click to enlarge</div>
+			</a>
+		</div>
+		<div class="itemDetails">
+			<h1>Flowered Granny Square</h1>
+			<p>Your little one will look delightful in this 
+			yellow and white striped hat adorned with a flower.</p>
+			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr"
+					method="post" class="paypalForm">
+
+				<!-- Identify your business so that you can collect the payments. -->
+				<input type="hidden" name="business" value="kin@kinskards.com">
+
+				<!-- Specify an Add to Cart button. -->
+				<input type="hidden" name="cmd" value="_cart">
+				<input type="hidden" name="add" value="1">
+
+				<!-- Specify details about the item that buyers will purchase. -->
+				<input type="hidden" name="item_name"
+					value="Flowered Granny Square Hat">
 				<input type="hidden" name="currency_code" value="USD">
 
 				<!-- Provide a dropdown menu option field with prices. -->
@@ -203,7 +685,7 @@
 	
 	<div id="disclaimer">
 		<p>All products from Chris' Crochet Corner
-		are 100% handmade with the highest care and 
+		are handmade with the highest care and 
 		quality and may have slight variations in 
 		colors and patterns.</p>
 	</div>
@@ -214,10 +696,13 @@
 	Copyright &copy; 2014 Chris' Crochet Corner
 </div>
 
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 
 <!-- Magnific Popup core JS file -->
 <script src="../js/jquery.magnific-popup.min.js"></script> 
+<!-- bxSlider Javascript file -->
+<script src="../js/jquery.bxslider.min.js"></script>
 
 <script>
 	$('.imageLink').magnificPopup({ 
@@ -233,6 +718,47 @@
 				return openerElement.is('img') ? openerElement : openerElement.find('img');
 			}
 		}
+	});
+	
+	
+	$(document).ready(function(){
+		var slider = $('.hatChoices').bxSlider({
+			pagerCustom: '.hatChoicesPager',
+			mode: 'fade',
+			speed: 150,
+			controls: false,
+			touchEnabled: false,
+		});
+        
+        // set color/style sliders and pagers to match dropdown selection
+        $('.captionImg').removeClass('activePager');
+        var color = $('#petalsColor').find('option:selected').attr('value');
+        var activeElement = $('.captionImg#'+color);
+        activeElement.addClass('activePager');
+        var slideNum = activeElement.parent().attr('data-slide-index');
+        slider.goToSlide(parseInt(slideNum));
+        
+		
+		$('#petalsColor').change(function() {
+			var color = $(this).find('option:selected').attr('value');
+			$('.captionImg').removeClass('activePager');
+			var activeElement = $('.captionImg#'+color);
+			activeElement.addClass('activePager');
+			
+			var slideNum = activeElement.parent().attr('data-slide-index');
+			slideNum = parseInt(slideNum);
+			
+			slider.goToSlide(slideNum);
+// 				console.log(slider.getCurrentSlide());
+		});
+		
+		$('.captionImg').click(function() {
+	// 		$(this).parent().find('.captionImg').css('background-color', '#000');
+	// 		$(this).css('background-color', '#fff');
+			$('.captionImg').removeClass('activePager');
+			$(this).addClass('activePager');
+			$('#petalsColor').val($(this).attr('id'));
+		});
 	});
 </script>
 
