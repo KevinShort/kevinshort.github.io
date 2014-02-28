@@ -125,7 +125,8 @@ body {
 #menu a {
 	text-decoration: none;
 	color: white;
-	padding: 8px 10px;
+/*    outline: 1px dashed white;*/
+	padding: 10px 10px;
 	margin: 20px;
 	background-image: none;
 	font-family: "Aller", Fallback, sans-serif;
