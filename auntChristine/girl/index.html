@@ -59,6 +59,76 @@
 			<li><a href="../contact/index.html">Contact</a></li>
 		</ul>
 	</div>
+    
+    <div class="storeItem">
+		<div class="storePic">
+			<a href="../images/hats/girl/babyPuppyDogPink_large.jpg" class="imageLink">
+				<img src="../images/hats/girl/babyPuppyDogPink_medium.jpg"
+					alt="Crocheted Pink Puppy Dog Hat"/>
+				<div class="imgOverlay">Click to enlarge</div>
+			</a>
+		</div>
+		<div class="itemDetails">
+			<h1>Pink Puppy Dog</h1>
+			<p>Does your child want a puppy but you don’t?  
+			Compromise with this cute little puppy.</p>
+			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr"
+					method="post" class="paypalForm">
+
+				<!-- Identify your business so that you can collect the payments. -->
+				<input type="hidden" name="business" value="kin@kinskards.com">
+
+				<!-- Specify an Add to Cart button. -->
+				<input type="hidden" name="cmd" value="_cart">
+				<input type="hidden" name="add" value="1">
+
+				<!-- Specify details about the item that buyers will purchase. -->
+				<input type="hidden" name="item_name"
+					value="Pink Puppy Dog Hat">
+				<input type="hidden" name="currency_code" value="USD">
+
+				<!-- Provide a dropdown menu option field with prices. -->
+				<input type="hidden" name="on1" value="Size">Size:
+					<select name="os1">
+						<option value="0-3 months">0-3 Months - $15</option>
+						<option value="3-6 months">3-6 Months - $15</option>
+						<option value="6-9 months">6-9 Months - $15</option>
+						<option value="9-12 months">9-12 Months - $15</option>
+						<option value="toddler">Toddler - $20</option>
+						<option value="child">Child - $20</option>
+						<option value="adult">Adult - $20</option>
+					</select> <br />
+
+				<!-- Specify the price that PayPal uses for each option. -->
+				<input type="hidden" name="option_index" value="1">
+				<input type="hidden" name="option_select0" value="0-3 months">
+				<input type="hidden" name="option_amount0" value="15">
+				<input type="hidden" name="option_select1" value="3-6 months">
+				<input type="hidden" name="option_amount1" value="15">
+				<input type="hidden" name="option_select2" value="6-9 months">
+				<input type="hidden" name="option_amount2" value="15">
+				<input type="hidden" name="option_select3" value="9-12 months">
+				<input type="hidden" name="option_amount3" value="15">
+				<input type="hidden" name="option_select4" value="toddler">
+				<input type="hidden" name="option_amount4" value="20">
+				<input type="hidden" name="option_select5" value="child">
+				<input type="hidden" name="option_amount5" value="20">
+				<input type="hidden" name="option_select6" value="adult">
+				<input type="hidden" name="option_amount6" value="20">
+
+				<!-- Display the payment button. -->
+				<!--<input type="image" name="submit" border="0" class="paypalBuyButton"
+					src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
+					alt="PayPal - The safer, easier way to pay online">-->
+				<input type="submit" name="submit" border="0" class="addToCart"
+					value="Add to Cart">
+				<img alt="" border="0" width="1" height="1"
+					src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+			</form>
+		</div>
+	</div>
+	
+	<div class="floatClearer"></div>
 	
 	<div class="storeItem">
 		<div class="storePic">
@@ -145,17 +215,17 @@
 			</a>-->
 			
 			<ul class="hatChoices">
-				<li>
-					<a href="../images/hats/girl/flowerPetalsPurple_large.jpg" class="imageLink">
-						<img src="../images/hats/girl/flowerPetalsPurple_medium.jpg"
-							alt="Crocheted Purple Flower Petals Hat"/>
+                <li>
+					<a href="../images/hats/girl/babyFlowerPetalsPink_large.jpg" class="imageLink">
+						<img src="../images/hats/girl/babyFlowerPetalsPink_medium.jpg"
+							alt="Crocheted Pink Flower Petals Hat"/>
 						<div class="imgOverlay">Click to enlarge</div>
 					</a>
 				</li>
 				<li>
-					<a href="../images/hats/girl/flowerPetalsPink_large.jpg" class="imageLink">
-						<img src="../images/hats/girl/flowerPetalsPink_medium.jpg"
-							alt="Crocheted Pink Flower Petals Hat"/>
+					<a href="../images/hats/girl/flowerPetalsPurple_large.jpg" class="imageLink">
+						<img src="../images/hats/girl/flowerPetalsPurple_medium.jpg"
+							alt="Crocheted Purple Flower Petals Hat"/>
 						<div class="imgOverlay">Click to enlarge</div>
 					</a>
 				</li>
@@ -170,17 +240,16 @@
 			
 			
 			<div class="hatChoicesPager">
-				<a data-slide-index="0" href="">
-					<div class="captionImg activePager" id="Purple">
-						<img src="../images/hats/girl/flowerPetalsPurple_medium.jpg" />
-	<!-- 					<p>Purple</p> -->
-					</div>
-				</a>
-				
-				<a data-slide-index="1" href="">
-					<div class="captionImg" id="Pink">
+                <a data-slide-index="0" href="">
+					<div class="captionImg activePager" id="Pink">
 						<img src="../images/hats/girl/flowerPetalsPink_medium.jpg"/>
 	<!-- 					<p>Pink</p> -->
+					</div>
+				</a>
+				<a data-slide-index="1" href="">
+					<div class="captionImg" id="Purple">
+						<img src="../images/hats/girl/flowerPetalsPurple_medium.jpg" />
+	<!-- 					<p>Purple</p> -->
 					</div>
 				</a>
 				<a data-slide-index="2" href="">
@@ -215,8 +284,8 @@
 				
 				<input type="hidden" name="on0" value="Color">Color:
 					<select name="os0" id="petalsColor">
-						<option value="Purple" selected="selected">Purple</option>
-						<option value="Pink">Pink</option>
+                        <option value="Pink">Pink</option>
+						<option value="Purple">Purple</option>
 						<option value="Yellow">Yellow</option>
 					</select> <br /><br />
 
@@ -474,8 +543,8 @@
 	
 	<div class="storeItem">
 		<div class="storePic">
-			<a href="../images/hats/girl/pinkStripedHeart_large.jpg" class="imageLink">
-				<img src="../images/hats/girl/pinkStripedHeart_medium.jpg"
+			<a href="../images/hats/girl/babyPinkStripedHeart_large.jpg" class="imageLink">
+				<img src="../images/hats/girl/babyPinkStripedHeart_medium.jpg"
 					alt="Crocheted Pink Striped Heart Hat"/>
 				<div class="imgOverlay">Click to enlarge</div>
 			</a>
@@ -540,86 +609,12 @@
 		</div>
 	</div>
 	
-	<div class="floatClearer">
-		<br/>
-	</div>
+	<div class="floatClearer"></div>
 	
 	<div class="storeItem">
 		<div class="storePic">
-			<a href="../images/hats/girl/puppyDogPink_large.jpg" class="imageLink">
-				<img src="../images/hats/girl/puppyDogPink_medium.jpg"
-					alt="Crocheted Pink Puppy Dog Hat"/>
-				<div class="imgOverlay">Click to enlarge</div>
-			</a>
-		</div>
-		<div class="itemDetails">
-			<h1>Pink Puppy Dog</h1>
-			<p>Does your child want a puppy but you don’t?  
-			Compromise with this cute little puppy.</p>
-			<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr"
-					method="post" class="paypalForm">
-
-				<!-- Identify your business so that you can collect the payments. -->
-				<input type="hidden" name="business" value="kin@kinskards.com">
-
-				<!-- Specify an Add to Cart button. -->
-				<input type="hidden" name="cmd" value="_cart">
-				<input type="hidden" name="add" value="1">
-
-				<!-- Specify details about the item that buyers will purchase. -->
-				<input type="hidden" name="item_name"
-					value="Pink Puppy Dog Hat">
-				<input type="hidden" name="currency_code" value="USD">
-
-				<!-- Provide a dropdown menu option field with prices. -->
-				<input type="hidden" name="on1" value="Size">Size:
-					<select name="os1">
-						<option value="0-3 months">0-3 Months - $15</option>
-						<option value="3-6 months">3-6 Months - $15</option>
-						<option value="6-9 months">6-9 Months - $15</option>
-						<option value="9-12 months">9-12 Months - $15</option>
-						<option value="toddler">Toddler - $20</option>
-						<option value="child">Child - $20</option>
-						<option value="adult">Adult - $20</option>
-					</select> <br />
-
-				<!-- Specify the price that PayPal uses for each option. -->
-				<input type="hidden" name="option_index" value="1">
-				<input type="hidden" name="option_select0" value="0-3 months">
-				<input type="hidden" name="option_amount0" value="15">
-				<input type="hidden" name="option_select1" value="3-6 months">
-				<input type="hidden" name="option_amount1" value="15">
-				<input type="hidden" name="option_select2" value="6-9 months">
-				<input type="hidden" name="option_amount2" value="15">
-				<input type="hidden" name="option_select3" value="9-12 months">
-				<input type="hidden" name="option_amount3" value="15">
-				<input type="hidden" name="option_select4" value="toddler">
-				<input type="hidden" name="option_amount4" value="20">
-				<input type="hidden" name="option_select5" value="child">
-				<input type="hidden" name="option_amount5" value="20">
-				<input type="hidden" name="option_select6" value="adult">
-				<input type="hidden" name="option_amount6" value="20">
-
-				<!-- Display the payment button. -->
-				<!--<input type="image" name="submit" border="0" class="paypalBuyButton"
-					src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
-					alt="PayPal - The safer, easier way to pay online">-->
-				<input type="submit" name="submit" border="0" class="addToCart"
-					value="Add to Cart">
-				<img alt="" border="0" width="1" height="1"
-					src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
-			</form>
-		</div>
-	</div>
-	
-	<div class="floatClearer">
-		<br/>
-	</div>
-	
-	<div class="storeItem">
-		<div class="storePic">
-			<a href="../images/hats/girl/floweredGrannySquare_large.jpg" class="imageLink">
-				<img src="../images/hats/girl/floweredGrannySquare_medium.jpg"
+			<a href="../images/hats/girl/babyFloweredGrannySquare_large.jpg" class="imageLink">
+				<img src="../images/hats/girl/babyFloweredGrannySquare_medium.jpg"
 					alt="Crocheted Flowered Granny Square Hat"/>
 				<div class="imgOverlay">Click to enlarge</div>
 			</a>
@@ -734,6 +729,15 @@
 			controls: false,
 			touchEnabled: false,
 		});
+        
+        // set color/style sliders and pagers to match dropdown selection
+        $('.captionImg').removeClass('activePager');
+        var color = $('#petalsColor').find('option:selected').attr('value');
+        var activeElement = $('.captionImg#'+color);
+        activeElement.addClass('activePager');
+        var slideNum = activeElement.parent().attr('data-slide-index');
+        slider.goToSlide(parseInt(slideNum));
+        
 		
 		$('#petalsColor').change(function() {
 			var color = $(this).find('option:selected').attr('value');
