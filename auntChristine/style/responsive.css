@@ -1,4 +1,4 @@
-@font-face {
+/*@font-face {
 	font-family: "Nobile";
 	src: url('/auntChristine/fonts/nobile/Nobile-Regular.ttf');
 }
@@ -13,7 +13,7 @@
 @font-face {
 	font-family: "Open-Sans";
 	src: url('/auntChristine/fonts/open-sans/OpenSans-Regular.ttf');
-}
+}*/
 	
 * {
 	padding: 0;
@@ -39,7 +39,8 @@ body {
 /* 	background-color: #C262D3; */
 /* 	background-color: #B964D4; */
 /* 	background-image: url('/home/kevin/web/work/auntChristine/images/lightPurpleStripe.jpg'); */
-	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+	        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
 	border-radius: 0px 0px 5px 5px;
 }
 
@@ -125,22 +126,31 @@ body {
 #menu a {
 	text-decoration: none;
 	color: white;
-/*    outline: 1px dashed white;*/
 	padding: 10px 10px;
 	margin: 20px;
 	background-image: none;
-	font-family: "Aller", Fallback, sans-serif;
+	font-family: sans-serif;
 /* 	border-radius: 8px; */
 }
 
 #menu a.active {
-	background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+	background-image: -webkit-linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+    background-image: -moz-linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+    background-image: -o-linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+    background-image: -ms-linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+    background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+
 }
 
 #menu a:hover{
 	background-color: #EE3B80;
 	text-decoration: underline;
-	background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+	background-image: -webkit-linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+    background-image: -moz-linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+    background-image: -o-linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+    background-image: -ms-linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+    background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+
 }
 
 .slideshow {
@@ -155,7 +165,7 @@ body {
 	margin: 0 auto;
 	padding: 15px ;
 	border-radius: 3px;
-	font-family: "Open-Sans", Fallback, sans-serif;
+	font-family: sans-serif;
 }
 
 .article p {
@@ -295,7 +305,10 @@ a.button img {
 /* 	border: 1px solid #DC0055; */
 /* 	border: 1px solid #C262D3; */
 	border-right: 0;
-	background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+
 /* 	background-image: linear-gradient(to top, #E5E1ED 0%, #FFFFFF 100%); */
 	height: 270px;
 	width: 55%;
@@ -386,9 +399,10 @@ a.button img {
 	background-color: rgba(255, 255, 255, 0.7);
 	opacity: 0;
 	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: sans-serif;
 	font-size: 1em;
-	transition: opacity .2s;
+	-webkit-transition: opacity .2s;
+	        transition: opacity .2s;
 }
 
 .multiChoice .imgOverlay {
@@ -413,7 +427,7 @@ a.button img {
 	border-left: 0;
 /* 	background-image: linear-gradient(to top, #E5E1ED 0%, #FFFFFF 100%); */
 /* 	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; */
-	font-family: "Nobile", Fallback, sans-serif;
+	font-family: sans-serif;
 	width: 40%;
 	height: 270px;
 /* 	transition: height .5s ease-in; */
@@ -441,16 +455,22 @@ a.button img {
 	color: white;
 	padding: 5px;
 	font-size: 1em;
-	font-family: "Aller", Fallback, sans-serif;
+	font-family: sans-serif;
 	margin-top: 10px;
 /* 	box-shadow: 0px 1px 0px 1px #7324a7; */
-	box-shadow: 0px 1px 0px 1px #ab0033;
+	-webkit-box-shadow: 0px 1px 0px 1px #ab0033;
+    box-shadow: 0px 1px 0px 1px #ab0033;
 }
 
 .addToCart:hover{
 	text-decoration: underline;
 	cursor: pointer;
-	background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+	background-image: -webkit-linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+    background-image: -moz-linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+    background-image: -o-linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+    background-image: -ms-linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+    background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+
 }
 
 /*.storeItem > span {
@@ -474,7 +494,7 @@ a.button img {
 }
 #viewCart input {
 	font-size: 1em;
-	font-family: "Aller", Fallback, sans-serif;
+	font-family: sans-serif;
 	color: white;
 /* 	background-color: #9830dc; */
 	background-color: #DC0055; 
@@ -484,13 +504,19 @@ a.button img {
 	padding: 10px 5px 5px 5px;
 	margin-right: 10px;
 /* 	box-shadow: 0px 1px 0px 1px #7324a7; */
-	box-shadow: 0px 1px 0px 1px #ab0033;
+	-webkit-box-shadow: 0px 1px 0px 1px #ab0033;
+    box-shadow: 0px 1px 0px 1px #ab0033;
 }
 
 #viewCart input:hover {
 	text-decoration: underline;
 	cursor: pointer;
-	background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+    background-image: -webkit-linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+    background-image: -moz-linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+    background-image: -o-linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+    background-image: -ms-linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+    background-image: linear-gradient(to bottom, #DC0054 0%, #EE3B7F 100%);
+
 }
 
 .floatClearer {
