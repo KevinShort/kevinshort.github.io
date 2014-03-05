@@ -661,6 +661,9 @@ a.button img {
 		margin: 0 auto;
 		width: 100%;
 	}
+    .imgOverlay {
+        display: none;
+    }
 	.multiChoice .storePic img {
 		height: auto;
 		display: block;
