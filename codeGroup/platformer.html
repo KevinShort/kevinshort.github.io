@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Platformer</title>
+	<style>
+	body {
+		background: #444;
+	}
+	canvas {
+		border: 1px solid #333;
+		display: block;
+		margin: 0 auto;
+	}
+	</style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+</body>
+
+<script>
+function Camera() {
+	this.x = 0;
+	this.y = 0;
+}
+Camera.prototype.update = function(followObj) {
+	if ( this.x + canvas.width/2 + 50 < followObj.x ) {
+		this.x += 2;
+	} else if ( this.x + canvas.width/2 - 50 > followObj.x ) {
+		this.x -= 2;
+	}
+}
+
+function Player() {
+// 	this.image = new Image();
+// 	this.image.src = 'img/circle.png';
+	this.x = 0;
+	this.y = 0;
+	this.width = 100; // this.image.naturalWidth;
+	this.height = 100; // this.image.naturalHeight;
+	this.rollingSpeed = 0;
+	this.maxSpeed = 10;
+	this.bounce = 0;
+	this.bouncePower = 0;
+	this.bouncing = true;
+	this.colliding = false;
+	this.collisions = [];
+}
+Player.prototype.roll = function() {
+	this.rollingSpeed += 0.8;
+}
+Player.prototype.update = function() {
+
+	// slow down over time
+	if (this.rollingSpeed < 0.1 && this.rollingSpeed > -0.1){
+		this.rollingSpeed = 0;
+	} else {
+		this.rollingSpeed -= (this.rollingSpeed*0.02);
+	}
+	
+	// bounce when it hits bottom
+// 	if (this.y+this.height > canvas.height) {
+	if ( this.collisions.indexOf('bottom') !== -1 ) {
+		this.bouncePower *= 0.8;
+		this.bounce = this.bouncePower;
+	}
+	// bounce back down if a bounce makes it hit top
+	if ( this.collisions.indexOf('top') !== -1 && this.bounce > 0 ) {
+		this.bounce = -this.bounce;
+		console.log('bounce down');
+	}
+	//change direction and slow down if moving when hitting a wall
+	if ( this.collisions.indexOf('right') !== -1 && this.rollingSpeed > 0 ) {
+		this.rollingSpeed = -this.rollingSpeed * 0.4;
+	} if (this.collisions.indexOf('left') !== -1 && this.rollingSpeed < 0 ) {
+		this.rollingSpeed = -this.rollingSpeed * 0.4;
+	}
+	
+	// if falling down 
+	if (gravity - this.bounce > 0) {
+		this.bouncePower += 0.9;
+		this.bounce *= 0.9;
+	} else {
+		this.bouncePower *= 0.9;
+		this.bounce *= 0.9;
+	}
+	
+	if ( (this.bounce < 0) || 
+	( this.bounce < gravity && this.collisions.indexOf('bottom') !== -1 ) ) { 
+		this.bounce = 0; 
+	}
+	
+	this.x += this.rollingSpeed;
+// 	this.y += -this.bounce;
+	this.y += gravity - this.bounce;
+	
+	// loop from bottom to top
+	if ( this.y > canvas.height ) {
+		this.y = -this.height;
+	}
+	// and from left to right
+	if ( this.x + this.width < 0 ) {
+		this.x = canvas.width;
+	} else if ( this.x > canvas.width ) {
+		this.x = 0 - this.width;
+	}
+}
+Player.prototype.draw = function(cam) {
+	ctx.beginPath();
+	ctx.fillStyle = '#bbb';
+	ctx.strokeStyle = '#0bb';
+	ctx.lineWidth = '4';
+	ctx.rect(this.x-cam.x, this.y-cam.y, this.width, this.height);
+	ctx.fill();
+// 	ctx.drawImage(this.image, this.x, this.y);
+	for ( var i=0; i<this.collisions.length; i++ ) {
+		switch (this.collisions[i]) {
+			case 'left':
+				ctx.beginPath();
+				ctx.moveTo(this.x, this.y);
+				ctx.lineTo(this.x, this.y+this.height);
+				ctx.stroke();
+				break;
+			case 'right':
+				ctx.beginPath();
+				ctx.moveTo(this.x+this.width, this.y);
+				ctx.lineTo(this.x+this.width, this.y+this.height);
+				ctx.stroke();
+				break;
+			case 'top':
+				ctx.beginPath();
+				ctx.moveTo(this.x, this.y);
+				ctx.lineTo(this.x+this.width, this.y);
+				ctx.stroke();
+				break;
+			case 'bottom':
+				ctx.beginPath();
+				ctx.moveTo(this.x, this.y+this.height);
+				ctx.lineTo(this.x+this.width, this.y+this.height);
+				ctx.stroke();
+		}
+	}
+}
+Player.prototype.check_collisions = function(arrayToCheck) {
+	this.collisions = [];
+	for (var i=0; i<arrayToCheck.length; i++) {
+		//assign values to easy-to-use variables
+		var obj = arrayToCheck[i];
+		var x1 = obj.x;
+		var x2 = obj.x + obj.width;
+		var y1 = obj.y;
+		var y2 = obj.y + obj.height;
+		var bottom = false;
+		var top = false;
+		var left = false;
+		var right = false;
+		
+		// decide if we're colliding 
+		if ( this.x > x1 && this.x < x2 ) {
+			left = true;
+		} if ( this.x+this.width > x1 && this.x+this.width < x2 ) {
+			right = true;
+		} 
+		
+		if ( this.y > y1 && this.y < y2 ) {
+			top = true;
+		} if ( this.y+this.height > y1 && this.y+this.height < y2 ) {
+			bottom = true;
+		}
+		
+		// figure out where the object is relative to ourself
+		if ( left && right ) {
+			if ( top ) {
+// 				console.log('top collision');
+				this.collisions.push('top');
+				this.y = obj.y + obj.height;
+			} if ( bottom ) {
+// 				console.log('bottom collision');
+				this.collisions.push('bottom');
+				this.y = obj.y - this.height;
+			}
+		}
+		if ( top && bottom ) {
+			if ( right ) {
+// 				console.log('right collision');
+				this.collisions.push('right');
+				this.x = obj.x - this.width;
+			} if ( left ) {
+// 				console.log('left collision');
+				this.collisions.push('left');
+				this.x = obj.x + obj.width;
+			}
+		}
+		
+		if ( ( bottom && right ) && ( !top && !left ) ) {
+			var xDiff = this.x+this.width - x1;
+			var yDiff = this.y+this.height - y1;
+			if ( xDiff < yDiff ) {
+// 				console.log('its right and below');
+				this.collisions.push('right');
+				this.x = obj.x - this.width;
+			} else {
+// 				console.log('its below and right');
+				this.collisions.push('bottom');
+				this.y = obj.y - this.height;
+			}
+		} else if ( ( bottom && left ) && ( !top && !right ) ) {
+			var xDiff = x2 - this.x;
+			var yDiff = this.y+this.height - y1;
+			if ( xDiff < yDiff ) {
+// 				console.log('its left and below');
+				this.collisions.push('left');
+				this.x = obj.x + obj.width;
+			} else {
+// 				console.log('its below and left');
+				this.collisions.push('bottom');
+				this.y = obj.y - this.height;
+			}
+		} else if ( ( top && left ) && ( !bottom && !right ) ) {
+			var xDiff = x2 - this.x;
+			var yDiff = y2 - this.y;
+			if ( xDiff < yDiff ) {
+// 				console.log('its left and above');
+				this.collisions.push('left');
+				this.x = obj.x + obj.width;
+			} else {
+// 				console.log('its above and left');
+				this.collisions.push('top');
+				this.y = obj.y + obj.height;
+			}
+		} else if ( ( top && right ) && ( !bottom && !left ) ) {
+			var xDiff = this.x+this.width - x1;
+			var yDiff = y2 - this.y;
+			if ( xDiff < yDiff ) {
+// 				console.log('its right and above');
+				this.collisions.push('right');
+				this.x = obj.x - this.width;
+			} else {
+// 				console.log('its top and right');
+				this.collisions.push('top');
+				this.y = obj.y + obj.height;
+			}
+		}
+
+/*		if ( ( this.collisions.indexOf('left') !== -1 ) || 
+		( this.collisions.indexOf('right') !== -1 ) ) {
+			if ( this.collisions.indexOf('top') !== -1 ) {
+				console.log('topside');
+			} if (this.collisions.indexOf('bottom') !== -1 ) {
+				console.log('bottomside');
+			}
+		} */
+
+		// check if we could be colliding on the X-axis
+/*		if ( ( this.x > x1 && this.x < x2 ) || 
+		( this.x+this.width > x1 && this.x+this.width < x2 ) ||
+		( x1 > this.x && x1 < this.x+this.width ) ||
+		( x2 > this.x && x2 < this.x+this.width ) ) {
+			// now check if we're colliding on the Y-axis as well
+			if ( ( this.y > y1 && this.y < y2 ) ||
+			( this.y+this.height > y1 && this.y+this.height < y2 ) ||
+			( y1 > this.y && y1 < this.y+this.height ) ||
+			( y2 > this.y && y2 < this.y+this.height ) ) {
+				// if this code gets run, we're colliding
+
+			}
+			
+		} */
+	}
+}
+
+function Box(x, y, w, h) {
+	this.x = x;
+	this.y = y;
+	this.width = w;
+	this.height = h;
+}
+Box.prototype.draw = function (cam) {
+	ctx.beginPath();
+	ctx.rect(this.x-cam.x, this.y-cam.y, this.width, this.height);
+	ctx.fillStyle = '#888';
+	ctx.fill();
+// 	ctx.beginPath();
+// 	ctx.arc(this.x+(this.width/2), this.y+(this.height/2), 4, 0, 2*Math.PI, false);
+// 	ctx.fillStyle = '#222';
+// 	ctx.fill();
+}
+
+
+function draw_bg() {
+	ctx.beginPath();
+	ctx.fillStyle = '#555';
+	ctx.rect(0, 0, canvas.width, canvas.height);
+	ctx.fill();
+}
+
+function key_down(event) {
+//  	console.log('keyDown '+event.keyCode);
+	switch (event.keyCode) {
+		case 39:
+// 			player.x += 2;
+			player.rollingSpeed = 6;
+			break;
+		case 37:
+// 			player.x -= 2;
+			player.rollingSpeed = -6;
+			break;
+		case 40:
+// 			player.y += 2;
+			break;
+		case 38:
+			player.y -= 25;
+			break;
+	}
+}
+
+function key_up(event) {
+//  	console.log('keyUp '+event.keyCode);
+	switch (event.keyCode) {
+		case 39:
+
+			break;
+		case 37:
+
+			break;
+	}
+}
+window.addEventListener('keydown', key_down, false);
+window.addEventListener('keyup', key_up, false);
+
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+canvas.width = 800;
+canvas.height = 500;
+gravity = 10;
+
+var camera = new Camera();
+var player = new Player();
+player.rollingSpeed = 10;
+// player.x = 280;
+player.y = 0;
+var boxes = [];
+var box = new Box(20, 120, 200, 250);
+boxes.push(box);
+boxes.push( new Box(340, 0, 270, 200) );
+boxes.push( new Box(20, 480, 550, 20) );
+boxes.push( new Box(570, 400, 500, 700) );
+
+function game_loop() {
+// 	camera.update(player);
+	draw_bg();
+	for (var b=0; b<boxes.length; b++) {
+		boxes[b].draw(camera);
+	}
+	player.update();
+	player.check_collisions(boxes);
+	player.draw(camera);
+	
+	ctx.fillStyle = '#ddd';
+// 	ctx.fillText("Cam X: "+camera.x, 5, 40);
+	ctx.fillText("rollSpeed: "+player.rollingSpeed, 5, 15);
+	ctx.fillText('bouncePower: '+player.bouncePower, 5, 30);
+	ctx.fillText('bounce: '+player.bounce, 5, 45);
+	
+	setTimeout(game_loop, 30);
+}
+game_loop();
+</script>
+
+</html
