@@ -23,7 +23,7 @@
 body {
 /* 	background-color: #68237F; */
 	background-color: #e0d4ff;
-	background-image: url('http://kevinshort.github.io/auntChristine/images/sewnPurpleStripe.jpg');
+	background-image: url('http://chriscrochetcorner.com/images/sewnPurpleStripe.jpg');
 	margin: 0;
 	padding: 0;
 }
@@ -338,6 +338,7 @@ a.button img {
 }
 .multiChoice .hatChoices img {
 	height: 270px;
+	border-radius: 0 0 5px 0;
 }
 .multiChoice .itemDetails {
 	height: 270px;
@@ -573,7 +574,7 @@ a.button img {
 		height: 220px;
 	}
 	.itemDetails h1 {
-		padding-top: 10px;
+		padding-top: 5px;
 /* 		font-size: 1em; */
 	}
 	.itemDetails p {
@@ -669,6 +670,7 @@ a.button img {
 		display: block;
 		margin: 0 auto;
 		width: 100%;
+		border-radius: 0 0 0 0;
 	}
 	.multiChoice .storePic {
 		height: auto;

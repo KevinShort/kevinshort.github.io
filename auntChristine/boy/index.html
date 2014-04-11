@@ -48,7 +48,7 @@
 				src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
 		</form>
 		<div class="headerImage">
-			<img src="../images/ChrisChrochetCornerBanner.jpg" alt="Chris' Crochet Corner"/>
+			<img src="../images/ChrisCrochetCornerBanner.jpg" alt="Chris' Crochet Corner"/>
 		</div>
 	</div>
 	<div class="floatClearer"></div>
@@ -199,12 +199,56 @@
 	
 	<div class="floatClearer"></div> -->
     
-    <div class="storeItem">
+    <div class="storeItem multiChoice">
 		<div class="storePic">
-			<a href="../images/hats/boy/babyCaptainAmerica_large.jpg" class="imageLink">
+			<!--<a href="../images/hats/boy/babyCaptainAmerica_large.jpg" class="imageLink">
 				<img src="../images/hats/boy/babyCaptainAmerica_medium.jpg" alt="baby wearing Captain America hat"/>
 				<div class="imgOverlay">Click to enlarge</div>
-			</a>
+			</a>-->
+            <ul class="hatChoices" id="captainAmericaSlider">
+				<li>
+					<a href="../images/hats/boy/babyCaptainAmerica_large.jpg" class="imageLink">
+						<img src="../images/hats/boy/babyCaptainAmerica_medium.jpg" 
+                            alt="baby wearing Captain America hat"/>
+						<div class="imgOverlay">Click to enlarge</div>
+					</a>
+				</li>
+				<li>
+					<a href="../images/hats/boy/captainAmerica_large.jpg" class="imageLink">
+						<img src="../images/hats/boy/captainAmerica_medium.jpg" alt="Captain America hat"/>
+						<div class="imgOverlay">Click to enlarge</div>
+					</a>
+				</li>
+				<li>
+					<a href="../images/hats/boy/Brandon_CaptainAmerica_large.jpg" class="imageLink">
+						<img src="../images/hats/boy/Brandon_CaptainAmerica_medium.jpg" 
+						alt="boy wearing Captain America hat"/>
+						<div class="imgOverlay">Click to enlarge</div>
+					</a>
+				</li>
+			</ul>
+			
+			<div class="hatChoicesPager" id="captainAmericaPager">
+				<a data-slide-index="0" href="">
+					<div class="captionImg activePager">
+						<img src="../images/hats/boy/babyCaptainAmerica_small.jpg" 
+                             alt="Captain America photo #1"/>
+					</div>
+				</a>
+				
+				<a data-slide-index="1" href="">
+					<div class="captionImg">
+						<img src="../images/hats/boy/captainAmerica_small.jpg" 
+                             alt="Captain America photo #2"/>
+					</div>
+				</a>
+				<a data-slide-index="2" href="">
+					<div class="captionImg">
+						<img src="../images/hats/boy/Brandon_CaptainAmerica_smallwide.jpg" 
+                             alt="Captain America photo #3"/>
+					</div>
+				</a>
+			</div>
 		</div>
 		<div class="itemDetails">
 			<h1>Captain America</h1>
@@ -351,7 +395,7 @@
 			</a>-->
 			
 			
-			<ul class="hatChoices">
+			<ul class="hatChoices" id="aviatorSlider">
 				<li>
 					<a href="../images/hats/boy/aviatorBrown_large.jpg" class="imageLink">
 						<img src="../images/hats/boy/aviatorBrown_medium.jpg" alt="brown aviator hat"/>
@@ -366,7 +410,7 @@
 				</li>
 			</ul>
 			
-			<div class="hatChoicesPager">
+			<div class="hatChoicesPager" id="aviatorPager">
 				<a data-slide-index="0" href="">
 					<div class="captionImg activePager" id="Brown">
 						<img src="../images/hats/boy/aviatorBrown_small.jpg" alt="select tan aviator"/>
@@ -460,12 +504,43 @@
 	<!--<div class="floatClearer"></div>-->
 	
 	
-	<div class="storeItem">
+	<div class="storeItem multiChoice">
 		<div class="storePic">
-			<a href="../images/hats/boy/babyBlueBird_large.jpg" class="imageLink">
+			<!--<a href="../images/hats/boy/babyBlueBird_large.jpg" class="imageLink">
 				<img src="../images/hats/boy/babyBlueBird_medium.jpg" alt="baby with blue bird hat"/>
 				<div class="imgOverlay">Click to enlarge</div>
-			</a>
+			</a>-->
+            <ul class="hatChoices" id="blueBirdSlider">
+				<li>
+					<a href="../images/hats/boy/babyBlueBird_large.jpg" class="imageLink">
+						<img src="../images/hats/boy/babyBlueBird_medium.jpg" 
+                            alt="baby wearing blue bird hat"/>
+						<div class="imgOverlay">Click to enlarge</div>
+					</a>
+				</li>
+				<li>
+					<a href="../images/hats/boy/blueBird_large.jpg" class="imageLink">
+						<img src="../images/hats/boy/blueBird_medium.jpg" alt="blue bird hat"/>
+						<div class="imgOverlay">Click to enlarge</div>
+					</a>
+				</li>
+			</ul>
+			
+			<div class="hatChoicesPager" id="blueBirdPager">
+				<a data-slide-index="0" href="">
+					<div class="captionImg activePager">
+						<img src="../images/hats/boy/babyBlueBird_small.jpg" 
+                             alt="blue bird photo #1"/>
+					</div>
+				</a>
+				
+				<a data-slide-index="1" href="">
+					<div class="captionImg">
+						<img src="../images/hats/boy/blueBird_small.jpg" 
+                             alt="blue bird photo #2"/>
+					</div>
+				</a>
+			</div>
 		</div>
 		<div class="itemDetails">
 			<h1>Blue Bird</h1>
@@ -615,6 +690,7 @@
 </div>
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!-- <script src="../js/jquery-1.10.2.min.js"></script> -->
 
 <!-- Magnific Popup core JS file -->
 <script src="../js/jquery.magnific-popup.min.js"></script> 
@@ -641,8 +717,23 @@
 	});
 	
 	$(document).ready(function(){
-		var slider = $('.hatChoices').bxSlider({
-			pagerCustom: '.hatChoicesPager',
+		var slider = $('#aviatorSlider').bxSlider({
+			pagerCustom: '#aviatorPager',
+			mode: 'fade',
+			speed: 150,
+			controls: false,
+			touchEnabled: false,
+		});
+        var captainAmericaSlider = $('#captainAmericaSlider').bxSlider({
+			pagerCustom: '#captainAmericaPager',
+			mode: 'fade',
+			speed: 150,
+			controls: false,
+			touchEnabled: false,
+			adaptiveHeight: true,
+		});
+        var blueBirdSlider = $('#blueBirdSlider').bxSlider({
+			pagerCustom: '#blueBirdPager',
 			mode: 'fade',
 			speed: 150,
 			controls: false,
@@ -650,7 +741,7 @@
 		});
         
         // set color/style sliders and pagers to match dropdown selection
-        $('.captionImg').removeClass('activePager');
+        $('#aviatorPager .captionImg').removeClass('activePager');
         var color = $('#aviatorColor').find('option:selected').attr('value');
         var activeElement = $('.captionImg#'+color);
         activeElement.addClass('activePager');
@@ -660,7 +751,7 @@
 		
 		$('#aviatorColor').change(function() {
 			var color = $(this).find('option:selected').attr('value');
-			$('.captionImg').removeClass('activePager');
+			$('#aviatorPager .captionImg').removeClass('activePager');
 			var activeElement = $('.captionImg#'+color);
 			activeElement.addClass('activePager');
 			
@@ -674,10 +765,14 @@
 		$('.captionImg').click(function() {
 	// 		$(this).parent().find('.captionImg').css('background-color', '#000');
 	// 		$(this).css('background-color', '#fff');
-			$('.captionImg').removeClass('activePager');
+//			$('.captionImg').removeClass('activePager');
+            $(this).parent().parent().find('.captionImg').removeClass('activePager');
 			$(this).addClass('activePager');
-			$('#aviatorColor').val($(this).attr('id'));
 		});
+        
+        $('#aviatorPager .captionImg').click(function() {
+            $('#aviatorColor').val($(this).attr('id'));
+        });
 	});
 /*	
 	$('#aviatorColor').change(function() {
